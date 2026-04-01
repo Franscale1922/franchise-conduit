@@ -19,7 +19,7 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
   const modelColor = {
     'semi-absentee': 'badge-emerald',
     'manager-model': 'badge-emerald',
-    'owner-operator': 'badge-indigo',
+    'owner-operator': 'badge-muted',
     'passive': 'badge-gold'
   }[f.business_model]
 

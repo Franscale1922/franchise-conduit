@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'How We Rank Franchises — Our Methodology',
+  title: 'Navigator Score Methodology — How We Rank Franchises — Franchise Conduit',
   description: 'Franchise Conduit\'s ranking methodology is transparent, data-driven, and free from pay-to-rank influence. Read exactly how the Navigator Score and curated collections are built.',
 }
 
@@ -96,7 +96,7 @@ export default function MethodologyPage() {
               },
             ].map(c => (
               <div key={c.collection} style={{ display: 'flex', gap: 'var(--space-5)' }}>
-                <span className="badge badge-indigo" style={{ flexShrink: 0, alignSelf: 'flex-start', marginTop: '2px' }}>{c.collection}</span>
+                <span className="badge badge-muted" style={{ flexShrink: 0, alignSelf: 'flex-start', marginTop: '2px' }}>{c.collection}</span>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.7', fontSize: '0.9375rem' }}>{c.criteria}</p>
               </div>
             ))}

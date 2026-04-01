@@ -152,7 +152,7 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              <Link href="/collections/semi-absentee" className="btn btn-primary">
+              <Link href="/collections/semi-absentee" className="btn btn-gold">
                 View semi-absentee franchises →
               </Link>
             </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
                     <div style={{ flex: 1 }}>
                       <div style={{ fontWeight: 600, marginBottom: 'var(--space-1)' }}>{f.brand_name}</div>
                       <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
-                        <span className="badge badge-indigo">{f.business_model === 'semi-absentee' ? 'Semi-Absentee' : 'Manager-Model'}</span>
+                        <span className="badge badge-muted">{f.business_model === 'semi-absentee' ? 'Semi-Absentee' : 'Manager-Model'}</span>
                         <span className="badge badge-muted">{formatCurrency(f.cash_required_min)} min cash</span>
                         {f.hours_per_week_typical && <span className="badge badge-emerald">{f.hours_per_week_typical}</span>}
                       </div>
@@ -280,7 +280,7 @@ function InvestmentTierSelector() {
         ))}
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-4)' }}>
-        <Link href="/quiz" className="btn btn-primary btn-lg">
+        <Link href="/quiz" className="btn btn-gold btn-lg">
           Get My Personalized Shortlist →
         </Link>
       </div>

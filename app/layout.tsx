@@ -76,14 +76,14 @@ function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="footer-brand-name">Franchise<span style={{color:'var(--color-indigo-light)'}}>Conduit</span></div>
+            <div className="footer-brand-name">Franchise<span style={{color:'var(--color-primary-light)'}}>Conduit</span></div>
             <p className="text-sm text-secondary" style={{lineHeight:'1.7'}}>
               Advisor-matched franchise discovery for serious investors. Curated opportunities starting at $100K.
               Unbiased data. Market intelligence. Advisor-matched.
             </p>
             <div style={{marginTop:'var(--space-6)', display:'flex', gap:'var(--space-3)'}}>
               <span className="badge badge-emerald">No Pay-to-Rank</span>
-              <span className="badge badge-indigo">Advisor-Backed</span>
+              <span className="badge badge-muted">Advisor-Backed</span>
             </div>
           </div>
           <div>
