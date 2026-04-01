@@ -132,7 +132,7 @@ export default function HomePage() {
               <p className="section-label">For the Capital Deployer</p>
               <h2 className="text-headline" style={{ marginBottom: 'var(--space-4)' }}>
                 Own the business.<br />
-                <span style={{ color: 'var(--color-indigo-light)' }}>Don&apos;t work in it.</span>
+                <span style={{ color: 'var(--color-gold)' }}>Don&apos;t work in it.</span>
               </h2>
               <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-6)' }}>
                 Semi-absentee and manager-model franchises are purpose-built for executives who want
@@ -193,7 +193,7 @@ export default function HomePage() {
                 step: '01',
                 title: 'Take the 5-question quiz',
                 desc: 'Tell us your capital, involvement preference, and timeline. We build your personalized shortlist instantly.',
-                color: 'var(--color-indigo-light)'
+                color: 'var(--color-primary-light)'
               },
               {
                 step: '02',
@@ -211,8 +211,9 @@ export default function HomePage() {
                 step: '04',
                 title: 'Request an Introduction',
                 desc: 'An advisor reviews your profile, preps you for the conversation, then makes the introduction. Not a form blast.',
-                color: 'var(--color-indigo-light)'
+                color: 'var(--color-primary-light)'
               },
+
             ].map(step => (
               <div key={step.step} className="card" style={{ padding: 'var(--space-6)' }}>
                 <div style={{ fontSize: '0.75rem', fontWeight: 700, color: step.color, letterSpacing: '0.08em', marginBottom: 'var(--space-4)', fontFamily: 'var(--font-sans)' }}>
@@ -240,7 +241,7 @@ export default function HomePage() {
             Take the 5-minute quiz. Get a personalized shortlist. Talk to an advisor who works for you.
           </p>
           <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/quiz" className="btn btn-primary btn-lg">Start the Quiz →</Link>
+            <Link href="/quiz" className="btn btn-gold btn-lg">Start the Quiz →</Link>
             <Link href="/franchises" className="btn btn-outline btn-lg">Browse Franchises</Link>
           </div>
           <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', marginTop: 'var(--space-5)' }}>
