@@ -21,6 +21,15 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
     'passive': 'badge-gold'
   }[f.business_model]
 
+  // Surface the single most differentiating badge after the model badge
+  const secondaryBadge = f.fbr_top_200
+    ? { className: 'badge-gold', label: 'FBR Top 200' }
+    : f.item_19_available
+    ? { className: 'badge-emerald', label: 'Item 19 Available' }
+    : f.recession_resistant
+    ? { className: 'badge-muted', label: 'Recession Resistant' }
+    : null
+
   return (
     <Link href={`/franchises/${f.brand_slug}`} style={{ textDecoration: 'none', display: 'block' }}>
       <article className="franchise-card">
@@ -35,17 +44,19 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
             <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)' }}>
               {f.industry_primary}
             </p>
+            {/* Max 2 badges to keep scanning fast */}
             <div style={{ display: 'flex', gap: 'var(--space-2)', marginTop: 'var(--space-2)', flexWrap: 'wrap' }}>
               <span className={`badge ${modelColor}`}>{modelLabel}</span>
-              {f.fbr_top_200 && <span className="badge badge-gold">FBR Top 200</span>}
-              {f.recession_resistant && <span className="badge badge-muted">Recession Resistant</span>}
+              {secondaryBadge && (
+                <span className={`badge ${secondaryBadge.className}`}>{secondaryBadge.label}</span>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Body */}
+        {/* Body — stat bar only in grid mode; insight block visible in compact/listing context */}
         <div className="franchise-card-body">
-          {/* Key Stats */}
+          {/* Key Stats — scannable financials */}
           <div className="stat-bar">
             <div className="stat-item">
               <div className="stat-label">Cash Required</div>
@@ -65,8 +76,8 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
             )}
           </div>
 
-          {/* Market Intelligence Preview */}
-          {!compact && (
+          {/* Market Intelligence Preview — compact/listing view only, not grid scanning */}
+          {compact && (
             <div className="insight-block">
               <div className="insight-label">
                 <span>◈</span> Market Intelligence
@@ -75,18 +86,17 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
             </div>
           )}
 
-          {/* Key Tags */}
-          <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
-            {f.item_19_available && (
-              <span className="badge badge-emerald">Item 19 Available</span>
-            )}
-            {f.sba_eligible && (
-              <span className="badge badge-muted">SBA Eligible</span>
-            )}
-            {f.multi_unit_available && (
-              <span className="badge badge-muted">Multi-Unit</span>
-            )}
-          </div>
+          {/* SBA / Multi-unit utility tags */}
+          {(f.sba_eligible || f.multi_unit_available) && (
+            <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
+              {f.sba_eligible && (
+                <span className="badge badge-muted">SBA Eligible</span>
+              )}
+              {f.multi_unit_available && (
+                <span className="badge badge-muted">Multi-Unit</span>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Footer */}
@@ -98,23 +108,37 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
             ♡
           </div>
         </div>
+
+        {/* Hover-reveal market intelligence overlay */}
+        {!compact && f.market_intelligence_insight && (
+          <div className="franchise-card-insight-overlay">
+            <div className="franchise-card-insight-label">
+              <span>◈</span> Market Intelligence
+            </div>
+            <p className="franchise-card-insight-text">{f.market_intelligence_insight}</p>
+          </div>
+        )}
       </article>
     </Link>
   )
 }
 
 function NavigatorScore({ score }: { score: number }) {
-  const r = 20
+  const size = 64
+  const r = 26
   const circ = 2 * Math.PI * r
   const fill = (score / 100) * circ
-  const color = score >= 85 ? '#10B981' : score >= 75 ? '#6366F1' : '#F59E0B'
+  // Thresholds: 85+ excellent (emerald), 75–84 strong (indigo), 65–74 moderate (gold/bronze), <65 flagged (muted)
+  const color = score >= 85 ? '#10B981' : score >= 75 ? '#7C98FA' : score >= 65 ? '#C8A96E' : '#64748B'
+
+  const tooltipText = `Navigator Score: ${score}/100 — Based on FBR rating, Item 19 transparency, AUV performance, and franchisee satisfaction. View scoring criteria → /methodology`
 
   return (
-    <div className="score-ring" title={`Navigator Score: ${score}/100`}>
-      <svg width="52" height="52" viewBox="0 0 52 52">
-        <circle cx="26" cy="26" r={r} fill="none" stroke="var(--color-surface-3)" strokeWidth="3" />
+    <div className="score-ring-lg" title={tooltipText}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--color-surface-3)" strokeWidth="3" />
         <circle
-          cx="26" cy="26" r={r}
+          cx={size / 2} cy={size / 2} r={r}
           fill="none"
           stroke={color}
           strokeWidth="3"

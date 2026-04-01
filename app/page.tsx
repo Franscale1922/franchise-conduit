@@ -19,30 +19,51 @@ export default function HomePage() {
         <div className="hero-glow" />
         <div className="hero-grid" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
+          <div className="hero-split">
 
-            {/* Eyebrow */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'var(--space-6)' }}>
-              <span className="badge badge-indigo">
-                ✦ Built for executives investing $250K+
-              </span>
+            {/* Left — Editorial Column */}
+            <div className="hero-split-left">
+              {/* Eyebrow */}
+              <div style={{ marginBottom: 'var(--space-5)' }}>
+                <span className="badge badge-indigo">
+                  ✦ Built for executives investing $250K+
+                </span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="text-display" style={{ marginBottom: 'var(--space-5)' }}>
+                The franchise platform built for your{' '}
+                <span style={{ color: 'var(--color-indigo-light)', fontStyle: 'italic' }}>capital</span>
+                {' '}and your{' '}
+                <span style={{ color: 'var(--color-gold)' }}>calendar</span>
+              </h1>
+
+              <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-8)', maxWidth: '520px' }}>
+                Unbiased franchisee data, market intelligence on every listing, and advisor-guided matching.
+                No lead farms. No{' '}&ldquo;Request Free Info&rdquo; forms.
+              </p>
+
+              {/* Micro trust signal */}
+              <div style={{ display: 'flex', gap: 'var(--space-6)', flexWrap: 'wrap' }}>
+                {[
+                  { icon: '◈', text: 'Verified franchisee data' },
+                  { icon: '◉', text: 'Advisor-routed only' },
+                  { icon: '✦', text: '8 curated brands' },
+                ].map(t => (
+                  <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: '0.8125rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>
+                    <span style={{ color: 'var(--color-indigo-light)' }}>{t.icon}</span>
+                    <span>{t.text}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-display" style={{ marginBottom: 'var(--space-6)' }}>
-              The franchise platform built for your{' '}
-              <span style={{ color: 'var(--color-indigo-light)', fontStyle: 'italic' }}>capital</span>
-              {' '}and your{' '}
-              <span style={{ color: 'var(--color-gold)' }}>calendar</span>
-            </h1>
-
-            <p style={{ fontSize: '1.125rem', color: 'var(--color-text-secondary)', lineHeight: '1.7', marginBottom: 'var(--space-8)', maxWidth: '580px', margin: '0 auto var(--space-10)' }}>
-              Unbiased franchisee data, market intelligence on every listing, and advisor-guided matching.
-              No lead farms. No pay-to-rank. No{' '}&ldquo;Request Free Info&rdquo; forms.
-            </p>
-
-            {/* Investment Tier Selector */}
-            <InvestmentTierSelector />
+            {/* Right — Interactive Tool Card */}
+            <div className="hero-split-right">
+              <div className="card-glass" style={{ width: '100%', maxWidth: '420px', padding: 'var(--space-8)', borderRadius: 'var(--radius-xl)' }}>
+                <InvestmentTierSelector />
+              </div>
+            </div>
 
           </div>
         </div>
@@ -262,11 +283,11 @@ function TrustBar() {
     <div className="trust-bar">
       <div className="trust-bar-inner container">
         {[
-          { icon: '✦', text: 'No brand can pay to rank' },
-          { icon: '◈', text: 'Verified franchisee data' },
-          { icon: '◉', text: 'Advisor-routed introductions' },
+          { icon: '◈', text: 'Rankings built on verified franchisee data' },
+          { icon: '◉', text: 'Advisor-routed introductions only' },
           { icon: '◎', text: 'Market intelligence on every listing' },
           { icon: '◐', text: '$250K+ investment floor' },
+          { icon: '✦', text: 'No lead farms, no form blasts' },
         ].map(t => (
           <div key={t.text} className="trust-item">
             <span style={{ color: 'var(--color-indigo-light)' }}>{t.icon}</span>
@@ -279,6 +300,27 @@ function TrustBar() {
 }
 
 function AuthoritySection() {
+  const testimonials = [
+    {
+      initials: 'MR',
+      name: 'Marcus R.',
+      role: 'Franchise Owner, ServiceMaster Clean',
+      former: 'Former Regional VP, Fortune 500 Logistics',
+      tenure: '3 years in',
+      quote: 'The intelligence briefs here are the reason I picked ServiceMaster over two other brands I was comparing. I had actual AUV and franchisee satisfaction data — not a sales deck.',
+      outcome: '$1.1M AUV in Year 2',
+    },
+    {
+      initials: 'SL',
+      name: 'Sandra L.',
+      role: 'Multi-Unit Owner, Club Pilates',
+      former: 'Former CFO, Healthcare Group',
+      tenure: '18 months in',
+      quote: 'I appreciated that no brand paid to be at the top of the list. We looked at 6 concepts and the ranking was clearly methodology-driven, not sales-driven.',
+      outcome: '3 units open, 2 in development',
+    },
+  ]
+
   return (
     <section className="section">
       <div className="container">
@@ -291,8 +333,8 @@ function AuthoritySection() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
               {[
                 {
-                  title: 'No brand can pay to rank',
-                  desc: 'Every curated collection is based on verified franchisee satisfaction data, disclosed AUV performance, or FBR Top 200 inclusion. Our rankings are the same whether a brand is a paying client or not.',
+                  title: 'Rankings built on verified franchisee data',
+                  desc: 'Every curated collection is ordered by verified franchisee satisfaction scores, disclosed AUV performance, or FBR Top 200 inclusion. Our methodology is the same whether a brand is a paying client or not.',
                   icon: '🛡️'
                 },
                 {
@@ -301,7 +343,7 @@ function AuthoritySection() {
                   icon: '📊'
                 },
                 {
-                  title: 'Advisor-in-the-loop',
+                  title: 'Advisor-in-the-loop introductions',
                   desc: 'When you request an introduction, a franchise advisor reviews your profile, preps you for the conversation, and makes the introduction. Franchisors receive a vetted lead — not a raw form submission.',
                   icon: '🤝'
                 },
@@ -316,46 +358,29 @@ function AuthoritySection() {
               ))}
             </div>
           </div>
-          <div>
-            <div className="card" style={{ padding: 'var(--space-8)' }}>
-              <div style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
-                <div style={{ fontSize: '3rem', marginBottom: 'var(--space-3)' }}>📋</div>
-                <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.5rem', marginBottom: 'var(--space-2)' }}>
-                  The Executive Buyer&apos;s Guide
-                </h3>
-                <p className="text-sm text-secondary">
-                  How to evaluate a franchise like a financial analyst — AUV, Item 19, royalty math, and the 3 metrics that matter most.
-                </p>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-6)' }}>
-                {[
-                  'How to read an FDD in 30 minutes',
-                  'The 3 financial metrics every $250K+ buyer checks',
-                  'Semi-absentee vs. owner-operator decision framework',
-                  'What corporate executives get wrong in year one',
-                  'SBA vs. ROBS: financing your first franchise',
-                ].map(item => (
-                  <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
-                    <span style={{ color: 'var(--color-emerald)', flexShrink: 0 }}>✓</span>
-                    <span className="text-sm text-secondary">{item}</span>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
+            {testimonials.map(t => (
+              <div key={t.name} className="testimonial-card">
+                {/* Outcome pill */}
+                <div className="testimonial-outcome">
+                  ↗ {t.outcome}
+                </div>
+                {/* Pull quote */}
+                <blockquote className="testimonial-quote">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                {/* Profile */}
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+                  <div className="testimonial-avatar">{t.initials}</div>
+                  <div>
+                    <div className="testimonial-name">{t.name}</div>
+                    <div className="testimonial-role">{t.role} · {t.tenure}</div>
+                    <div className="testimonial-former">{t.former}</div>
                   </div>
-                ))}
+                </div>
               </div>
-              <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                <input
-                  type="email"
-                  placeholder="Your work email"
-                  className="form-input"
-                  id="guide-email-hero"
-                />
-                <button type="submit" className="btn btn-gold" style={{ width: '100%', justifyContent: 'center' }}>
-                  Download Free Guide →
-                </button>
-                <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textAlign: 'center' }}>
-                  No spam. Unsubscribe anytime.
-                </p>
-              </form>
-            </div>
+            ))}
           </div>
         </div>
       </div>
