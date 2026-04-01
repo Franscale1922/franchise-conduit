@@ -3,7 +3,7 @@ import { franchises, formatCurrency, getIndustries } from '@/lib/data'
 import { FranchiseCard } from '@/components/FranchiseCard'
 
 export const metadata: Metadata = {
-  title: 'Browse Franchise Opportunities — $250K+ Executive Investors',
+  title: 'Browse Franchise Opportunities — Curated for Serious Investors',
   description: 'Filter franchise opportunities by investment floor, owner involvement, industry, and franchisee satisfaction score. No pay-to-rank. Built for executives.',
 }
 
@@ -48,7 +48,7 @@ export default function FranchisesPage({
         <div style={{ marginBottom: 'var(--space-8)' }}>
           <p className="section-label">Franchise Discovery</p>
           <h1 className="text-headline" style={{ marginBottom: 'var(--space-2)' }}>
-            Franchise Opportunities — $250K+ Investors
+            Franchise Opportunities — Curated for Serious Investors
           </h1>
           <p className="text-secondary">
             {results.length} opportunities · Ranked by Navigator Score · No pay-to-rank

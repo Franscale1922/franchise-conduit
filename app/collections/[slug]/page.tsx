@@ -16,14 +16,14 @@ const COLLECTIONS: Record<string, {
     headline: 'Own the business. Don\'t work in it.',
     description: 'Semi-absentee and manager-model franchises are designed for executives who want to deploy capital into a proven system — with a GM or manager running daily operations. Typical owner time commitment: 10–25 hours/week.',
     icon: '🕐',
-    seoDescription: 'Browse semi-absentee franchise opportunities for executives and investors with $250K or more. Manager-model, 10–20 hrs/week, recurring revenue.',
+    seoDescription: 'Browse semi-absentee franchise opportunities for serious investors. Manager-model ownership, 10–20 hrs/week, recurring revenue. Opportunities from $100K.',
   },
   'most-profitable': {
     title: 'Most Profitable Franchise Opportunities',
     headline: 'Ranked by verified average unit volume.',
     description: 'These franchises are ranked by disclosed Average Unit Volume (AUV) data sourced from FDD Item 19 disclosures and third-party franchisee data. No brand can pay to appear on this list.',
     icon: '📈',
-    seoDescription: 'The most profitable franchise opportunities for $250K+ investors, ranked by verified AUV data and franchisee satisfaction scores.',
+    seoDescription: 'The most profitable franchise opportunities for serious investors, ranked by verified AUV data and franchisee satisfaction scores.',
   },
   'recession-resistant': {
     title: 'Recession-Resistant Franchise Opportunities',

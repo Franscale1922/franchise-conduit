@@ -7,12 +7,12 @@ const STEPS = [
   {
     id: 'capital',
     question: 'How much liquid capital can you invest?',
-    sub: 'This helps us find franchises you can realistically qualify for, and filter out brands that don\'t fit.',
+    sub: 'This helps us match you with franchises you can realistically qualify for. Every range has strong options.',
     options: [
-      { value: '100k-250k', label: '$100K–$250K', sub: 'Entry executive range' },
-      { value: '250k-500k', label: '$250K–$500K', sub: 'Prime investment zone' },
-      { value: '500k-1m',   label: '$500K–$1M',   sub: 'Premium opportunities' },
-      { value: '1m-plus',   label: '$1M+',         sub: 'Portfolio-level' },
+      { value: '100k-250k', label: '$100K–$250K', sub: 'Strong first-unit opportunities' },
+      { value: '250k-500k', label: '$250K–$500K', sub: 'Most active investment tier' },
+      { value: '500k-1m',   label: '$500K–$1M',   sub: 'Premium & multi-unit ready' },
+      { value: '1m-plus',   label: '$1M+',         sub: 'Portfolio-level investing' },
     ]
   },
   {

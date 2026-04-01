@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Franchise Conduit — Executive Franchise Matching for $250K+ Investors',
+    default: 'Franchise Conduit — Advisor-Matched Franchise Discovery for Serious Investors',
     template: '%s | Franchise Conduit'
   },
   description: 'The only franchise platform built for executives and investors with capital to deploy. Unbiased franchisee satisfaction data, market intelligence, and advisor-guided matching.',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'Franchise Conduit',
     title: 'Franchise Conduit — Executive Franchise Matching',
-    description: 'Advisor-matched franchise discovery for executives investing $250K or more. No pay-to-rank. No lead farms.',
+    description: 'Advisor-matched franchise discovery for serious investors. Opportunities from $100K. Independent rankings. No pay-to-rank. No lead farms.',
   },
   robots: { index: true, follow: true }
 }
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Franchise Conduit',
-              description: 'Executive-grade franchise matching platform for investors with $250K+',
+              description: 'Advisor-matched franchise platform for serious investors. Curated opportunities from $100K.',
               url: 'https://franchiseconduit.com',
               foundingDate: '2026',
               knowsAbout: ['Franchise Investment', 'Executive Transition', 'Franchise Due Diligence', 'Semi-Absentee Franchises'],
@@ -78,7 +78,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="footer-brand-name">Franchise<span style={{color:'var(--color-indigo-light)'}}>Conduit</span></div>
             <p className="text-sm text-secondary" style={{lineHeight:'1.7'}}>
-              The only franchise platform built for executives and investors with $250K or more to deploy.
+              Advisor-matched franchise discovery for serious investors. Curated opportunities starting at $100K.
               Unbiased data. Market intelligence. Advisor-matched.
             </p>
             <div style={{marginTop:'var(--space-6)', display:'flex', gap:'var(--space-3)'}}>

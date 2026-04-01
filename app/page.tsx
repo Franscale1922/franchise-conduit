@@ -4,8 +4,8 @@ import { franchises, getCollectionFranchises, formatCurrency } from '@/lib/data'
 import { FranchiseCard } from '@/components/FranchiseCard'
 
 export const metadata: Metadata = {
-  title: 'Franchise Conduit — Executive Franchise Matching for $250K+ Investors',
-  description: 'The only franchise platform built for executives and investors with capital to deploy. Advisor-matched, unbiased, and data-driven.',
+  title: 'Franchise Conduit — Advisor-Matched Franchise Discovery for Serious Investors',
+  description: 'Curated franchise opportunities starting at $100K. Independent rankings, verified franchisee data, and advisor-routed introductions. No pay-to-rank.',
 }
 
 export default function HomePage() {
@@ -34,8 +34,8 @@ export default function HomePage() {
             </h1>
 
             <p style={{ fontSize: '1.125rem', color: 'var(--color-text-secondary)', lineHeight: '1.7', marginBottom: 'var(--space-10)', maxWidth: '580px', margin: '0 auto var(--space-10)' }}>
-              Independent rankings and franchise intelligence built for operators
-              deploying $250K–$2M+. Verified franchisee data. No paid placement.
+              Independent rankings and franchise intelligence built for serious investors
+              at every stage — from first unit to portfolio expansion. Verified franchisee data. No paid placement.
             </p>
 
             {/* CTAs */}
@@ -53,7 +53,7 @@ export default function HomePage() {
               {[
                 { value: '8', label: 'Curated franchise brands' },
                 { value: '100%', label: 'Franchisee-data ranked' },
-                { value: '$250K+', label: 'Investment floor' },
+                { value: '$100K+', label: 'Starting investment' },
               ].map(stat => (
                 <div key={stat.label} style={{ textAlign: 'center' }}>
                   <div style={{ fontSize: '1.625rem', fontWeight: 700, color: 'var(--color-text-primary)', letterSpacing: '-0.02em', fontFamily: 'var(--font-serif)', fontVariantNumeric: 'tabular-nums' }}>
@@ -254,8 +254,8 @@ export default function HomePage() {
 
 function InvestmentTierSelector() {
   const tiers = [
-    { value: '100k-250k', label: '$100K–$250K', sub: 'Entry executive range' },
-    { value: '250k-500k', label: '$250K–$500K', sub: 'Prime exec investment zone', featured: true },
+    { value: '100k-250k', label: '$100K–$250K', sub: 'First unit range' },
+    { value: '250k-500k', label: '$250K–$500K', sub: 'Most active tier', featured: true },
     { value: '500k-1m',   label: '$500K–$1M',   sub: 'Premium opportunities' },
     { value: '1m-plus',   label: '$1M+',         sub: 'Portfolio-level investing' },
   ]
@@ -298,7 +298,7 @@ function TrustBar() {
           { icon: '◈', text: 'Independent rankings powered by verified franchisee data' },
           { icon: '◉', text: 'Advisor-routed introductions only' },
           { icon: '◎', text: 'FDD and unit economics on every listing' },
-          { icon: '◐', text: '$250K+ investment floor' },
+          { icon: '◐', text: 'Opportunities starting at $100K' },
           { icon: '✦', text: 'Brand spending cannot influence ranking' },
         ].map(t => (
           <div key={t.text} className="trust-item">
