@@ -99,14 +99,16 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
           )}
         </div>
 
-        {/* Footer */}
+        {/* Footer — text link, no heavy button (AngelList/Morningstar card pattern) */}
         <div className="franchise-card-footer">
-          <div className="btn btn-outline btn-sm" style={{ flex: 1, justifyContent: 'center', pointerEvents: 'none' }}>
-            View Intelligence Brief
-          </div>
-          <div className="btn btn-ghost btn-sm" style={{ pointerEvents: 'none' }}>
-            ♡
-          </div>
+          <span className="franchise-card-link">View full profile →</span>
+          <a
+            href="/methodology"
+            className="navigator-methodology-link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Score methodology
+          </a>
         </div>
 
         {/* Hover-reveal market intelligence overlay */}
@@ -128,27 +130,37 @@ function NavigatorScore({ score }: { score: number }) {
   const r = 26
   const circ = 2 * Math.PI * r
   const fill = (score / 100) * circ
-  // Thresholds: 85+ excellent (emerald), 75–84 strong (indigo), 65–74 moderate (gold/bronze), <65 flagged (muted)
-  const color = score >= 85 ? '#10B981' : score >= 75 ? '#7C98FA' : score >= 65 ? '#C8A96E' : '#64748B'
 
-  const tooltipText = `Navigator Score: ${score}/100 — Based on FBR rating, Item 19 transparency, AUV performance, and franchisee satisfaction. View scoring criteria → /methodology`
+  // Monochrome institutional ring — single slate color (Claude + Gemini + Morningstar reference)
+  // Category label carries ALL semantic meaning; ring fill shows relative depth
+  const RING_COLOR = '#7B95A8'
+
+  // Category label — 4/5 sources recommend category-first over raw 0–100 number
+  const category =
+    score >= 90 ? 'Exceptional' :
+    score >= 75 ? 'Strong' :
+    score >= 60 ? 'Solid' :
+    score >= 45 ? 'Moderate' : 'Developing'
+
+  const tooltipText = `Navigator Rating: ${category} (${score}/100) — FBR rating, Item 19 transparency, AUV performance, franchisee satisfaction. Methodology: /methodology`
 
   return (
-    <div className="score-ring-lg" title={tooltipText}>
-      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--color-surface-3)" strokeWidth="3" />
-        <circle
-          cx={size / 2} cy={size / 2} r={r}
-          fill="none"
-          stroke={color}
-          strokeWidth="3"
-          strokeDasharray={`${fill} ${circ - fill}`}
-          strokeLinecap="round"
-        />
-      </svg>
-      <div className="score-ring-value" style={{ color }}>
-        {score}
+    <div className="navigator-category" title={tooltipText}>
+      <div className="score-ring-lg">
+        <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+          <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--color-surface-3)" strokeWidth="2.5" />
+          <circle
+            cx={size / 2} cy={size / 2} r={r}
+            fill="none"
+            stroke={RING_COLOR}
+            strokeWidth="2.5"
+            strokeDasharray={`${fill} ${circ - fill}`}
+            strokeLinecap="round"
+          />
+        </svg>
+        <div className="score-ring-value">{score}</div>
       </div>
+      <div className="navigator-category-label">{category}</div>
     </div>
   )
 }

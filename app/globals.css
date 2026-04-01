@@ -13,9 +13,15 @@
   --color-border-2:    rgba(255, 255, 255, 0.14);
 
   /* Brand Colors */
-  --color-indigo:      #4F6EF7;
-  --color-indigo-light:#7C98FA;
-  --color-indigo-dim:  rgba(79, 110, 247, 0.12);
+  /* Primary action — institutional teal (replaces SaaS indigo as primary per 5-source research) */
+  --color-primary:       #0F6674;  /* institutional deep teal — Ramp/Carta direction */
+  --color-primary-light: #168899;  /* hover state */
+  --color-primary-dim:   rgba(15, 102, 116, 0.15);
+
+  /* Indigo demoted to secondary/chart accent only — no longer drives CTAs or primary UI */
+  --color-indigo:      #4B5D9A;  /* muted slate-indigo — secondary/chart use only */
+  --color-indigo-light:#7B90B8;  /* muted for inactive states */
+  --color-indigo-dim:  rgba(75, 93, 154, 0.12);
   --color-gold:        #C8A96E;  /* champagne-bronze — premium, not broker */
   --color-gold-mid:    #D4B87A;
   --color-gold-dim:    rgba(200, 169, 110, 0.14);
@@ -61,7 +67,7 @@
   --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
   --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
   --shadow-lg:  0 8px 40px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 40px rgba(79, 110, 247, 0.18);
+  --shadow-glow: 0 0 40px rgba(15, 102, 116, 0.2);  /* now references primary teal */
   --shadow-gold-glow: 0 0 30px rgba(200, 169, 110, 0.18);
 
   /* Transitions */
@@ -244,13 +250,13 @@ ul, ol {
 }
 
 .btn-primary {
-  background: var(--color-indigo);
+  background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 0 24px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 24px rgba(15, 102, 116, 0.35);
 }
 .btn-primary:hover {
-  background: var(--color-indigo-light);
-  box-shadow: 0 0 36px rgba(99, 102, 241, 0.5);
+  background: var(--color-primary-light);
+  box-shadow: 0 0 36px rgba(15, 102, 116, 0.5);
   transform: translateY(-1px);
 }
 
@@ -573,9 +579,9 @@ ul, ol {
 }
 
 .franchise-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
+  border-color: rgba(15, 102, 116, 0.4);
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(15, 102, 116, 0.15);
 }
 
 /* Hover-reveal insight overlay — keeps card clean at rest */
@@ -660,11 +666,26 @@ ul, ol {
   padding: var(--space-4) var(--space-5);
   border-top: 1px solid var(--color-border);
   display: flex;
-  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Text-link CTA style (AngelList/Morningstar card pattern — no heavy button) */
+.franchise-card-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+  transition: color var(--transition-fast);
+}
+.franchise-card:hover .franchise-card-link {
+  color: var(--color-primary-light);
 }
 
 /* ============================================================
-   NAVIGATOR SCORE RING
+   NAVIGATOR SCORE — MONOCHROME INSTITUTIONAL SYSTEM
+   Category-first display (4/5 research sources).
+   Monochrome ring (Claude + Gemini + Morningstar reference).
    ============================================================ */
 .score-ring {
   position: relative;
@@ -683,6 +704,7 @@ ul, ol {
   transform: rotate(-90deg);
 }
 
+/* Score number — muted, secondary to the category label */
 .score-ring-value {
   position: absolute;
   inset: 0;
@@ -691,11 +713,40 @@ ul, ol {
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--color-indigo-light);
+  color: #7B95A8;  /* monochrome slate — same family as ring fill */
 }
 
 .score-ring-lg .score-ring-value {
   font-size: 0.875rem;
+}
+
+/* Navigator category badge — lives beside the ring, carries semantic meaning */
+.navigator-category {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.navigator-category-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  color: #7B95A8;  /* monochrome — same slate as ring */
+}
+
+/* On card hover, methodology link becomes visible */
+.navigator-methodology-link {
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.franchise-card:hover .navigator-methodology-link {
+  opacity: 1;
 }
 
 /* ============================================================

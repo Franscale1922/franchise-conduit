@@ -14,55 +14,56 @@ export default function HomePage() {
 
   return (
     <>
-      {/* HERO */}
-      <section style={{ position: 'relative', overflow: 'hidden', paddingTop: 'var(--space-20)', paddingBottom: 'var(--space-20)' }}>
+      {/* HERO — Full-width centered editorial (4/5 research sources: Cadre/AngelList/Yieldstreet pattern) */}
+      <section style={{ position: 'relative', overflow: 'hidden', paddingTop: 'var(--space-24)', paddingBottom: 'var(--space-20)' }}>
         <div className="hero-glow" />
         <div className="hero-grid" />
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div className="hero-split">
+          <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
 
-            {/* Left — Editorial Column */}
-            <div className="hero-split-left">
-              {/* Eyebrow */}
-              <div style={{ marginBottom: 'var(--space-5)' }}>
-                <span className="badge badge-indigo">
-                  ✦ Built for executives investing $250K+
-                </span>
-              </div>
-
-              {/* Headline */}
-              <h1 className="text-display" style={{ marginBottom: 'var(--space-5)' }}>
-                The franchise platform built for your{' '}
-                <span style={{ color: 'var(--color-indigo-light)', fontStyle: 'italic' }}>capital</span>
-                {' '}and your{' '}
-                <span style={{ color: 'var(--color-gold)' }}>calendar</span>
-              </h1>
-
-              <p style={{ fontSize: '1.0625rem', color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-8)', maxWidth: '520px' }}>
-                Unbiased franchisee data, market intelligence on every listing, and advisor-guided matching.
-                No lead farms. No{' '}&ldquo;Request Free Info&rdquo; forms.
-              </p>
-
-              {/* Micro trust signal */}
-              <div style={{ display: 'flex', gap: 'var(--space-6)', flexWrap: 'wrap' }}>
-                {[
-                  { icon: '◈', text: 'Verified franchisee data' },
-                  { icon: '◉', text: 'Advisor-routed only' },
-                  { icon: '✦', text: '8 curated brands' },
-                ].map(t => (
-                  <div key={t.text} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: '0.8125rem', color: 'var(--color-text-muted)', fontWeight: 500 }}>
-                    <span style={{ color: 'var(--color-indigo-light)' }}>{t.icon}</span>
-                    <span>{t.text}</span>
-                  </div>
-                ))}
-              </div>
+            {/* Eyebrow */}
+            <div style={{ marginBottom: 'var(--space-6)' }}>
+              <span className="badge badge-muted" style={{ letterSpacing: '0.06em', fontSize: '0.75rem' }}>
+                Private market research for franchise investors
+              </span>
             </div>
 
-            {/* Right — Interactive Tool Card */}
-            <div className="hero-split-right">
-              <div className="card-glass" style={{ width: '100%', maxWidth: '420px', padding: 'var(--space-8)', borderRadius: 'var(--radius-xl)' }}>
-                <InvestmentTierSelector />
-              </div>
+            {/* Headline — declarative, category-king framing (Cadre/Gemini reference) */}
+            <h1 className="text-display" style={{ marginBottom: 'var(--space-5)', fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', lineHeight: 1.1 }}>
+              The executive standard for franchise investment
+            </h1>
+
+            <p style={{ fontSize: '1.125rem', color: 'var(--color-text-secondary)', lineHeight: '1.7', marginBottom: 'var(--space-10)', maxWidth: '580px', margin: '0 auto var(--space-10)' }}>
+              Independent rankings and franchise intelligence built for operators
+              deploying $250K–$2M+. Verified franchisee data. No paid placement.
+            </p>
+
+            {/* CTAs */}
+            <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap', marginBottom: 'var(--space-10)' }}>
+              <Link href="/quiz" className="btn btn-gold btn-lg">
+                Request Your Introduction
+              </Link>
+              <Link href="/franchises" className="btn btn-outline btn-lg">
+                Explore ranked franchises →
+              </Link>
+            </div>
+
+            {/* Proof bar — 3 quantified signals (Claude/ChatGPT recommendation) */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-10)', flexWrap: 'wrap' }}>
+              {[
+                { value: '8', label: 'Curated franchise brands' },
+                { value: '100%', label: 'Franchisee-data ranked' },
+                { value: '$250K+', label: 'Investment floor' },
+              ].map(stat => (
+                <div key={stat.label} style={{ textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.625rem', fontWeight: 700, color: 'var(--color-text-primary)', letterSpacing: '-0.02em', fontFamily: 'var(--font-serif)', fontVariantNumeric: 'tabular-nums' }}>
+                    {stat.value}
+                  </div>
+                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
             </div>
 
           </div>
@@ -71,6 +72,17 @@ export default function HomePage() {
 
       {/* TRUST BAR */}
       <TrustBar />
+
+      {/* EXPLORE BY CAPITAL — Tier selector moved below fold (4/5 research sources)
+           Keeps hero as editorial authority statement, not a configurator */}
+      <section style={{ borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)', background: 'var(--color-surface)', padding: 'var(--space-12) 0' }}>
+        <div className="container">
+          <p style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center', marginBottom: 'var(--space-6)' }}>
+            Explore by investment range
+          </p>
+          <InvestmentTierSelector />
+        </div>
+      </section>
 
       {/* COLLECTIONS */}
       <section className="section">
@@ -283,14 +295,14 @@ function TrustBar() {
     <div className="trust-bar">
       <div className="trust-bar-inner container">
         {[
-          { icon: '◈', text: 'Rankings built on verified franchisee data' },
+          { icon: '◈', text: 'Independent rankings powered by verified franchisee data' },
           { icon: '◉', text: 'Advisor-routed introductions only' },
-          { icon: '◎', text: 'Market intelligence on every listing' },
+          { icon: '◎', text: 'FDD and unit economics on every listing' },
           { icon: '◐', text: '$250K+ investment floor' },
-          { icon: '✦', text: 'No lead farms, no form blasts' },
+          { icon: '✦', text: 'Brand spending cannot influence ranking' },
         ].map(t => (
           <div key={t.text} className="trust-item">
-            <span style={{ color: 'var(--color-indigo-light)' }}>{t.icon}</span>
+            <span style={{ color: 'var(--color-primary-light)' }}>{t.icon}</span>
             <span>{t.text}</span>
           </div>
         ))}
