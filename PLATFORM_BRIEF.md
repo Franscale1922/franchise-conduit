@@ -1,5 +1,5 @@
 # FranchiseConduit.com — Platform True North Brief
-> **Version:** 1.0 · **Last updated:** April 1, 2026
+> **Version:** 1.1 · **Last updated:** April 1, 2026
 > **Purpose:** Load this file at the start of any chat session to resume work instantly. All decisions are final unless marked 🔄 OPEN.
 > **Codebase:** `/Users/kelseystuart/Projects/Franchise Conduit` · Next.js App Router · TypeScript
 
@@ -16,12 +16,12 @@ The existing franchise discovery market is split between:
 - **Brokers** (FranServe, FranChoice) — advisor-driven but opaque and commission-motivated
 - **Consumer aggregators** (Franzy, Franchise Gator) — AI matching for "anyone," no investment floor, light data
 
-**The gap**: No platform currently serves the $250K+ executive investor with the rigor that Pitchbook serves the VC investor. That gap is Franchise Conduit's market.
+**The gap**: No platform currently serves the serious franchise investor (starting at $100K, scaling to $2M+) with the rigor that Pitchbook serves the VC investor. That gap is Franchise Conduit's market.
 
 ### Target Audience (Precise)
 | Segment | Description |
 |---------|-------------|
-| **Primary** | Corporate executive or senior professional, 40–58, $250K–$2M liquid to deploy, looking for manager-model or semi-absentee ownership |
+| **Primary** | Corporate executive or senior professional, 40–58, $100K–$2M liquid to deploy, looking for manager-model or semi-absentee ownership |
 | **Secondary** | Multi-unit investor expanding portfolio; already owns one franchise, evaluating a second category |
 | **Anti-audience** | First-time entrepreneur with <$100K, "want to be my own boss" motivated, not capital-deployment motivated |
 
@@ -30,7 +30,7 @@ Franzy raised $2.2M seed (July 2025) and calls itself the "Zillow of franchising
 
 | Dimension | Franzy | Franchise Conduit |
 |-----------|--------|-------------------|
-| Audience | Mass consumer, any budget | Executive investor, $250K+ floor |
+| Audience | Mass consumer, any budget | Serious investor, $100K+ entry (tiered up to $2M+) |
 | Discovery | AI matching, volume-based | Curated, advisor-backed |
 | Data | Gated behind email in 15 sec | Visible upfront, investor-grade |
 | Rankings | "Spotlight" = paid placement | Franchisee-data ranked, no pay-to-rank |
@@ -117,8 +117,18 @@ All affirmative framing (Consumer Reports / Morningstar pattern):
 - `◈ Independent rankings powered by verified franchisee data`
 - `◉ Advisor-routed introductions only`
 - `◎ FDD and unit economics on every listing`
-- `◐ $250K+ investment floor`
+- `◐ Opportunities starting at $100K`
 - `✦ Brand spending cannot influence ranking`
+
+### 2h. Homepage Color Accents (Manual edits — April 1, 2026 ✅)
+
+User refined specific accent colors in `app/page.tsx` after initial sprint:
+
+| Element | Before | After | Rationale |
+|---------|--------|-------|-----------|
+| Semi-Absentee spotlight headline ("Don't work in it") | `--color-indigo-light` | `--color-gold` | Gold reads as premium aspiration on the ownership/wealth statement |
+| How It Works steps 01 & 04 label color | `--color-indigo-light` | `--color-primary-light` | Aligns step labels with the primary teal — consistent system |
+| Bottom CTA primary button | `btn-primary` (teal) | `btn-gold` (champagne-bronze) | Gold CTA at page bottom = aspirational close, matches hero CTA energy |
 
 ### 2g. Testimonial Cards (CSS Ready ✅ / Content 🔄 OPEN)
 
@@ -189,10 +199,10 @@ These capture keyword searches like "fitness franchises for sale Texas" which we
 ### Title Tag Patterns
 | Page | Format |
 |------|--------|
-| Homepage | `Franchise Conduit — Executive Franchise Matching for $250K+ Investors` |
+| Homepage | `Franchise Conduit — Advisor-Matched Franchise Discovery for Serious Investors` |
 | Brand detail | `[Brand] Franchise: Investment Analysis, AUV & FDD Data — Franchise Conduit` |
-| Industry hub | `[Industry] Franchises for Investors — Franchise Conduit` |
-| State hub | `[State] Franchise Opportunities for $250K+ Investors — Franchise Conduit` |
+| Industry hub | `[Industry] Franchises for Serious Investors — Franchise Conduit` |
+| State hub | `[State] Franchise Opportunities — Curated for Serious Investors — Franchise Conduit` |
 | Methodology | `Navigator Score Methodology — How We Rank Franchises — Franchise Conduit` |
 
 ### robots.txt Pattern (Current — Correct)
