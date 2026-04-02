@@ -107,7 +107,7 @@ function Footer() {
             <div className="footer-nav-title">Company</div>
             <a href="/about" className="footer-nav-link">About</a>
             <a href="/for-franchisors" className="footer-nav-link">For Franchisors</a>
-            <a href="/privacy" className="footer-nav-link">Privacy Policy</a>
+            <a href="/privacy-policy" className="footer-nav-link">Privacy Policy</a>
             <a href="/terms" className="footer-nav-link">Terms</a>
           </div>
         </div>

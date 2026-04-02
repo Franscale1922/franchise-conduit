@@ -302,3 +302,93 @@ Q1–Q8 all implemented. 156 insertions / 81 deletions. globals.css + page.tsx +
 
 **For SEO work:**
 > "Read Section 4 of PLATFORM_BRIEF.md and extend the sitemap accordingly."
+
+**For routing/redirect decisions:**
+> "Read Section 9 of PLATFORM_BRIEF.md before adding, removing, or renaming any route."
+
+---
+
+## 9. Migration Architecture (WordPress → Next.js)
+
+> **Load this section before any work involving routes, redirects, new pages, or DNS.** FranchiseConduit.com has DA 27 / 618 referring domains (Moz, April 2026) built over 10+ years. A single unplanned 404 on a high-equity page can permanently destroy the link authority that domain took a decade to earn.
+
+### 9a. Domain Authority Baseline (April 2026)
+
+| Metric | Value | Source |
+|--------|-------|--------|
+| Moz Domain Authority | **27** | Moz, April 1 2026 |
+| Linking Root Domains | **618** | Moz |
+| Ranking Keywords | **285** | Moz |
+| Spam Score | **2%** | Moz (healthy) |
+
+> A DA 27 with 618 linking domains in the franchise vertical represents 10+ years of compounded trust signals. This is the platform's most valuable asset — more valuable than the design system or even the code. Protect it at all costs.
+
+### 9b. The Golden Rule of DA Preservation
+
+**Never let a URL with a backlink return a 404.** Every single URL on the live WordPress site must resolve to a 2xx response or a 301 permanent redirect on the Next.js platform from Day 1 of DNS cutover.
+
+The redirect infrastructure lives in:
+- **`next.config.js`** — The complete 301 redirect map (fully populated as of April 2, 2026)
+
+### 9c. URL Pattern Mapping (WordPress → Next.js)
+
+| WordPress URL Pattern | Next.js Equivalent | Status |
+|-----------------------|---------------------|--------|
+| `/explore/` | `/franchises` | ✅ Redirect in next.config.js |
+| `/franchise/:slug/` | `/franchises/:slug` | ✅ Catch-all in next.config.js |
+| `/category/:name/` | `/franchises/industries/:name` or `/franchises` | ✅ All 55 categories mapped |
+| `/[blog-slug]/` (root level) | `/resources/[slug]` | ✅ Top posts individually mapped |
+| `/franchise-blog/` | `/resources` | ✅ In next.config.js |
+| `/about-us/` | `/about` | ✅ In next.config.js |
+| `/contact/` | `/contact` | ✅ In next.config.js |
+| `/testimonials/` | `/about` | ✅ In next.config.js |
+
+### 9d. Pages That Must Exist Before DNS Cutover
+
+301s that resolve to a non-existent Next.js page become soft 404s — Google passes no equity and may penalize.
+
+| Required Page | Route | Status |
+|---|---|---|
+| Franchise listings index | `/franchises` | ✅ Built |
+| Brand detail pages | `/franchises/[slug]` | ✅ Built |
+| Industry hubs | `/franchises/industries/[category]` | ✅ Built |
+| State hubs | `/franchises/locations/[state]` | ✅ Built |
+| Quiz | `/quiz` | ✅ Built |
+| FDD Resource | `/resources/fdd` | ✅ Built |
+| Methodology | `/methodology` | ⚠️ Route exists, content TBC |
+| **About page** | `/about` | 🔴 Must build before cutover |
+| **Contact page** | `/contact` | 🔴 Must build before cutover |
+| **Resources hub** | `/resources` | 🔴 Must build before cutover |
+| **Privacy Policy** | `/privacy-policy` | 🔴 Must build before cutover |
+| How to Buy a Franchise | `/resources/how-to-buy-a-franchise` | 🔴 Must build (top backlink target) |
+| Why Franchises Fail | `/resources/why-franchises-fail` | 🔴 High-traffic post |
+| Franchise ROI | `/resources/franchise-roi` | 🔴 High-intent financial content |
+
+### 9e. Locked URLs — Never Change After Launch
+
+Once the Next.js platform goes live, these slugs are **permanently locked**. Changing them requires adding a new redirect from the old path — there is no "renaming" a URL without consequences.
+
+- `/franchises/[brand-slug]` — all brand pages
+- `/franchises/industries/[category]` — all 12 industry hubs
+- `/franchises/locations/[state]` — all 20 state hubs
+- `/resources/[slug]` — all resource pages
+- `/methodology`
+
+### 9f. Google Search Console Transition Protocol
+
+1. **Pre-migration:** Export GSC performance data (last 16 months) for all live URLs
+2. **Pre-migration:** Export Rank Math meta titles + descriptions from WordPress admin  
+3. **Day 1 post-cutover:** Submit `/sitemap.xml` to GSC immediately
+4. **Day 1 post-cutover:** Run GSC Change of Address tool (if full domain transfer)
+5. **Week 1:** Monitor GSC Coverage report daily — watch for 404 spikes
+6. **Month 1–3:** Crawl with Screaming Frog weekly; resolve any redirect chains > 2 hops
+
+### 9g. Metadata Preservation Rule
+
+When building the `/resources` pages that replace WordPress blog content:
+1. Match or improve the original `<title>` tag (never delete target keywords)
+2. Use the Rank Math meta description as the starting point
+3. Add `Article` JSON-LD structured data to every resource page
+4. Set `datePublished` to the original WP publish date, `dateModified` to rewrite date
+5. Keep all original keyword targets — add investor framing on top
+

@@ -1284,3 +1284,22 @@ ul, ol {
   .investment-bar { grid-template-columns: 1fr; }
   .stat-bar { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   HUB PAGE LINK UTILITIES
+   ============================================================ */
+.seo-link:hover {
+  color: var(--color-primary-light);
+}
+
+.tier-link:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+  background: rgba(15, 102, 116, 0.08);
+}
+
+.industry-link:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary-light);
+  background: rgba(15, 102, 116, 0.08);
+}

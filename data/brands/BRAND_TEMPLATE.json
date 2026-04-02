@@ -1,0 +1,112 @@
+{
+  "_comment": "BRAND TEMPLATE — Copy this file, rename to your-brand-slug.json, fill in all fields. Remove this _comment field.",
+  "_required_fields": ["id", "brand_name", "brand_slug", "industry_primary", "exec_investor_flag", "investment_min", "investment_max", "cash_required_min", "investment_tier", "business_model", "navigator_score", "available_states"],
+
+  "id": "NEXT_SEQUENTIAL_ID",
+  "brand_name": "Brand Name Here",
+  "brand_slug": "brand-name-here",
+  "brand_logo_emoji": "🏢",
+  "tagline": "One-sentence investor hook — what makes this brand interesting.",
+  "description_short": "2–3 sentence description for the brand detail page intro. Focus on the ownership model and investment thesis, not marketing fluff.",
+  "market_intelligence_insight": "150–200 word market intelligence paragraph. Cover: market size, CAGR, structural demand drivers, why this category is franchise-investable, and any recession resistance data. This is SEO-grade content — write it with depth.",
+
+  "industry_primary": "Choose one: Home Services & Maintenance | Health & Wellness | Senior Care & Home Health | Business & Professional Services | Education & Learning | Food & Beverage | Property Restoration & Remediation | Fitness & Recreation | Retail & Consumer Goods | Automotive Services | Cleaning & Janitorial Services | Technology & IT Services",
+  "industry_secondary": null,
+
+  "exec_investor_flag": true,
+  "brand_maturity": "emerging | growth | established",
+
+  "year_founded": 2000,
+  "year_franchising_began": 2005,
+  "unit_count_total": 100,
+  "unit_count_us": 100,
+  "unit_count_pipeline": 20,
+  "unit_growth_rate_yoy": 10.0,
+
+  "investment_min": 150000,
+  "investment_max": 350000,
+  "cash_required_min": 75000,
+  "net_worth_required": 300000,
+  "franchise_fee": 45000,
+  "royalty_rate": 6,
+  "marketing_fee": 2,
+  "investment_tier": "$100K-$249K | $250K-$499K | $500K-$999K | $1M+",
+
+  "sba_eligible": true,
+  "robs_eligible": true,
+  "financing_available": true,
+  "veteran_discount": false,
+
+  "item_19_available": true,
+  "item_19_headline": "Average Gross Revenue: $XXX,000 | null if item_19_available is false",
+  "avg_unit_volume": 500000,
+  "cash_on_cash_return_range": "20–35%",
+  "breakeven_timeline": "18–30 months",
+  "macro_market_cagr": 6.0,
+
+  "business_model": "owner-operator | semi-absentee | manager-model | passive",
+  "semi_absentee_verified": false,
+  "hours_per_week_typical": "15–25 hrs/week (owner)",
+  "employees_typical": "4–8 FTE",
+  "physical_location_required": true,
+  "home_based": false,
+  "mobile_van_based": false,
+  "territory_type": "exclusive | protected | open",
+  "multi_unit_available": true,
+  "area_developer_available": false,
+  "target_customer": "b2b | b2c | mixed",
+  "revenue_pattern": "recurring | repeat-transactional | project-based | mixed",
+  "recession_resistant": false,
+  "growth_sector": true,
+
+  "lifestyle_fit_tags": ["recurring-revenue", "no-nights-weekends", "remote-manageable", "flexible-hours", "community-impact"],
+
+  "initial_training_days": 10,
+  "training_location": "City, State HQ + on-site",
+  "ongoing_support": "Describe ongoing support: coaching, technology, field support, peer networks.",
+  "field_support": true,
+  "marketing_support": true,
+  "technology_platform": true,
+  "franchisee_validation_available": true,
+
+  "fbr_satisfaction_score": 80,
+  "fbr_top_200": false,
+  "fbr_top_200_year": null,
+  "entrepreneur_rank": null,
+  "entrepreneur_rank_year": null,
+
+  "awards": [
+    { "name": "Award Name", "year": 2025, "issuer": "Issuer Organization" }
+  ],
+
+  "ifa_member": true,
+  "fdd_available": true,
+
+  "testimonials": [
+    {
+      "quote": "Franchisee testimonial — direct quote, 1–3 sentences. Focus on investment outcome, not lifestyle.",
+      "name": "First Last",
+      "location": "City, State",
+      "tenure": "X years",
+      "background": "Former Title, Industry"
+    }
+  ],
+
+  "owner_profile_archetypes": ["corporate-exit | investor | operator | second-career"],
+  "matching_tags": ["tag1", "tag2", "tag3"],
+
+  "navigator_score": 80,
+
+  "available_states": [
+    "alabama", "alaska", "arizona", "arkansas", "california",
+    "colorado", "connecticut", "delaware", "florida", "georgia",
+    "hawaii", "idaho", "illinois", "indiana", "iowa",
+    "kansas", "kentucky", "louisiana", "maine", "maryland",
+    "massachusetts", "michigan", "minnesota", "mississippi", "missouri",
+    "montana", "nebraska", "nevada", "new-hampshire", "new-jersey",
+    "new-mexico", "new-york", "north-carolina", "north-dakota", "ohio",
+    "oklahoma", "oregon", "pennsylvania", "rhode-island", "south-carolina",
+    "south-dakota", "tennessee", "texas", "utah", "vermont",
+    "virginia", "washington", "west-virginia", "wisconsin", "wyoming"
+  ]
+}

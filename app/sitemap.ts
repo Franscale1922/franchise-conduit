@@ -1,6 +1,46 @@
 import { franchises } from '@/lib/data'
 import { MetadataRoute } from 'next'
 
+// ─── Hub page slugs — keep in sync with hub page generateStaticParams ─────────
+
+const industrySlugs = [
+  'home-services',
+  'health-wellness',
+  'senior-care',
+  'business-services',
+  'education',
+  'food-beverage',
+  'property-restoration',
+  'fitness',
+  'retail',
+  'automotive',
+  'cleaning-services',
+  'technology',
+]
+
+const stateSlugs = [
+  'texas',
+  'florida',
+  'california',
+  'georgia',
+  'north-carolina',
+  'arizona',
+  'colorado',
+  'ohio',
+  'illinois',
+  'pennsylvania',
+  'new-york',
+  'tennessee',
+  'washington',
+  'virginia',
+  'nevada',
+  'utah',
+  'minnesota',
+  'michigan',
+  'new-jersey',
+  'oregon',
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://franchiseconduit.com'
   const now = new Date().toISOString()
@@ -25,5 +65,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  return [...staticPages, ...brandPages]
+  const industryPages = industrySlugs.map((slug: string) => ({
+    url: `${baseUrl}/franchises/industries/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  const statePages = stateSlugs.map(slug => ({
+    url: `${baseUrl}/franchises/locations/${slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  return [...staticPages, ...brandPages, ...industryPages, ...statePages]
 }

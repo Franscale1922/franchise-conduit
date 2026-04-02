@@ -249,6 +249,9 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* SEO LINK GRID — below Bottom CTA, above footer */}
+      <SeoLinkGrid />
     </>
   )
 }
@@ -394,6 +397,129 @@ function AuthoritySection() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function SeoLinkGrid() {
+  const industries = [
+    { slug: 'home-services', label: 'Home Services Franchises' },
+    { slug: 'health-wellness', label: 'Health & Wellness Franchises' },
+    { slug: 'senior-care', label: 'Senior Care Franchises' },
+    { slug: 'business-services', label: 'Business Services Franchises' },
+    { slug: 'education', label: 'Education Franchises' },
+    { slug: 'food-beverage', label: 'Food & Beverage Franchises' },
+    { slug: 'property-restoration', label: 'Property Restoration Franchises' },
+    { slug: 'fitness', label: 'Fitness Franchises' },
+    { slug: 'retail', label: 'Retail Franchises' },
+    { slug: 'automotive', label: 'Automotive Services Franchises' },
+    { slug: 'cleaning-services', label: 'Cleaning & Janitorial Franchises' },
+    { slug: 'technology', label: 'Technology & IT Franchises' },
+  ]
+
+  const states = [
+    { slug: 'texas', label: 'Texas Franchises' },
+    { slug: 'florida', label: 'Florida Franchises' },
+    { slug: 'california', label: 'California Franchises' },
+    { slug: 'georgia', label: 'Georgia Franchises' },
+    { slug: 'north-carolina', label: 'North Carolina Franchises' },
+    { slug: 'arizona', label: 'Arizona Franchises' },
+    { slug: 'colorado', label: 'Colorado Franchises' },
+    { slug: 'ohio', label: 'Ohio Franchises' },
+    { slug: 'illinois', label: 'Illinois Franchises' },
+    { slug: 'pennsylvania', label: 'Pennsylvania Franchises' },
+    { slug: 'new-york', label: 'New York Franchises' },
+    { slug: 'tennessee', label: 'Tennessee Franchises' },
+    { slug: 'washington', label: 'Washington Franchises' },
+    { slug: 'virginia', label: 'Virginia Franchises' },
+    { slug: 'nevada', label: 'Nevada Franchises' },
+    { slug: 'utah', label: 'Utah Franchises' },
+    { slug: 'minnesota', label: 'Minnesota Franchises' },
+    { slug: 'michigan', label: 'Michigan Franchises' },
+    { slug: 'new-jersey', label: 'New Jersey Franchises' },
+    { slug: 'oregon', label: 'Oregon Franchises' },
+  ]
+
+  return (
+    <section style={{
+      borderTop: '1px solid var(--color-border)',
+      padding: 'var(--space-12) 0',
+      background: 'var(--color-bg)',
+    }}>
+      <div className="container">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: 'var(--space-12)',
+        }}>
+          {/* Industry links */}
+          <div>
+            <p style={{
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--color-text-muted)',
+              marginBottom: 'var(--space-5)',
+            }}>
+              Browse by industry
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              {industries.map(ind => (
+                <Link
+                  key={ind.slug}
+                  href={`/franchises/industries/${ind.slug}`}
+                  style={{
+                    fontSize: '0.875rem',
+                    color: 'var(--color-text-secondary)',
+                    textDecoration: 'none',
+                    padding: 'var(--space-1) 0',
+                    borderBottom: '1px solid transparent',
+                    transition: 'color var(--transition-base)',
+                    display: 'inline-block',
+                  }}
+                  className="seo-link"
+                >
+                  {ind.label} →
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* State links */}
+          <div>
+            <p style={{
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--color-text-muted)',
+              marginBottom: 'var(--space-5)',
+            }}>
+              Browse by state
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+              {states.map(state => (
+                <Link
+                  key={state.slug}
+                  href={`/franchises/locations/${state.slug}`}
+                  style={{
+                    fontSize: '0.875rem',
+                    color: 'var(--color-text-secondary)',
+                    textDecoration: 'none',
+                    padding: 'var(--space-1) 0',
+                    transition: 'color var(--transition-base)',
+                    display: 'inline-block',
+                  }}
+                  className="seo-link"
+                >
+                  {state.label} →
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
