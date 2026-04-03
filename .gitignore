@@ -33,3 +33,9 @@ next-env.d.ts
 # OS
 .DS_Store
 Thumbs.db
+
+# FDD PDFs and credentials — never commit these
+data/fdds/
+data/scripts/google_credentials.json
+data/scripts/.venv/
+
