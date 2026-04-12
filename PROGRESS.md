@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 2 — Scaffold Audit & Structural Alignment |
-| **Stage status** | Not started — palette is locked, ready to begin |
-| **Last commit** | stage-0: complete — palette locked (grounded modern, warm stone + deep teal) |
+| **Active stage** | Stage 3 — FDD Pipeline & Brand Pages |
+| **Stage status** | Ready to begin — FDD inventory confirmed |
+| **Last commit** | stage-2: complete — palette, types, nav, fonts, brand JSONs updated |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -30,13 +30,13 @@
 |-------|------|--------|-----------|
 | 0 | Design Direction | `Complete` | April 2026 |
 | 1 | Platform Brief & Stage Docs | `Complete` | April 2026 |
-| 2 | Scaffold Audit & Alignment | `Not started` | — |
+| 2 | Scaffold Audit & Alignment | `Complete` | April 2026 |
 
 ### Core Infrastructure
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 3 | FDD Pipeline & Brand Pages | `Not started` (blocked on Stage 2) | — |
+| 3 | FDD Pipeline & Brand Pages | `In progress` | — |
 
 ### Candidate Experience
 
@@ -115,7 +115,7 @@ LAUNCH
 | 2 | Advisor email address for lead notifications | Stage 7 | ⚠️ Not provided |
 | 3 | CRM integration at launch? (HubSpot / Salesforce / email-only) | Stage 7 | ⚠️ Not confirmed |
 | 4 | DNS access for domain verification (Resend + Vercel) | Stage 7 | ⚠️ Not provided |
-| 5 | Which 2–3 brands to build as gold standard pages (Stage 3) | Stage 3 | ⚠️ Confirm with Kelsey |
+| 5 | Which 2–3 brands to build as gold standard pages (Stage 3) | Stage 3 | ✅ Confirmed — CertaPro Painters, Molly Maid, Right at Home (all from 2027 folder) |
 
 ---
 
@@ -137,6 +137,7 @@ Track all environment variables as they are added.
 |------|-------|------|----------------|
 | April 2026 | Stage 1 | Complete | `stage-1: complete — platform brief + stage docs written` |
 | April 2026 | Stage 0 | Complete | `stage-0: complete — palette locked (grounded modern, warm stone + deep teal)` |
+| April 2026 | Stage 2 | Complete | `stage-2: complete — palette tokens, types, nav, fonts, brand JSONs updated, build passing (59/59)` |
 
 ---
 
@@ -144,8 +145,9 @@ Track all environment variables as they are added.
 
 | Date | Issue | Status | Stage |
 |------|-------|--------|-------|
-| April 2026 | Design palette direction not confirmed — Stage 2 fully blocked | ⚠️ Open | Stage 0 → 2 |
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ⚠️ Open | Stage 7 |
+| April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
+| April 2026 | **FDD source** — 2027 folder has ~65 current filings. 2026 folder has ~115 pre-renewal filings. Gold standard pages built from 2027 first. Scale to 2026 brands after. | ℹ️ Context | Stage 3 |
 
 ---
 
@@ -155,13 +157,14 @@ Track all environment variables as they are added.
 |------|--------|-------|
 | Strategic brief (audience, model, voice) | ✅ Complete | April 2026 |
 | GitHub repo access (token provided) | ✅ Active | `Franscale1922/franchise-conduit` |
-| Palette direction (Option A/B/C) | ❌ Pending | Blocking Stage 2 |
+| Palette direction | ✅ Locked | Grounded Modern light mode |
+| FDD catalog | ✅ Confirmed | 2027 folder (~65 brands, current filings) + 2026 folder (~115 brands, pre-renewal). Path: /Users/kelseystuart/Projects/Franchise\ Conduit/FDDs/ |
+| Gold standard brand selection | ✅ Confirmed | CertaPro Painters, Molly Maid, Right at Home — all from 2027 folder |
+| FDD renewal protocol | ✅ Understood | 2026 FDDs valid, will be replaced manually by Kelsey when 2027 versions appear |
 | Advisor email for lead routing | ❌ Pending | Blocking Stage 7 |
 | Waypoint team headshots | ❌ Pending | Needed for /about — initials used as placeholder |
-| Gold standard brand selection (2–3) | ❌ Pending | Needed to start Stage 3 |
 | CRM integration decision | ❌ Pending | Stage 7 email-only vs. CRM |
 | DNS access (registrar + Vercel domain setup) | ❌ Pending | Stage 10 |
-| FDDs for build brands | ⚠️ FDDs in /FDDs folder locally | Confirm which brands map to which FDDs |
 
 ---
 
