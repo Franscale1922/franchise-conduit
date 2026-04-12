@@ -1,5 +1,5 @@
 # FranchiseConduit.com — Platform Brief
-**Version:** 2.0 | **Revised:** April 2026 | **Status:** Active
+**Version:** 2.1 | **Revised:** April 2026 | **Status:** Active
 
 > **How to use this document:**
 > Read it at the start of every build session. It is the authoritative record of all locked decisions.
@@ -82,27 +82,44 @@ Every page, section, and piece of content operates on two layers:
 
 ## 4. Design System
 
-> ⚠️ **OPEN DECISION — Design Palette Direction**
-> The palette direction has not yet been finalized. Three options are under consideration:
-> - **Option A:** Keep dark background (#080C18) — no design rebuild required
-> - **Option B:** Hybrid — dark hero for authority, light body for warmth (recommended)
-> - **Option C:** Full light mode redesign
->
-> **This decision is required before Stage 2 begins. Do not change globals.css until Kelsey approves a direction.**
-> Update this section when the decision is made and log it in Section 7.
+> ✅ **Palette Direction Locked — April 2026**
+> Research-confirmed: grounded editorial light mode. Warm stone base, deep teal primary, charcoal structure, muted bronze accent, copper CTA. Audience is 70%+ male, professional-services buyers who value competence and clarity over expressive styling. Do NOT introduce dark backgrounds, purple accents, pastel palettes, or SaaS gradient effects.
 
-### 4a. Color Palette (Pending palette direction — tokens below are current / may update)
+### 4a. Color Palette — Grounded Modern (Confirmed ✅)
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--color-bg` | `#080C18` | Page background (current — may change) |
-| `--color-surface` | `#0F1525` | Cards, panels |
-| `--color-surface-2` | `#161D33` | Nested surfaces |
-| `--color-primary` | `#0F6674` | Primary CTAs |
-| `--color-primary-light` | `#168899` | Hover states |
-| `--color-gold` | `#C8A96E` | Premium CTAs, accent moments |
-| `--color-teal` | `#0D9488` | Data trust accent |
-| `--color-emerald` | `#10B981` | Positive indicators |
+**Philosophy:** Editorial, structured, intentional. Trust through depth and restraint — not darkness or decoration.
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `--color-bg` | `#F5F1EB` | Page background — warm parchment (not bright white) |
+| `--color-surface` | `#EDE9E1` | Card surfaces, panels |
+| `--color-surface-2` | `#E4E0D7` | Nested surfaces, form backgrounds, subtle dividers |
+| `--color-nav-bg` | `#1A2832` | Navigation bar — dark slate-charcoal for authority |
+| `--color-primary` | `#0B5E6A` | Deep teal — all trust actions: "Explore", "Compare", "Talk to an Advisor" |
+| `--color-primary-hover` | `#0D7A8A` | Teal hover state |
+| `--color-primary-dark` | `#084A54` | Teal active/pressed state |
+| `--color-cta` | `#B5713A` | Copper/amber — used ONLY for the single highest-intent CTA per screen |
+| `--color-cta-hover` | `#C97F46` | Copper hover |
+| `--color-text` | `#1C2B32` | Primary text — near-black with slate undertone |
+| `--color-text-secondary` | `#4A5568` | Body copy, secondary information |
+| `--color-text-muted` | `#718096` | Labels, timestamps, captions |
+| `--color-accent` | `#7A6E5A` | Muted bronze — secondary accents, badges, icons |
+| `--color-olive` | `#5C6B4A` | Olive-sage — tertiary accent, positive signals |
+| `--color-border` | `#D4CECC` | Card borders, dividers, form inputs |
+| `--color-border-strong` | `#B8B2AE` | Active borders, focus rings |
+| `--color-score-ring` | `#7B95A8` | Navigator Score ring — monochrome slate |
+
+**CTA Hierarchy Rule (strictly enforced):**
+- `--color-primary` (teal): All exploratory and trust actions — Browse, Compare, How It Works, Talk to an Advisor
+- `--color-cta` (copper): ONE action per screen — the final conversion action (Take the Quiz, Request Introduction)
+- Never use copper for two separate CTAs on the same page view
+
+**What to avoid (locked):**
+- No dark backgrounds (`#080C18` or similar) — palette is light-mode only
+- No purple or indigo accents — signals SaaS consumer, not professional services
+- No pastel sage, light coral, or fashion-forward trend tones
+- No playful gradients or SaaS glow effects
+- No bright white (`#FFFFFF`) as primary background — use `#F5F1EB`
 
 ### 4b. Typography (Confirmed ✅)
 
@@ -220,7 +237,7 @@ Brand pages must gracefully handle incomplete data:
 | April 2026 | Brand voice: warm, welcoming, encouraging, educational — NOT corporate/premium/exclusive | Revised from prior PLATFORM_BRIEF which over-indexed on "dark premium" |
 | April 2026 | FDD pipeline is a first-class building block, not an afterthought | 350 brands requires automation; manual build is not viable |
 | April 2026 | Stage document system adopted from BizConnect Caribbean playbook | Clear definition of "done" prevents drift across sessions |
-| April 2026 | Palette direction: OPEN — awaiting Kelsey's decision (Options A/B/C) | Palette affects all frontend work; decision required before Stage 2 |
+| April 2026 | Palette locked: Grounded Modern — warm stone base (#F5F1EB), deep teal primary (#0B5E6A), charcoal text (#1C2B32), muted bronze accent (#7A6E5A), copper CTA (#B5713A), dark nav (#1A2832) | Research confirmed: 70%+ male professional-services audience prefers trust, clarity, depth over expressive styling. Light-mode editorial — not dark premium, not SaaS consumer. |
 | April 2026 | DM Serif Display for hero/h2, Inter for all other UI | Typography system carries forward from v1 — confirmed correct |
 | April 2026 | Navigator Score demoted from primary mechanic to supporting credibility signal | Candidate archetype responds better to warmth + clarity than to scoring systems |
 | April 2026 | Redirect map in next.config.js is locked — never modify without reading Section 9 | DA 27 / 618 root domains; a single unplanned 404 destroys 10+ years of equity |

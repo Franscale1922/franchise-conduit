@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 0 — Design Direction |
-| **Stage status** | Not started — awaiting Kelsey's palette decision |
-| **Last commit** | stage-1: complete — platform brief + stage docs written |
+| **Active stage** | Stage 2 — Scaffold Audit & Structural Alignment |
+| **Stage status** | Not started — palette is locked, ready to begin |
+| **Last commit** | stage-0: complete — palette locked (grounded modern, warm stone + deep teal) |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -28,9 +28,9 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 0 | Design Direction | `Not started — awaiting decision` | — |
+| 0 | Design Direction | `Complete` | April 2026 |
 | 1 | Platform Brief & Stage Docs | `Complete` | April 2026 |
-| 2 | Scaffold Audit & Alignment | `Not started` (blocked on Stage 0) | — |
+| 2 | Scaffold Audit & Alignment | `Not started` | — |
 
 ### Core Infrastructure
 
@@ -111,7 +111,7 @@ LAUNCH
 
 | # | Decision | Blocking | Status |
 |---|----------|----------|--------|
-| 1 | **Design palette direction: Option A (dark) / B (hybrid) / C (light)** | Stage 2 | ⚠️ Awaiting Kelsey |
+| 1 | **Design palette direction: Option A (dark) / B (hybrid) / C (light)** | Stage 2 | ✅ Locked — Grounded Modern light mode |
 | 2 | Advisor email address for lead notifications | Stage 7 | ⚠️ Not provided |
 | 3 | CRM integration at launch? (HubSpot / Salesforce / email-only) | Stage 7 | ⚠️ Not confirmed |
 | 4 | DNS access for domain verification (Resend + Vercel) | Stage 7 | ⚠️ Not provided |
@@ -136,6 +136,7 @@ Track all environment variables as they are added.
 | Date | Stage | Step | Commit Message |
 |------|-------|------|----------------|
 | April 2026 | Stage 1 | Complete | `stage-1: complete — platform brief + stage docs written` |
+| April 2026 | Stage 0 | Complete | `stage-0: complete — palette locked (grounded modern, warm stone + deep teal)` |
 
 ---
 
