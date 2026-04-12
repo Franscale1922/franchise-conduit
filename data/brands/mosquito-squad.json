@@ -48,7 +48,12 @@
   "revenue_pattern": "recurring",
   "recession_resistant": true,
   "growth_sector": true,
-  "lifestyle_fit_tags": ["flexible-hours", "no-nights-weekends", "recurring-revenue", "remote-manageable"],
+  "lifestyle_fit_tags": [
+    "flexible-hours",
+    "no-nights-weekends",
+    "recurring-revenue",
+    "remote-manageable"
+  ],
   "initial_training_days": 10,
   "training_location": "Richmond, VA + field training",
   "ongoing_support": "Dedicated business consultant, field support, national call center, franchisee peer network",
@@ -62,8 +67,16 @@
   "entrepreneur_rank": 112,
   "entrepreneur_rank_year": 2025,
   "awards": [
-    { "name": "FBR Top 200 Franchises", "year": 2025, "issuer": "Franchise Business Review" },
-    { "name": "Entrepreneur Franchise 500", "year": 2025, "issuer": "Entrepreneur Magazine" }
+    {
+      "name": "FBR Top 200 Franchises",
+      "year": 2025,
+      "issuer": "Franchise Business Review"
+    },
+    {
+      "name": "Entrepreneur Franchise 500",
+      "year": 2025,
+      "issuer": "Entrepreneur Magazine"
+    }
   ],
   "ifa_member": true,
   "fdd_available": true,
@@ -83,8 +96,40 @@
       "background": "Former VP Operations, retail"
     }
   ],
-  "owner_profile_archetypes": ["corporate-exit", "investor"],
-  "matching_tags": ["semi-absentee", "recurring-revenue", "home-based", "low-overhead", "seasonal", "b2c"],
+  "owner_profile_archetypes": [
+    "corporate-exit",
+    "investor"
+  ],
+  "matching_tags": [
+    "semi-absentee",
+    "recurring-revenue",
+    "home-based",
+    "low-overhead",
+    "seasonal",
+    "b2c"
+  ],
   "navigator_score": 87,
-  "available_states": ["texas", "florida", "georgia", "north-carolina", "virginia", "tennessee", "ohio", "pennsylvania", "new-jersey", "new-york", "illinois", "michigan", "minnesota", "colorado", "arizona", "nevada", "washington", "oregon", "california", "utah"]
+  "available_states": [
+    "texas",
+    "florida",
+    "georgia",
+    "north-carolina",
+    "virginia",
+    "tennessee",
+    "ohio",
+    "pennsylvania",
+    "new-jersey",
+    "new-york",
+    "illinois",
+    "michigan",
+    "minnesota",
+    "colorado",
+    "arizona",
+    "nevada",
+    "washington",
+    "oregon",
+    "california",
+    "utah"
+  ],
+  "completeness_state": "complete"
 }

@@ -48,7 +48,11 @@
   "revenue_pattern": "recurring",
   "recession_resistant": true,
   "growth_sector": true,
-  "lifestyle_fit_tags": ["recurring-revenue", "community-impact", "remote-manageable"],
+  "lifestyle_fit_tags": [
+    "recurring-revenue",
+    "community-impact",
+    "remote-manageable"
+  ],
   "initial_training_days": 10,
   "training_location": "San Antonio, TX HQ",
   "ongoing_support": "Ongoing coaching, marketing support, proprietary care management software (TENDIO), peer network",
@@ -62,8 +66,16 @@
   "entrepreneur_rank": null,
   "entrepreneur_rank_year": null,
   "awards": [
-    { "name": "FBR Top 200 Franchises", "year": 2025, "issuer": "Franchise Business Review" },
-    { "name": "FBR Franchisee Satisfaction Award — Senior Care Category", "year": 2025, "issuer": "Franchise Business Review" }
+    {
+      "name": "FBR Top 200 Franchises",
+      "year": 2025,
+      "issuer": "Franchise Business Review"
+    },
+    {
+      "name": "FBR Franchisee Satisfaction Award — Senior Care Category",
+      "year": 2025,
+      "issuer": "Franchise Business Review"
+    }
   ],
   "ifa_member": true,
   "fdd_available": true,
@@ -76,8 +88,40 @@
       "background": "Former Regional VP, healthcare company"
     }
   ],
-  "owner_profile_archetypes": ["corporate-exit", "second-career", "operator"],
-  "matching_tags": ["senior-care", "recurring-revenue", "community-impact", "manager-model", "demographic-tailwind"],
+  "owner_profile_archetypes": [
+    "corporate-exit",
+    "second-career",
+    "operator"
+  ],
+  "matching_tags": [
+    "senior-care",
+    "recurring-revenue",
+    "community-impact",
+    "manager-model",
+    "demographic-tailwind"
+  ],
   "navigator_score": 89,
-  "available_states": ["texas", "florida", "california", "georgia", "north-carolina", "arizona", "colorado", "washington", "oregon", "nevada", "ohio", "illinois", "pennsylvania", "virginia", "tennessee", "michigan", "minnesota", "new-york", "new-jersey", "utah"]
+  "available_states": [
+    "texas",
+    "florida",
+    "california",
+    "georgia",
+    "north-carolina",
+    "arizona",
+    "colorado",
+    "washington",
+    "oregon",
+    "nevada",
+    "ohio",
+    "illinois",
+    "pennsylvania",
+    "virginia",
+    "tennessee",
+    "michigan",
+    "minnesota",
+    "new-york",
+    "new-jersey",
+    "utah"
+  ],
+  "completeness_state": "complete"
 }

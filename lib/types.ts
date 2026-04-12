@@ -16,6 +16,14 @@ export type InvestmentTier = '$100K-$249K' | '$250K-$499K' | '$500K-$999K' | '$1
 export type OwnerArchetype = 'corporate-exit' | 'investor' | 'operator' | 'second-career'
 export type RevenuePattern = 'recurring' | 'repeat-transactional' | 'project-based' | 'mixed'
 
+/**
+ * Tracks how complete a brand's data is.
+ * - 'complete'  — all required fields populated, page is fully public
+ * - 'partial'   — key financials available, some fields null; page shows graceful gaps
+ * - 'stub'      — brand listed in data layer but NOT publicly visible (excluded from sitemap + browse)
+ */
+export type CompletenessState = 'complete' | 'partial' | 'stub'
+
 export interface Testimonial {
   quote: string
   name: string
@@ -115,5 +123,10 @@ export interface Franchise {
   navigator_score: number
 
   // Geographic availability (use lowercase hyphenated state slugs)
+  // Use ['all'] to indicate nationwide availability
   available_states: string[]
+
+  // Pipeline control
+  // stub = not visible publicly; partial = visible with graceful data gaps; complete = fully built
+  completeness_state: CompletenessState
 }

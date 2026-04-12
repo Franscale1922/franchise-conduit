@@ -48,7 +48,10 @@
   "revenue_pattern": "project-based",
   "recession_resistant": true,
   "growth_sector": true,
-  "lifestyle_fit_tags": ["community-impact", "recurring-revenue"],
+  "lifestyle_fit_tags": [
+    "community-impact",
+    "recurring-revenue"
+  ],
   "initial_training_days": 17,
   "training_location": "Dallas, TX + on-site certification",
   "ongoing_support": "Regional field support, insurance relationship training, proprietary estimating software, 24/7 call center",
@@ -73,8 +76,39 @@
       "background": "Former Director of Operations, construction"
     }
   ],
-  "owner_profile_archetypes": ["operator", "corporate-exit"],
-  "matching_tags": ["b2b", "insurance-driven", "restoration", "project-based", "recession-resistant"],
+  "owner_profile_archetypes": [
+    "operator",
+    "corporate-exit"
+  ],
+  "matching_tags": [
+    "b2b",
+    "insurance-driven",
+    "restoration",
+    "project-based",
+    "recession-resistant"
+  ],
   "navigator_score": 78,
-  "available_states": ["texas", "florida", "georgia", "north-carolina", "tennessee", "virginia", "ohio", "pennsylvania", "illinois", "michigan", "minnesota", "colorado", "arizona", "nevada", "washington", "utah", "new-york", "new-jersey", "california", "oregon"]
+  "available_states": [
+    "texas",
+    "florida",
+    "georgia",
+    "north-carolina",
+    "tennessee",
+    "virginia",
+    "ohio",
+    "pennsylvania",
+    "illinois",
+    "michigan",
+    "minnesota",
+    "colorado",
+    "arizona",
+    "nevada",
+    "washington",
+    "utah",
+    "new-york",
+    "new-jersey",
+    "california",
+    "oregon"
+  ],
+  "completeness_state": "complete"
 }

@@ -1,48 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+/* Fonts loaded via next/font/google in app/layout.tsx — Inter + DM Serif Display */
 
 /* ============================================================
-   DESIGN TOKENS
+   DESIGN TOKENS — GROUNDED MODERN PALETTE
+   Locked April 2026. Do not modify without updating PLATFORM_BRIEF.md Section 7.
+   Audience: 70%+ male, professional-services, trust-authority focused.
    ============================================================ */
 :root {
-  /* Color Palette */
-  --color-bg:          #080C18;
-  --color-surface:     #0F1525;
-  --color-surface-2:   #161D33;
-  --color-surface-3:   #1E2640;
-  --color-border:      rgba(255, 255, 255, 0.08);
-  --color-border-2:    rgba(255, 255, 255, 0.14);
+  /* ── Surfaces ───────────────────────────────────────────── */
+  --color-bg:          #F5F1EB;   /* warm parchment — editorial base */
+  --color-surface:     #EDE9E1;   /* card surfaces, panels */
+  --color-surface-2:   #E4E0D7;   /* nested surfaces, form backgrounds */
+  --color-surface-3:   #DAD5CB;   /* deep nested, hover states on surface-2 */
+  --color-nav-bg:      #1A2832;   /* dark slate-charcoal nav — authority contrast */
 
-  /* Brand Colors */
-  /* Primary action — institutional teal (replaces SaaS indigo as primary per 5-source research) */
-  --color-primary:       #0F6674;  /* institutional deep teal — Ramp/Carta direction */
-  --color-primary-light: #168899;  /* hover state */
-  --color-primary-dim:   rgba(15, 102, 116, 0.15);
+  /* ── Borders ────────────────────────────────────────────── */
+  --color-border:       #D4CECC;  /* card borders, dividers, form inputs */
+  --color-border-2:     #B8B2AE;  /* active borders, focus rings, strong dividers */
 
-  /* Indigo demoted to secondary/chart accent only — no longer drives CTAs or primary UI */
-  --color-indigo:      #4B5D9A;  /* muted slate-indigo — secondary/chart use only */
-  --color-indigo-light:#7B90B8;  /* muted for inactive states */
-  --color-indigo-dim:  rgba(75, 93, 154, 0.12);
-  --color-gold:        #C8A96E;  /* champagne-bronze — premium, not broker */
-  --color-gold-mid:    #D4B87A;
-  --color-gold-dim:    rgba(200, 169, 110, 0.14);
-  --color-teal:        #0D9488;  /* data/trust accent */
-  --color-teal-light:  #14B8A6;
-  --color-teal-dim:    rgba(13, 148, 136, 0.12);
-  --color-emerald:     #10B981;
-  --color-emerald-dim: rgba(16, 185, 129, 0.12);
-  --color-rose:        #F43F5E;
+  /* ── Primary brand — Deep Teal ──────────────────────────── */
+  /* Used for: Browse, Compare, How It Works, Talk to an Advisor */
+  --color-primary:       #0B5E6A;
+  --color-primary-hover: #0D7A8A;
+  --color-primary-dark:  #084A54;
+  --color-primary-dim:   rgba(11, 94, 106, 0.10);
+  /* Legacy aliases — kept for component compatibility, map to new values */
+  --color-primary-light: #0D7A8A;
 
-  /* Text */
-  --color-text-primary:   #F1F5F9;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted:     #64748B;
-  --color-text-accent:    var(--color-indigo-light);
+  /* ── CTA Accent — Copper/Amber ──────────────────────────── */
+  /* STRICT RULE: Use ONLY for the single highest-intent action per screen.
+     One copper CTA per page view. Never two. */
+  --color-cta:          #B5713A;
+  --color-cta-hover:    #C97F46;
+  --color-cta-dim:      rgba(181, 113, 58, 0.12);
+  /* Legacy alias — previous btn-gold mapped to this */
+  --color-gold:         #B5713A;
+  --color-gold-mid:     #C97F46;
+  --color-gold-dim:     rgba(181, 113, 58, 0.12);
 
-  /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'DM Serif Display', Georgia, serif;
+  /* ── Secondary Accent — Muted Bronze/Olive ──────────────── */
+  --color-accent:       #7A6E5A;  /* bronze — badges, icons, supporting elements */
+  --color-olive:        #5C6B4A;  /* olive-sage — positive indicators, growth signals */
+  --color-emerald:      #2D6A4F;  /* deeper green — positive data points */
+  --color-emerald-dim:  rgba(45, 106, 79, 0.12);
+  --color-rose:         #9B3A3A;  /* desaturated rose — error states only */
 
-  /* Spacing (8px grid) */
+  /* ── Secondary accent preserved for chart/data use ──────── */
+  --color-teal:         #0D9488;
+  --color-teal-light:   #0B5E6A;
+  --color-teal-dim:     rgba(11, 94, 106, 0.10);
+  /* Indigo — retired from UI, kept for chart compatibility only */
+  --color-indigo:       #4B5D9A;
+  --color-indigo-light: #6B7FC0;
+  --color-indigo-dim:   rgba(75, 93, 154, 0.10);
+
+  /* ── Text ───────────────────────────────────────────────── */
+  --color-text-primary:   #1C2B32;  /* near-black with slate undertone */
+  --color-text-secondary: #4A5568;  /* body copy, secondary information */
+  --color-text-muted:     #718096;  /* labels, timestamps, captions */
+  --color-text-accent:    #0B5E6A;  /* teal accent text */
+  /* Nav-specific text (on dark nav bg) */
+  --color-nav-text:       #E8E4DC;
+  --color-nav-text-muted: #9BADB8;
+
+  /* ── Score ring ─────────────────────────────────────────── */
+  --color-score-ring:   #7B95A8;  /* Navigator Score — monochrome slate */
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-sans: var(--font-inter, 'Inter', system-ui, -apple-system, sans-serif);
+  --font-serif: var(--font-serif, 'DM Serif Display', Georgia, serif);
+
+  /* ── Spacing (8px grid) ─────────────────────────────────── */
   --space-1:  4px;
   --space-2:  8px;
   --space-3:  12px;
@@ -56,26 +83,26 @@
   --space-20: 80px;
   --space-24: 96px;
 
-  /* Border Radius */
+  /* ── Border Radius ──────────────────────────────────────── */
   --radius-sm:  6px;
   --radius-md:  10px;
   --radius-lg:  16px;
   --radius-xl:  24px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
-  --shadow-lg:  0 8px 40px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 40px rgba(15, 102, 116, 0.2);  /* now references primary teal */
-  --shadow-gold-glow: 0 0 30px rgba(200, 169, 110, 0.18);
+  /* ── Shadows (lighter for light-mode) ───────────────────── */
+  --shadow-sm:  0 1px 3px rgba(28, 43, 50, 0.08);
+  --shadow-md:  0 4px 16px rgba(28, 43, 50, 0.12);
+  --shadow-lg:  0 8px 40px rgba(28, 43, 50, 0.16);
+  --shadow-glow: 0 0 40px rgba(11, 94, 106, 0.15);
+  --shadow-gold-glow: 0 0 30px rgba(181, 113, 58, 0.15);
 
-  /* Transitions */
+  /* ── Transitions ────────────────────────────────────────── */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
 
-  /* Layout */
+  /* ── Layout ─────────────────────────────────────────────── */
   --container-max: 1280px;
   --container-md:  960px;
   --container-sm:  720px;
@@ -217,7 +244,7 @@ ul, ol {
 }
 
 .card-glass {
-  background: rgba(15, 21, 37, 0.7);
+  background: rgba(237, 233, 225, 0.80);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
@@ -252,34 +279,46 @@ ul, ol {
 .btn-primary {
   background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 0 24px rgba(15, 102, 116, 0.35);
+  box-shadow: 0 2px 12px rgba(11, 94, 106, 0.25);
 }
 .btn-primary:hover {
-  background: var(--color-primary-light);
-  box-shadow: 0 0 36px rgba(15, 102, 116, 0.5);
+  background: var(--color-primary-hover);
+  box-shadow: 0 4px 20px rgba(11, 94, 106, 0.35);
   transform: translateY(-1px);
 }
 
 .btn-gold {
-  background: var(--color-gold);
-  color: #0B0F1A;
-  box-shadow: 0 0 24px rgba(200, 169, 110, 0.35);
+  background: var(--color-cta);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(181, 113, 58, 0.25);
 }
 .btn-gold:hover {
-  background: var(--color-gold-mid);
-  box-shadow: 0 0 36px rgba(200, 169, 110, 0.5);
+  background: var(--color-cta-hover);
+  box-shadow: 0 4px 20px rgba(181, 113, 58, 0.35);
+  transform: translateY(-1px);
+}
+
+/* CTA alias — use .btn-cta for the copper conversion action */
+.btn-cta {
+  background: var(--color-cta);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(181, 113, 58, 0.25);
+}
+.btn-cta:hover {
+  background: var(--color-cta-hover);
+  box-shadow: 0 4px 20px rgba(181, 113, 58, 0.35);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--color-text-primary);
-  border: 1px solid var(--color-border-2);
+  border: 1.5px solid var(--color-border-2);
 }
 .btn-outline:hover {
-  background: var(--color-surface-2);
-  border-color: var(--color-indigo);
-  color: var(--color-indigo-light);
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn-ghost {
@@ -289,7 +328,7 @@ ul, ol {
 }
 .btn-ghost:hover {
   color: var(--color-text-primary);
-  background: var(--color-surface-2);
+  background: var(--color-surface);
 }
 
 .btn-sm {
@@ -382,8 +421,8 @@ ul, ol {
 .form-input:focus,
 .form-select:focus,
 .form-textarea:focus {
-  border-color: var(--color-indigo);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(11, 94, 106, 0.12);
 }
 
 .form-select {
@@ -415,7 +454,7 @@ ul, ol {
 }
 
 .radio-card:hover {
-  border-color: var(--color-indigo);
+  border-color: var(--color-primary);
   background: var(--color-surface-3);
 }
 
@@ -426,8 +465,8 @@ ul, ol {
 }
 
 .radio-card.selected {
-  border-color: var(--color-indigo);
-  background: var(--color-indigo-dim);
+  border-color: var(--color-primary);
+  background: var(--color-primary-dim);
 }
 
 /* ============================================================
@@ -437,10 +476,10 @@ ul, ol {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(8, 12, 24, 0.85);
+  background: var(--color-nav-bg);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .nav-inner {
@@ -456,12 +495,12 @@ ul, ol {
 .nav-logo {
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  color: var(--color-text-primary);
+  color: var(--color-nav-text);
   letter-spacing: -0.02em;
 }
 
 .nav-logo span {
-  color: var(--color-indigo-light);
+  color: var(--color-primary-hover);
 }
 
 .nav-links {
@@ -475,13 +514,13 @@ ul, ol {
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--color-nav-text-muted);
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .nav-link:hover {
-  color: var(--color-text-primary);
-  background: var(--color-surface-2);
+  color: var(--color-nav-text);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav-cta {
@@ -494,7 +533,7 @@ ul, ol {
 .hero-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 55% at 40% 0%, rgba(79, 110, 247, 0.14) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(11, 94, 106, 0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -502,8 +541,8 @@ ul, ol {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(28, 43, 50, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 43, 50, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   pointer-events: none;
 }
@@ -579,9 +618,9 @@ ul, ol {
 }
 
 .franchise-card:hover {
-  border-color: rgba(15, 102, 116, 0.4);
+  border-color: rgba(11, 94, 106, 0.35);
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(15, 102, 116, 0.15);
+  box-shadow: var(--shadow-md), 0 0 0 1px rgba(11, 94, 106, 0.12);
 }
 
 /* Hover-reveal insight overlay — keeps card clean at rest */
@@ -590,7 +629,7 @@ ul, ol {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(8, 12, 24, 0.97) 0%, rgba(8, 12, 24, 0.92) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(237, 233, 225, 0.97) 0%, rgba(237, 233, 225, 0.92) 60%, transparent 100%);
   padding: var(--space-8) var(--space-5) var(--space-16);
   opacity: 0;
   transform: translateY(6px);
@@ -829,7 +868,7 @@ ul, ol {
 }
 
 .trust-item svg, .trust-item span.icon {
-  color: var(--color-indigo-light);
+  color: var(--color-primary);
   font-size: 1rem;
 }
 
@@ -853,9 +892,9 @@ ul, ol {
 }
 
 .collection-pill:hover {
-  border-color: var(--color-indigo);
-  color: var(--color-indigo-light);
-  background: var(--color-indigo-dim);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-dim);
 }
 
 /* ============================================================
@@ -876,7 +915,7 @@ ul, ol {
 
 .quiz-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--color-indigo), var(--color-indigo-light));
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-hover));
   border-radius: var(--radius-full);
   transition: width var(--transition-slow);
 }
@@ -910,14 +949,14 @@ ul, ol {
 }
 
 .tier-card:hover {
-  border-color: var(--color-indigo);
-  background: var(--color-indigo-dim);
+  border-color: var(--color-primary);
+  background: var(--color-primary-dim);
 }
 
 .tier-card.selected {
-  border-color: var(--color-indigo);
-  background: var(--color-indigo-dim);
-  box-shadow: 0 0 0 1px var(--color-indigo);
+  border-color: var(--color-primary);
+  background: var(--color-primary-dim);
+  box-shadow: 0 0 0 1px var(--color-primary);
 }
 
 .tier-amount {
@@ -987,14 +1026,14 @@ ul, ol {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
-  background: var(--color-indigo-dim);
-  border: 1px solid rgba(79, 110, 247, 0.25);
+  background: var(--color-primary-dim);
+  border: 1px solid rgba(11, 94, 106, 0.20);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
-  color: var(--color-indigo-light);
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -1055,7 +1094,7 @@ ul, ol {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 12, 24, 0.8);
+  background: rgba(28, 43, 50, 0.55);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 200;
@@ -1067,13 +1106,13 @@ ul, ol {
 }
 
 .modal-drawer {
-  background: var(--color-surface);
+  background: var(--color-bg);
   border: 1px solid var(--color-border-2);
   border-radius: var(--radius-xl);
   padding: var(--space-8);
   max-width: 480px;
   width: 100%;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.7);
+  box-shadow: var(--shadow-lg);
   animation: slideUp 0.3s ease;
 }
 
@@ -1093,8 +1132,8 @@ ul, ol {
 }
 
 .modal-step-dot.active {
-  background: var(--color-indigo);
-  box-shadow: 0 0 8px rgba(79, 110, 247, 0.5);
+  background: var(--color-primary);
+  box-shadow: 0 0 8px rgba(11, 94, 106, 0.35);
 }
 
 /* ============================================================
@@ -1110,9 +1149,9 @@ ul, ol {
 }
 
 .insight-block {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(245, 158, 11, 0.03));
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  border-left: 3px solid var(--color-indigo);
+  background: rgba(11, 94, 106, 0.04);
+  border: 1px solid rgba(11, 94, 106, 0.15);
+  border-left: 3px solid var(--color-primary);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: var(--space-5) var(--space-6);
 }
@@ -1122,7 +1161,7 @@ ul, ol {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-indigo-light);
+  color: var(--color-primary);
   margin-bottom: var(--space-3);
   display: flex;
   align-items: center;
@@ -1289,17 +1328,17 @@ ul, ol {
    HUB PAGE LINK UTILITIES
    ============================================================ */
 .seo-link:hover {
-  color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .tier-link:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary-light);
-  background: rgba(15, 102, 116, 0.08);
+  color: var(--color-primary);
+  background: var(--color-primary-dim);
 }
 
 .industry-link:hover {
   border-color: var(--color-primary);
-  color: var(--color-primary-light);
-  background: rgba(15, 102, 116, 0.08);
+  color: var(--color-primary);
+  background: var(--color-primary-dim);
 }

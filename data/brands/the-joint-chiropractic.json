@@ -48,7 +48,11 @@
   "revenue_pattern": "recurring",
   "recession_resistant": true,
   "growth_sector": true,
-  "lifestyle_fit_tags": ["recurring-revenue", "community-impact", "no-nights-weekends"],
+  "lifestyle_fit_tags": [
+    "recurring-revenue",
+    "community-impact",
+    "no-nights-weekends"
+  ],
   "initial_training_days": 12,
   "training_location": "Scottsdale, AZ + on-site",
   "ongoing_support": "Field business coaches, marketing support, proprietary scheduling system, 950-unit peer network",
@@ -62,8 +66,16 @@
   "entrepreneur_rank": 67,
   "entrepreneur_rank_year": 2025,
   "awards": [
-    { "name": "FBR Top 200 Franchises", "year": 2025, "issuer": "Franchise Business Review" },
-    { "name": "Entrepreneur Franchise 500 #67", "year": 2025, "issuer": "Entrepreneur Magazine" }
+    {
+      "name": "FBR Top 200 Franchises",
+      "year": 2025,
+      "issuer": "Franchise Business Review"
+    },
+    {
+      "name": "Entrepreneur Franchise 500 #67",
+      "year": 2025,
+      "issuer": "Entrepreneur Magazine"
+    }
   ],
   "ifa_member": true,
   "fdd_available": true,
@@ -76,8 +88,39 @@
       "background": "Former VP Sales, medical device company"
     }
   ],
-  "owner_profile_archetypes": ["corporate-exit", "investor"],
-  "matching_tags": ["semi-absentee", "recurring-revenue", "healthcare", "membership-model", "multi-unit"],
+  "owner_profile_archetypes": [
+    "corporate-exit",
+    "investor"
+  ],
+  "matching_tags": [
+    "semi-absentee",
+    "recurring-revenue",
+    "healthcare",
+    "membership-model",
+    "multi-unit"
+  ],
   "navigator_score": 85,
-  "available_states": ["arizona", "texas", "florida", "california", "georgia", "north-carolina", "virginia", "tennessee", "ohio", "illinois", "pennsylvania", "new-york", "new-jersey", "colorado", "washington", "nevada", "utah", "michigan", "minnesota", "oregon"]
+  "available_states": [
+    "arizona",
+    "texas",
+    "florida",
+    "california",
+    "georgia",
+    "north-carolina",
+    "virginia",
+    "tennessee",
+    "ohio",
+    "illinois",
+    "pennsylvania",
+    "new-york",
+    "new-jersey",
+    "colorado",
+    "washington",
+    "nevada",
+    "utah",
+    "michigan",
+    "minnesota",
+    "oregon"
+  ],
+  "completeness_state": "complete"
 }

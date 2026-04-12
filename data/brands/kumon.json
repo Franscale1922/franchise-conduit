@@ -48,7 +48,11 @@
   "revenue_pattern": "recurring",
   "recession_resistant": true,
   "growth_sector": false,
-  "lifestyle_fit_tags": ["community-impact", "no-nights-weekends", "recurring-revenue"],
+  "lifestyle_fit_tags": [
+    "community-impact",
+    "no-nights-weekends",
+    "recurring-revenue"
+  ],
   "initial_training_days": 14,
   "training_location": "Regional training centers",
   "ongoing_support": "Regional manager support, curriculum managed centrally, marketing tools, 1,500-unit US peer network",
@@ -62,7 +66,11 @@
   "entrepreneur_rank": 22,
   "entrepreneur_rank_year": 2025,
   "awards": [
-    { "name": "Entrepreneur Franchise 500 #22", "year": 2025, "issuer": "Entrepreneur Magazine" }
+    {
+      "name": "Entrepreneur Franchise 500 #22",
+      "year": 2025,
+      "issuer": "Entrepreneur Magazine"
+    }
   ],
   "ifa_member": true,
   "fdd_available": true,
@@ -75,8 +83,39 @@
       "background": "Former Senior Engineer, tech industry"
     }
   ],
-  "owner_profile_archetypes": ["second-career", "operator"],
-  "matching_tags": ["education", "recurring-revenue", "recession-resistant", "community-impact", "established-brand"],
+  "owner_profile_archetypes": [
+    "second-career",
+    "operator"
+  ],
+  "matching_tags": [
+    "education",
+    "recurring-revenue",
+    "recession-resistant",
+    "community-impact",
+    "established-brand"
+  ],
   "navigator_score": 76,
-  "available_states": ["california", "new-york", "texas", "florida", "illinois", "new-jersey", "pennsylvania", "ohio", "georgia", "north-carolina", "virginia", "washington", "minnesota", "michigan", "colorado", "arizona", "nevada", "tennessee", "utah", "oregon"]
+  "available_states": [
+    "california",
+    "new-york",
+    "texas",
+    "florida",
+    "illinois",
+    "new-jersey",
+    "pennsylvania",
+    "ohio",
+    "georgia",
+    "north-carolina",
+    "virginia",
+    "washington",
+    "minnesota",
+    "michigan",
+    "colorado",
+    "arizona",
+    "nevada",
+    "tennessee",
+    "utah",
+    "oregon"
+  ],
+  "completeness_state": "complete"
 }

@@ -48,7 +48,11 @@
   "revenue_pattern": "recurring",
   "recession_resistant": false,
   "growth_sector": true,
-  "lifestyle_fit_tags": ["recurring-revenue", "community-impact", "no-nights-weekends"],
+  "lifestyle_fit_tags": [
+    "recurring-revenue",
+    "community-impact",
+    "no-nights-weekends"
+  ],
   "initial_training_days": 21,
   "training_location": "Baltimore, MD HQ + on-site",
   "ongoing_support": "Director training, curriculum support, marketing platform, real estate assistance, field coaches",
@@ -73,8 +77,40 @@
       "background": "Former Managing Partner, private equity"
     }
   ],
-  "owner_profile_archetypes": ["investor", "corporate-exit"],
-  "matching_tags": ["semi-absentee", "education", "childcare", "recurring-revenue", "multi-unit", "premium"],
+  "owner_profile_archetypes": [
+    "investor",
+    "corporate-exit"
+  ],
+  "matching_tags": [
+    "semi-absentee",
+    "education",
+    "childcare",
+    "recurring-revenue",
+    "multi-unit",
+    "premium"
+  ],
   "navigator_score": 84,
-  "available_states": ["maryland", "virginia", "pennsylvania", "new-york", "new-jersey", "north-carolina", "georgia", "florida", "texas", "ohio", "illinois", "michigan", "minnesota", "colorado", "arizona", "california", "washington", "tennessee", "nevada", "utah"]
+  "available_states": [
+    "maryland",
+    "virginia",
+    "pennsylvania",
+    "new-york",
+    "new-jersey",
+    "north-carolina",
+    "georgia",
+    "florida",
+    "texas",
+    "ohio",
+    "illinois",
+    "michigan",
+    "minnesota",
+    "colorado",
+    "arizona",
+    "california",
+    "washington",
+    "tennessee",
+    "nevada",
+    "utah"
+  ],
+  "completeness_state": "complete"
 }
