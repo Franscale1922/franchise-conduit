@@ -71,11 +71,11 @@ function Nav() {
           <a href="/franchises" className="nav-link">Browse Franchises</a>
           <a href="/how-it-works" className="nav-link">How It Works</a>
           <a href="/resources" className="nav-link">Resources</a>
-          <a href="/methodology" className="nav-link">Our Research</a>
+          <a href="/contact" className="nav-link">Talk to an Advisor</a>
         </div>
         <div className="flex gap-3 nav-cta">
           <a href="/quiz" className="btn btn-outline btn-sm">Take the Quiz</a>
-          <a href="/contact" className="btn btn-primary btn-sm">Talk to an Advisor</a>
+          <a href="/franchises" className="btn btn-primary btn-sm">Start Exploring</a>
         </div>
       </div>
     </nav>

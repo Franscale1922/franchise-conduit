@@ -153,10 +153,11 @@ Every page, section, and piece of content operates on two layers:
 
 All affirmation framing. Never defensive:
 - `◈ Independent research on every brand`
-- `◉ Advisor-guided introductions only — no cold connects`
+- `◉ Free to use — create an account to unlock full financials`
 - `◎ FDD data and unit economics available on every listing`
 - `◐ Opportunities from $100K across 12 industries`
 - `✦ Brand rankings are not influenced by listing fees`
+- `◌ An advisor is always available — never required`
 
 ---
 
@@ -238,7 +239,8 @@ Brand pages must gracefully handle incomplete data:
 | April 2026 | FDD pipeline is a first-class building block, not an afterthought | 350 brands requires automation; manual build is not viable |
 | April 2026 | Stage document system adopted from BizConnect Caribbean playbook | Clear definition of "done" prevents drift across sessions |
 | April 2026 | Palette locked: Grounded Modern — warm stone base (#F5F1EB), deep teal primary (#0B5E6A), charcoal text (#1C2B32), muted bronze accent (#7A6E5A), copper CTA (#B5713A), dark nav (#1A2832) | Research confirmed: 70%+ male professional-services audience prefers trust, clarity, depth over expressive styling. Light-mode editorial — not dark premium, not SaaS consumer. |
-| April 2026 | DM Serif Display for hero/h2, Inter for all other UI | Typography system carries forward from v1 — confirmed correct |
+| April 2026 | **Lead capture model: self-serve first** — Account creation (email) gates financial detail on brand pages. No advisor required to access data. Advisor contact is always available but never a requirement to progress. Email drip (Resend) is the primary conversion mechanism that warms candidates into advisor conversations over time. Model mirrors Franzy's approach. | Candidate archetype (self-directed, private decision) needs to move at their own pace. Hard advisor CTAs create friction and reduce conversion volume. Email volume matters more than immediate conversations. |
+| April 2026 | **Nav primary CTA: account/explore — not advisor contact** — "Talk to an Advisor" is always accessible (nav link or footer) but not the featured button. Primary nav CTA is low-friction entry ("Start Exploring" / "Create Free Account"). | Consistent with self-serve philosophy. Users who want an advisor will find one. Users who don't will still convert via email. |
 | April 2026 | Navigator Score demoted from primary mechanic to supporting credibility signal | Candidate archetype responds better to warmth + clarity than to scoring systems |
 | April 2026 | Redirect map in next.config.js is locked — never modify without reading Section 9 | DA 27 / 618 root domains; a single unplanned 404 destroys 10+ years of equity |
 
