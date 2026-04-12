@@ -125,6 +125,8 @@ Track all environment variables as they are added.
 
 | Variable | Added in Stage | Value | Notes |
 |----------|---------------|-------|-------|
+| `GOOGLE_SHEET_ID` | Stage 3 | `1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU` | Master FDD brand data spreadsheet |
+| `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` | Stage 3 | `credentials/fddapi-service-account.json` | Service account: `franchiseconduit@franchiseconduitfddapi.iam.gserviceaccount.com` |
 | `RESEND_API_KEY` | Stage 7 | — | From resend.com dashboard |
 | `EMAIL_FROM` | Stage 7 | — | e.g. noreply@franchiseconduit.com — domain must be verified in Resend |
 | `ADVISOR_EMAIL` | Stage 7 | — | Waypoint advisor notification inbox |

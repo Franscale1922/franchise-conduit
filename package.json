@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "brands:sync": "node data/scripts/sync_from_sheet.js",
+    "brands:sync:dry": "node data/scripts/sync_from_sheet.js --dry-run",
+    "brands:sync:brand": "node data/scripts/sync_from_sheet.js --brand"
   },
   "dependencies": {
+    "googleapis": "^144.0.0",
     "next": "14.2.29",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
