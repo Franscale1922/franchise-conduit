@@ -19,11 +19,105 @@
 
 ---
 
-You are a franchise disclosure document (FDD) analyst. I am attaching an FDD PDF. Your job is to extract specific data fields and return them as a single, tab-separated row that I will paste into a spreadsheet.
+You are a franchise disclosure document (FDD) analyst for FranchiseConduit.com. I am attaching an FDD PDF. Extract specific data fields and return them as a **single tab-separated row** to paste into a Google Sheet.
 
-**Output format:** Return ONLY the tab-separated row. No headers. No explanation before or after the row. Each value separated by a tab character. Empty string for fields you cannot find. Flag uncertain values by adding a `?` at the end of the value (e.g., `245000?`).
+---
 
-**Extract these fields in exactly this order:**
+### OUTPUT RULES (read before extracting anything)
+
+1. Return ONLY the tab-separated data row. No headers. No explanation. No markdown.
+2. One value per field, separated by tab characters.
+3. Use empty string `""` — or just leave the tab gap — for any field you cannot find.
+4. Add `?` to the end of any value you are uncertain about (e.g. `245000?`).
+5. **Numbers:** integers or decimals only — no `$`, no `%`, no commas. Example: `245000` not `$245,000`.
+6. **Booleans:** use exactly `true` or `false` — never Yes/No, never 1/0.
+7. **Lists:** comma-separated values, no brackets, no quotes. Example: `TX,FL,CA` not `["TX","FL","CA"]`.
+8. **Enums:** use ONLY the exact values listed below — no variations, no capitalization differences.
+
+---
+
+### CONTROLLED VOCABULARIES — USE EXACT VALUES ONLY
+
+**business_model** — pick exactly one:
+- `owner-operator` — requires owner to work in the business daily
+- `semi-absentee` — owner manages a manager, works 10-20 hrs/week or less
+- `manager-model` — owner is fully executive, a hired manager runs operations daily
+- `passive` — investment model, minimal owner involvement
+
+**investment_tier** — pick exactly one based on investment_min:
+- `$100K-$249K` — if investment_min is under $250,000
+- `$250K-$499K` — if investment_min is $250,000–$499,999
+- `$500K-$999K` — if investment_min is $500,000–$999,999
+- `$1M+` — if investment_min is $1,000,000 or more
+
+**territory_type** — pick exactly one:
+- `exclusive` — franchisee has an exclusive territory, no other units can open within it
+- `protected` — some protection but not fully exclusive
+- `open` — no territory protection
+
+**brand_maturity** — pick exactly one based on year_franchising_began:
+- `emerging` — began franchising less than 5 years ago
+- `growth` — began franchising 5–10 years ago
+- `established` — began franchising more than 10 years ago
+
+**target_customer** — pick exactly one:
+- `b2b` — sells primarily to businesses
+- `b2c` — sells primarily to consumers
+- `mixed` — significant revenue from both
+
+**revenue_pattern** — pick exactly one:
+- `recurring` — subscription, membership, scheduled repeat service (mowing, cleaning, etc.)
+- `repeat-transactional` — repeat customers but no subscription (e.g. restaurants, retail)
+- `project-based` — one-time or irregular projects (restoration, painting, etc.)
+- `mixed` — meaningful mix of recurring and project-based
+
+**completeness_state** — pick exactly one:
+- `complete` — you filled in all required fields with high confidence
+- `partial` — some required fields are blank or uncertain (marked with ?)
+
+**industry_primary** — pick exactly one:
+- `Home Services`
+- `Senior Care & Home Health`
+- `Health & Wellness`
+- `Business Services`
+- `Food & Beverage`
+- `Education & Learning`
+- `Fitness & Sports`
+- `Beauty & Personal Care`
+- `Pets`
+- `Restoration & Remediation`
+- `Property Services`
+- `Retail`
+- `Staffing & Recruiting`
+- `Technology`
+- `Travel & Hospitality`
+
+**owner_profile_archetypes** — pick one or more, comma-separated:
+- `corporate-exit` — leaving a corporate career, first business
+- `investor` — deploying capital, wants ROI with low involvement
+- `operator` — wants to run the business hands-on
+- `second-career` — retirement-age pivot, lifestyle focus
+
+**lifestyle_fit_tags** — pick all that genuinely apply, comma-separated:
+- `flexible-hours`
+- `home-based`
+- `low-overhead`
+- `community-focused`
+- `mission-driven`
+- `repeat-customers`
+- `scalable`
+- `passive-income`
+- `high-touch-sales`
+- `service-business`
+- `b2b-relationships`
+- `executive-friendly`
+
+**available_states** — comma-separated uppercase 2-letter state codes, or:
+- `all` — if the franchise is available nationwide without restrictions
+
+---
+
+### FIELDS TO EXTRACT (52 fields, in this exact order)
 
 | # | Field | Where to find it | Notes |
 |---|-------|-----------------|-------|
