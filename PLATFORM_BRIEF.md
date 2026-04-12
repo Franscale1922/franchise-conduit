@@ -1,341 +1,276 @@
-# FranchiseConduit.com — Platform True North Brief
-> **Version:** 1.1 · **Last updated:** April 1, 2026
-> **Purpose:** Load this file at the start of any chat session to resume work instantly. All decisions are final unless marked 🔄 OPEN.
-> **Codebase:** `/Users/kelseystuart/Projects/Franchise Conduit` · Next.js App Router · TypeScript
+# FranchiseConduit.com — Platform Brief
+**Version:** 2.0 | **Revised:** April 2026 | **Status:** Active
+
+> **How to use this document:**
+> Read it at the start of every build session. It is the authoritative record of all locked decisions.
+> Decisions are logged in Section 7. Do not reverse or contradict locked decisions without a new log entry.
+> For routing and redirect decisions — always read Section 9 first.
 
 ---
 
-## 1. Platform Mission & Positioning
+## 1. Platform Purpose & Strategy
 
-### The One-Line Brief
-> **Franchise Conduit is the executive-grade franchise investment platform for serious investors. We start the conversation at $100K and serve every tier up to $2M+. We are the Pitchbook of franchising — not the Zillow.**
+FranchiseConduit.com is an **education-first franchise discovery platform** that exists to generate qualified consulting leads for Waypoint Franchise Advisors (and select partner franchise sales teams).
 
-### The Problem We Solve
-The existing franchise discovery market is split between:
-- **Lead farms** (FranConnect, Entrepreneur.com) — paid-to-rank directories that blast form submissions to franchisors
-- **Brokers** (FranServe, FranChoice) — advisor-driven but opaque and commission-motivated
-- **Consumer aggregators** (Franzy, Franchise Gator) — AI matching for "anyone," no investment floor, light data
+**It is not a franchise marketplace charging brands for listings.** Brands are listed free of charge. The brand catalog is the draw that brings candidates to the platform. The platform's job is to convert franchise-curious candidates into introductions with a Waypoint advisor.
 
-**The gap**: No platform currently serves the serious franchise investor (starting at $100K, scaling to $2M+) with the rigor that Pitchbook serves the VC investor. That gap is Franchise Conduit's market.
+### The Business Model
+```
+Candidate discovers FC → Explores brands + education content
+→ Takes action (quiz, contact, brand inquiry)
+→ Waypoint advisor relationship begins
+→ Franchise introduction made
+→ Consulting revenue earned
+```
 
-### Target Audience (Precise)
-| Segment | Description |
-|---------|-------------|
-| **Primary** | Corporate executive or senior professional, 40–58, $100K–$2M liquid to deploy, looking for manager-model or semi-absentee ownership |
-| **Secondary** | Multi-unit investor expanding portfolio; already owns one franchise, evaluating a second category |
-| **Anti-audience** | First-time entrepreneur with <$100K, "want to be my own boss" motivated, not capital-deployment motivated |
+### The Candidate — "The Quietly Decided"
+The FC candidate is:
+- **Age:** 40–60
+- **Background:** Corporate career or upper blue-collar (manager, director, VP, skilled tradesperson who has built up)
+- **Gender:** ~70% male
+- **Financial:** Liquid capital available for investment. Not a first-time saver.
+- **Mindset:** Has already made the internal decision to explore business ownership. Has not yet taken external action or told anyone. This is a significant, private moment.
+- **Triggers:** Burnout, ceiling hit, voluntary exit, layoff, semi-retirement, or desire to build generational wealth
 
-### Competitive Positioning vs. Franzy (Primary Competitor)
-Franzy raised $2.2M seed (July 2025) and calls itself the "Zillow of franchising." Their UX says "anyone can start in 15 seconds." Our UX says "your inquiry is reviewed by an advisor before introduction."
+**Anti-audience:** First-time entrepreneurs with no capital, "want to be my own boss" motivation without financial depth, impulse browsers.
 
-| Dimension | Franzy | Franchise Conduit |
-|-----------|--------|-------------------|
-| Audience | Mass consumer, any budget | Serious investor, $100K+ entry (tiered up to $2M+) |
-| Discovery | AI matching, volume-based | Curated, advisor-backed |
-| Data | Gated behind email in 15 sec | Visible upfront, investor-grade |
-| Rankings | "Spotlight" = paid placement | Franchisee-data ranked, no pay-to-rank |
-| Design | Light SaaS consumer | Dark premium investment platform |
-| Score system | "Franzy Fit Score" (matching) | Navigator Score (independent quality rating) |
-| Introductions | Direct contact tool | Advisor-reviewed before introduction |
+### The Headline Orientation
+It's not *"Should you own a franchise?"* — it's **"You've decided. Here's what's next."**
+The platform affirms the decision. It does not try to make it.
 
 ---
 
-## 2. Design System — LOCKED ✅
+## 2. The Two-Layer UX Philosophy
 
-### 2a. Color Palette (5-Source Research Confirmed)
+Every page, section, and piece of content operates on two layers:
 
-| Token | Value | Usage | Decision Basis |
-|-------|-------|-------|----------------|
-| `--color-bg` | `#080C18` | Page background | 4/5 sources: dark premium |
-| `--color-surface` | `#0F1525` | Cards, panels | — |
-| `--color-surface-2` | `#161D33` | Nested surfaces | — |
-| `--color-surface-3` | `#1E2640` | Deep nested | — |
-| **`--color-primary`** | **`#0F6674`** | **All primary CTAs, btn-primary** | **4/5 sources: institutional teal (Ramp/Carta direction)** |
-| `--color-primary-light` | `#168899` | Hover/glow | — |
-| `--color-indigo` | `#4B5D9A` | Charts, secondary accents ONLY | All 5 sources: demoted from primary |
-| `--color-gold` | `#C8A96E` | Champagne-bronze — premium CTAs, gold badge | Desaturated from #F59E0B to avoid "broker" read |
-| `--color-teal` | `#0D9488` | Data trust accent, score rings | Second trust/data color token |
-| `--color-emerald` | `#10B981` | Positive indicators, checkmarks | — |
+### Layer 1 — The Surface (most users stop here)
+- Minimal text. One clear idea per section.
+- Headline + 2-line subhead maximum.
+- One CTA per section.
+- Billboard test: can a candidate understand the single idea in 5 seconds?
+- Communicates: *"We know the path. You're in the right place."*
+- Does NOT require the user to know anything about franchising.
 
-> **Critical**: Franzy is 100% light mode. Our dark mode is the clearest visual differentiator. Do NOT introduce light mode.
+### Layer 2 — The Depth (seekers click in)
+- Rich detail available behind CTAs, accordions, subpages, or modals.
+- FDD data, financial analysis, industry breakdowns, process guides.
+- Respects the user's intelligence without demanding it upfront.
+- Communicates: *"We have done the homework so you don't have to start from scratch."*
 
-### 2b. Typography (Confirmed ✅ / one item 🔄 OPEN)
+**Rule:** Never put Layer 2 content in a Layer 1 position. Every section must pass the billboard test before rich content is added beneath it.
+
+---
+
+## 3. Brand Voice & Tone
+
+| Attribute | Description |
+|-----------|-------------|
+| **Warm** | Like a trusted friend who has done this before and wants to help you succeed |
+| **Encouraging** | Affirms the candidate's instinct. Never hedges or adds doubt. |
+| **Clear** | No jargon. No franchise-industry insider language on Layer 1. |
+| **Credible** | Substantive. Behind the warmth is deep knowledge. |
+| **Respectful** | Treats the candidate as an intelligent adult who has a lot on the line |
+
+**The voice is NOT:**
+- Corporate or formal
+- Pushy or sales-driven
+- Overwhelming or data-heavy at first contact
+- Edgy, trendy, or trying to sound like a startup
+
+---
+
+## 4. Design System
+
+> ⚠️ **OPEN DECISION — Design Palette Direction**
+> The palette direction has not yet been finalized. Three options are under consideration:
+> - **Option A:** Keep dark background (#080C18) — no design rebuild required
+> - **Option B:** Hybrid — dark hero for authority, light body for warmth (recommended)
+> - **Option C:** Full light mode redesign
+>
+> **This decision is required before Stage 2 begins. Do not change globals.css until Kelsey approves a direction.**
+> Update this section when the decision is made and log it in Section 7.
+
+### 4a. Color Palette (Pending palette direction — tokens below are current / may update)
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--color-bg` | `#080C18` | Page background (current — may change) |
+| `--color-surface` | `#0F1525` | Cards, panels |
+| `--color-surface-2` | `#161D33` | Nested surfaces |
+| `--color-primary` | `#0F6674` | Primary CTAs |
+| `--color-primary-light` | `#168899` | Hover states |
+| `--color-gold` | `#C8A96E` | Premium CTAs, accent moments |
+| `--color-teal` | `#0D9488` | Data trust accent |
+| `--color-emerald` | `#10B981` | Positive indicators |
+
+### 4b. Typography (Confirmed ✅)
 
 | Element | Typeface | Weight | Size |
 |---------|----------|--------|------|
-| h1, hero statements | **DM Serif Display** | 400 | `clamp(2.25rem, 5vw, 3.5rem)` — letter-spacing: -0.015em |
-| h2 section heads | DM Serif Display | 400 | `clamp(1.75rem, 3vw, 2.5rem)` |
-| Pull quotes | DM Serif Display | 400 | `1.125rem` (italic variant) |
-| All other UI | **Inter** | 300–700 | Context-dependent |
+| Hero h1, major headers | DM Serif Display | 400 | `clamp(2.25rem, 5vw, 3.5rem)` |
+| Section h2 | DM Serif Display | 400 | `clamp(1.75rem, 3vw, 2.5rem)` |
+| All other UI | Inter | 300–700 | Context-dependent |
 | Nav links | Inter | 500 | `0.9rem` |
 | Buttons/CTAs | Inter | 600 | `0.9375rem` |
 | Labels/badges | Inter | 500–600 | `0.75rem` uppercase |
 
-**Rule**: Serif NEVER appears in badges, nav, data tables, forms, or card metadata.
+**Rule:** Serif (DM Serif Display) NEVER appears in badges, nav, data tables, forms, or card metadata.
 
-**🔄 OPEN — Typography Upgrade**: Canela/Editorial New recommended by ChatGPT + Claude (stronger editorial authority). Requires font licensing. Deferred to Sprint 3. DM Serif Display is the correct current implementation.
+### 4c. Navigator Score System
 
-### 2c. Homepage Layout (Confirmed ✅)
+- **Ring:** Monochrome slate `#7B95A8` — single color, no traffic lights
+- **Category label:** `Exceptional` / `Strong` / `Solid` / `Moderate` / `Developing`
+- **Hover:** Links to `/methodology`
+- **Function:** Credibility signal. Demoted from primary experience driver to supporting element.
+- **Critical:** Navigator Score means nothing without `/methodology` content. That page is P0.
 
-Full-width centered editorial (4/5 research sources: Cadre/AngelList/Yieldstreet pattern):
+### 4d. Franchise Cards
 
+**At rest:** Brand name · Industry badge · 3 key stats · Navigator ring · Business model badge · "View profile →"
+**On hover:** Market intelligence brief overlay · Card lifts · Teal border glow
+
+**Layer 1 principle:** Cards show enough to intrigue, not enough to overwhelm. Detailed financials available on the brand detail page.
+
+### 4e. Trust Copy System
+
+All affirmation framing. Never defensive:
+- `◈ Independent research on every brand`
+- `◉ Advisor-guided introductions only — no cold connects`
+- `◎ FDD data and unit economics available on every listing`
+- `◐ Opportunities from $100K across 12 industries`
+- `✦ Brand rankings are not influenced by listing fees`
+
+---
+
+## 5. Content Architecture
+
+### Brand Catalog
+- **Target volume:** ~350 brands eventually
+- **Starting build:** 2–3 fully built brand pages to establish the "complete brand page" standard
+- **Brand data source:** FDD pipeline (see Section 6)
+- **Brand listing cost:** Free. This is intentional. Brands are bait.
+
+### Page Hierarchy
+
+| Route | Purpose | Status |
+|-------|---------|--------|
+| `/` | Homepage — candidate orientation + trust | ✅ Scaffolded, needs revision |
+| `/franchises` | Browse + filter | ✅ Scaffolded |
+| `/franchises/[slug]` | Brand detail (FDD-powered) | ✅ Scaffolded |
+| `/franchises/industries/[category]` | Industry hubs — SEO P0 | 🔴 Route exists, content TBC |
+| `/franchises/locations/[state]` | State hubs — SEO P0 | 🔴 Route exists, content TBC |
+| `/collections/[slug]` | Curated groupings | ✅ Scaffolded |
+| `/quiz` | Intake / matching | ✅ Scaffolded |
+| `/how-it-works` | Candidate journey education | 🔴 Needs build |
+| `/methodology` | Navigator Score explainer | ⚠️ Route exists, P0 content |
+| `/about` | Waypoint context + team | 🔴 Must build (pre-cutover) |
+| `/contact` | Lead capture + advisor intro | 🔴 Must build (pre-cutover) |
+| `/resources` | Education hub | 🔴 Must build (pre-cutover) |
+| `/resources/fdd` | FDD explainer | ✅ Built |
+| `/privacy-policy` | Legal | 🔴 Must build (pre-cutover) |
+
+---
+
+## 6. The FDD Pipeline
+
+> This is the most operationally critical infrastructure to build before scaling brands.
+
+### Purpose
+Enable a brand to be added to FC by providing:
+1. FDD (PDF)
+2. Brand website URL
+3. Any supplemental collateral (brochures, Item 19, press)
+
+And output: a fully structured brand JSON file that auto-generates a complete brand detail page.
+
+### Pipeline
 ```
-[NAV — sticky, blur backdrop, 68px]
-[HERO — centered max-width 780px]
-  Eyebrow badge → H1 (DM Serif) → Subhead → Gold CTA + Outline CTA → 3-stat proof bar
-[TRUST BAR — scrolling ticker, teal icons]
-[INVESTMENT TIER SELECTOR — below fold, not in hero]
-[COLLECTIONS GRID — grid-3 FranchiseCards]
-[SEMI-ABSENTEE SPOTLIGHT — grid-2 editorial + 3 inline brand cards]
-[HOW IT WORKS — grid-4 step cards]
-[AUTHORITY SECTION — grid-2: trust pillars + testimonial cards]
-[BOTTOM CTA — centered]
-[SEO LINK GRID — below CTA, above footer] ← TO BE ADDED Sprint 2
-[FOOTER]
-```
-
-### 2d. Navigator Score System (Confirmed ✅)
-
-- **Ring**: Monochrome slate `#7B95A8` — single color, no traffic lights
-- **Category label primary** (shown always): `Exceptional` / `Strong` / `Solid` / `Moderate` / `Developing`
-- **Numeric score secondary** (same muted slate color)
-- **Hover**: Methodology link appears → `/methodology`
-- **Tooltip text**: "Navigator Score — view scoring criteria →"
-- **Source**: 4/5 sources category-first; Claude + Gemini + Morningstar reference for monochrome
-
-> Without `/methodology` content, the score ring is decorative. This is Sprint 2 P0.
-
-### 2e. Franchise Cards (Confirmed ✅)
-
-**At rest**: Logo · Brand name + industry badge · 3-stat bar (Cash/AUV/Hours) · Navigator ring + Category · Business model badge · Text-link "View full profile →"
-
-**On hover**: Market Intelligence overlay fades in · Methodology link appears · Card lifts -3px, teal border glow
-
-### 2f. Trust Copy System (Confirmed ✅)
-
-All affirmative framing (Consumer Reports / Morningstar pattern):
-- `◈ Independent rankings powered by verified franchisee data`
-- `◉ Advisor-routed introductions only`
-- `◎ FDD and unit economics on every listing`
-- `◐ Opportunities starting at $100K`
-- `✦ Brand spending cannot influence ranking`
-
-### 2h. Homepage Color Accents (Manual edits — April 1, 2026 ✅)
-
-User refined specific accent colors in `app/page.tsx` after initial sprint:
-
-| Element | Before | After | Rationale |
-|---------|--------|-------|-----------|
-| Semi-Absentee spotlight headline ("Don't work in it") | `--color-indigo-light` | `--color-gold` | Gold reads as premium aspiration on the ownership/wealth statement |
-| How It Works steps 01 & 04 label color | `--color-indigo-light` | `--color-primary-light` | Aligns step labels with the primary teal — consistent system |
-| Bottom CTA primary button | `btn-primary` (teal) | `btn-gold` (champagne-bronze) | Gold CTA at page bottom = aspirational close, matches hero CTA energy |
-
-### 2g. Testimonial Cards (CSS Ready ✅ / Content 🔄 OPEN)
-
-Format: `[Outcome badge] → [Pull quote] → [Name / Role / Tenure / Former company]`
-CSS classes exist: `.testimonial-outcome` `.testimonial-quote` `.testimonial-name` `.testimonial-role` `.testimonial-former`
-🔄 OPEN: Real headshots needed. Add `.testimonial-company` sub-element.
-
----
-
-## 3. Implementation Status
-
-### ✅ Built
-| File | Notes |
-|------|-------|
-| `app/globals.css` | 1,287 lines. Full design token system. All Q1–Q8 decisions implemented. |
-| `app/page.tsx` | Complete homepage with all sections. 402 lines. |
-| `app/layout.tsx` | Nav, footer, Google Fonts (Inter + DM Serif Display). |
-| `components/FranchiseCard.tsx` | Score ring, hover insight overlay, text-link CTA. |
-| `lib/data.ts` | Franchise data, 34KB. Schema + collection helpers + formatters. |
-| `app/franchises/page.tsx` | Listings with filter sidebar. |
-| `app/franchises/[slug]/` | Brand detail page route. |
-| `app/collections/[slug]/` | Collection pages. |
-| `app/quiz/` | Intake quiz route. |
-| `app/methodology/` | Route exists — content completeness unconfirmed. |
-| `app/resources/fdd` | FDD resource page. |
-| `app/sitemap.ts` | Static pages + brand slugs. |
-| `app/robots.ts` | Blocks dynamic filter params. |
-
-### 🔄 Incomplete / Missing
-| Item | Priority |
-|------|----------|
-| `/methodology` page content | 🔴 P0 — Makes the Navigator Score credible |
-| Industry hub pages `/franchises/industries/[category]` | 🔴 P0 — Biggest SEO gap vs. Franzy |
-| State hub pages `/franchises/locations/[state]` | 🔴 P0 — Biggest SEO gap vs. Franzy |
-| Homepage SEO link grid (bottom section) | �� P0 — Feeds crawl budget to hub pages |
-| Testimonial real headshots + company field | 🟡 P2 |
-| Franchise comparison tool | 🟡 P2 |
-| Financing integration on detail pages | 🟡 P2 |
-| Canela/Editorial New font | 🟢 P3 — Deferred, requires licensing |
-| Blog content strategy | 🟡 P2 — Investor-grade, not Franchising 101 |
-| Beehiiv newsletter | 🟡 P2 |
-
----
-
-## 4. SEO Architecture
-
-### Current Sitemap Pages
-- Priority 1.0: `/`
-- Priority 0.9: `/franchises`, `/quiz`, all brand slugs
-- Priority 0.85: `/collections/semi-absentee`, `/collections/most-profitable`
-- Priority 0.8: `/methodology`, `/resources/fdd`, remaining collections
-
-### Critical SEO Gap — Franzy Has 67 Hub Pages We Don't
-
-Franzy has programmatic hub pages at priority 0.9:
-- 17 industry pages: `/franchises/industries/[category]`
-- 50 state pages: `/franchises/locations/[state]`
-- 4 feature pages: `/franchises/features/[feature]`
-
-These capture keyword searches like "fitness franchises for sale Texas" which we currently miss entirely.
-
-### Sprint 2 SEO Build Plan
-1. `app/franchises/industries/[category]/page.tsx` — 12 industry categories
-2. `app/franchises/locations/[state]/page.tsx` — top 20 states by franchise activity
-3. Bottom-of-homepage SEO link grid in `app/page.tsx`
-4. Update `sitemap.ts` to include all hub pages at priority 0.9
-
-### Title Tag Patterns
-| Page | Format |
-|------|--------|
-| Homepage | `Franchise Conduit — Advisor-Matched Franchise Discovery for Serious Investors` |
-| Brand detail | `[Brand] Franchise: Investment Analysis, AUV & FDD Data — Franchise Conduit` |
-| Industry hub | `[Industry] Franchises for Serious Investors — Franchise Conduit` |
-| State hub | `[State] Franchise Opportunities — Curated for Serious Investors — Franchise Conduit` |
-| Methodology | `Navigator Score Methodology — How We Rank Franchises — Franchise Conduit` |
-
-### robots.txt Pattern (Current — Correct)
-Block all dynamic filter query params. Allow all static routes. Same pattern as Franzy.
-
----
-
-## 5. Full Build Roadmap
-
-### ✅ Sprint 1 — Design System (COMPLETE)
-Q1–Q8 all implemented. 156 insertions / 81 deletions. globals.css + page.tsx + FranchiseCard.tsx.
-
-### 🔴 Sprint 2 — SEO Infrastructure (NEXT)
-| Task | File | Status |
-|------|------|--------|
-| Industry hub pages (12 categories) | `app/franchises/industries/[category]/page.tsx` | 🔴 TODO |
-| State hub pages (top 20 states) | `app/franchises/locations/[state]/page.tsx` | 🔴 TODO |
-| Homepage SEO link grid | `app/page.tsx` — new section above footer | 🔴 TODO |
-| Add state field to data schema | `lib/data.ts` — add `available_states: string[]` | 🔴 TODO |
-| Update sitemap | `app/sitemap.ts` | 🔴 TODO |
-| Methodology page content | `app/methodology/page.tsx` | 🔴 TODO |
-| Navigator methodology tooltip text | `components/FranchiseCard.tsx` | 🔴 TODO |
-
-### 🟡 Sprint 3 — Conversion & UX Depth
-- Franchise comparison tool (side-by-side, 2 brands, 8+ fields)
-- Financing integration on brand detail pages
-- Brand detail page tab structure (Overview / Financial Analysis / Territory / FDD Items)
-- Testimonial headshots + company field
-- Authority section headline evaluation
-
-### 🟢 Sprint 4 — Owned Media & Moat
-- Investor-grade blog (EBITDA analysis, FBR summaries, unit economics — NOT Franchising 101)
-- Beehiiv newsletter (weekly investor digest)
-- Podcast (executive franchisee interviews, P&L at 18 months)
-- LinkedIn entity strategy for AEO
-- Franchise resale marketplace (advisory-curated only — monitor Franzy's $2.2M play)
-
----
-
-## 6. Data Schema Quick Reference
-
-```typescript
-// lib/data.ts — franchise object shape
-{
-  id: string
-  brand_name: string
-  brand_slug: string
-  brand_logo_emoji: string
-  industry: string                  // used by industry hub pages
-  business_model: 'semi-absentee' | 'owner-operator' | 'manager-model' | 'passive'
-  navigator_score: number           // 1–100, drives the ring
-  cash_required_min: number
-  cash_required_max: number
-  total_investment_min: number
-  total_investment_max: number
-  franchise_fee: number
-  royalty_fee_pct: number
-  avg_unit_volume: number           // AUV
-  hours_per_week_typical: string
-  franchisee_count: number
-  years_franchising: number
-  market_intelligence: string       // long-form market brief
-  collections: string[]             // collection slugs
-  // TO ADD for Sprint 2:
-  // available_states: string[]
-}
+INPUT: FDD PDF + website URL + collateral
+    ↓
+EXTRACTION (data/scripts/parse_fdd.py → LLM-assisted)
+    → Structured data → brand JSON (lib/types.ts Franchise interface)
+    → Market intelligence brief copy
+    → QA checklist review
+    ↓
+GENERATION
+    → /franchises/[slug] auto-generated from JSON
+    → Sitemap entry added
+    → Collection membership assigned by tags
 ```
 
+### Brand Completeness States
+Brand pages must gracefully handle incomplete data:
+- **Complete** — all Franchise interface fields populated
+- **Partial** — key financials available, some fields pending
+- **Stub** — brand listed, data collection in progress (not publicly visible)
+
 ---
 
-## 7. Non-Negotiable Decisions Log
+## 7. Decisions Log
 
-| Decision | Rationale |
-|----------|-----------|
-| Dark mode only (`#080C18`) | Franzy is 100% light. Dark = primary visual differentiator. Yieldstreet/Cadre/Brex validate dark for investment platforms. |
-| Institutional teal `#0F6674` as primary | 4/5 sources. Franzy uses indigo. Teal differentiates while remaining in trust-signal family. |
-| Indigo demoted to charts/secondary | All 5 sources agreed: indigo-as-primary is SaaS-generic. |
-| Champagne-bronze `#C8A96E` not gold `#F59E0B` | Saturated gold = real estate agent. C8A96E = private club. |
-| DM Serif Display for hero headlines | Franzy uses zero serif. Editorial serif = authority tier above Franzy (The Economist / FT pattern). |
-| Navigator Score: monochrome ring, category-first | 4/5 sources. Traffic-light = manufactured. Monochrome + category = Morningstar pattern. |
-| "Brand spending cannot influence ranking" | 5/5 sources: affirmative framing beats defensive. Franzy's "Spotlight" paid badges undermine their "unbiased" claim — this is our attack vector. |
-| Advisor-reviewed introductions | Core UX differentiation from Franzy's "Connect Tool." The gate is a quality filter, not a lead blast. |
-| $100K+ starting investment | Option B tiered messaging — platform serves $100K+ investors; featured collections naturally tier upward. Single-unit buyers at $100K produce relevant revenue and long-term multi-unit value. Locking out this tier was leaving money on the table. Decision: April 1, 2026. |
+> All locked decisions are recorded here. Future sessions must not reverse or contradict these.
+
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| April 2026 | Business model: free brand listings, revenue from consulting leads | Brands are the draw; consulting introductions are the product |
+| April 2026 | Primary audience: 40–60, corporate-to-ownership, "Quietly Decided" archetype | Target where intent is high, not where curiosity is broad |
+| April 2026 | Anti-audience explicitly defined: <$100K, first-time entrepreneurs with no capital | Quality over quantity for lead generation |
+| April 2026 | Two-layer UX: billboard front, rich depth behind | Surface must pass billboard test; detail must be available for seekers |
+| April 2026 | Brand voice: warm, welcoming, encouraging, educational — NOT corporate/premium/exclusive | Revised from prior PLATFORM_BRIEF which over-indexed on "dark premium" |
+| April 2026 | FDD pipeline is a first-class building block, not an afterthought | 350 brands requires automation; manual build is not viable |
+| April 2026 | Stage document system adopted from BizConnect Caribbean playbook | Clear definition of "done" prevents drift across sessions |
+| April 2026 | Palette direction: OPEN — awaiting Kelsey's decision (Options A/B/C) | Palette affects all frontend work; decision required before Stage 2 |
+| April 2026 | DM Serif Display for hero/h2, Inter for all other UI | Typography system carries forward from v1 — confirmed correct |
+| April 2026 | Navigator Score demoted from primary mechanic to supporting credibility signal | Candidate archetype responds better to warmth + clarity than to scoring systems |
+| April 2026 | Redirect map in next.config.js is locked — never modify without reading Section 9 | DA 27 / 618 root domains; a single unplanned 404 destroys 10+ years of equity |
 
 ---
 
 ## 8. How to Resume Work
 
-**Start any session with:**
-> "Read the PLATFORM_BRIEF.md in the Franchise Conduit project root, then [instruction]."
+**Start every session with:**
+> "Read PLATFORM_BRIEF.md in the Franchise Conduit site root, then [instruction]."
 
-**For specific sprints:**
-> "Read Section 5 of PLATFORM_BRIEF.md. Implement Sprint 2: start with the industry hub pages."
+**For stage-based build sessions:**
+> "Read PROGRESS.md, then read docs/stages/stage-0N-[name].md and execute the agent kick-off prompt inside it."
 
 **For design questions:**
-> "Check Section 2 of PLATFORM_BRIEF.md before making any color or typography changes."
+> "Check Section 4 of PLATFORM_BRIEF.md. The palette direction decision must be resolved before making visual changes."
 
-**For SEO work:**
-> "Read Section 4 of PLATFORM_BRIEF.md and extend the sitemap accordingly."
+**For new routes or redirects:**
+> "Read Section 9 of PLATFORM_BRIEF.md before adding, renaming, or removing any route."
 
-**For routing/redirect decisions:**
-> "Read Section 9 of PLATFORM_BRIEF.md before adding, removing, or renaming any route."
+**For brand page work:**
+> "Read Section 6 of PLATFORM_BRIEF.md. All brand pages are generated from JSON. Edit the JSON, not the template."
 
 ---
 
 ## 9. Migration Architecture (WordPress → Next.js)
 
-> **Load this section before any work involving routes, redirects, new pages, or DNS.** FranchiseConduit.com has DA 27 / 618 referring domains (Moz, April 2026) built over 10+ years. A single unplanned 404 on a high-equity page can permanently destroy the link authority that domain took a decade to earn.
+> **Load this section before any work involving routes, redirects, new pages, or DNS.**
+> FranchiseConduit.com has DA 27 / 618 referring domains built over 10+ years. A single unplanned 404 on a high-equity page can permanently destroy link authority.
 
 ### 9a. Domain Authority Baseline (April 2026)
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Moz Domain Authority | **27** | Moz, April 1 2026 |
+| Moz Domain Authority | **27** | Moz, April 2026 |
 | Linking Root Domains | **618** | Moz |
 | Ranking Keywords | **285** | Moz |
 | Spam Score | **2%** | Moz (healthy) |
 
-> A DA 27 with 618 linking domains in the franchise vertical represents 10+ years of compounded trust signals. This is the platform's most valuable asset — more valuable than the design system or even the code. Protect it at all costs.
+### 9b. The Golden Rule
+**Never let a URL with a backlink return a 404.** Every URL on the live WordPress site must resolve to a 2xx or 301 permanent redirect on Day 1 of DNS cutover.
 
-### 9b. The Golden Rule of DA Preservation
+Redirect infrastructure lives in: **`next.config.js`** — The complete 301 redirect map (fully populated as of April 2, 2026)
 
-**Never let a URL with a backlink return a 404.** Every single URL on the live WordPress site must resolve to a 2xx response or a 301 permanent redirect on the Next.js platform from Day 1 of DNS cutover.
+### 9c. URL Pattern Mapping
 
-The redirect infrastructure lives in:
-- **`next.config.js`** — The complete 301 redirect map (fully populated as of April 2, 2026)
-
-### 9c. URL Pattern Mapping (WordPress → Next.js)
-
-| WordPress URL Pattern | Next.js Equivalent | Status |
-|-----------------------|---------------------|--------|
-| `/explore/` | `/franchises` | ✅ Redirect in next.config.js |
-| `/franchise/:slug/` | `/franchises/:slug` | ✅ Catch-all in next.config.js |
+| WordPress URL Pattern | Next.js Route | Status |
+|-----------------------|---------------|--------|
+| `/explore/` | `/franchises` | ✅ In next.config.js |
+| `/franchise/:slug/` | `/franchises/:slug` | ✅ In next.config.js |
 | `/category/:name/` | `/franchises/industries/:name` or `/franchises` | ✅ All 55 categories mapped |
 | `/[blog-slug]/` (root level) | `/resources/[slug]` | ✅ Top posts individually mapped |
 | `/franchise-blog/` | `/resources` | ✅ In next.config.js |
@@ -345,50 +280,52 @@ The redirect infrastructure lives in:
 
 ### 9d. Pages That Must Exist Before DNS Cutover
 
-301s that resolve to a non-existent Next.js page become soft 404s — Google passes no equity and may penalize.
-
 | Required Page | Route | Status |
 |---|---|---|
 | Franchise listings index | `/franchises` | ✅ Built |
 | Brand detail pages | `/franchises/[slug]` | ✅ Built |
-| Industry hubs | `/franchises/industries/[category]` | ✅ Built |
-| State hubs | `/franchises/locations/[state]` | ✅ Built |
+| Industry hubs | `/franchises/industries/[category]` | ✅ Route — content TBC |
+| State hubs | `/franchises/locations/[state]` | ✅ Route — content TBC |
 | Quiz | `/quiz` | ✅ Built |
 | FDD Resource | `/resources/fdd` | ✅ Built |
-| Methodology | `/methodology` | ⚠️ Route exists, content TBC |
-| **About page** | `/about` | 🔴 Must build before cutover |
-| **Contact page** | `/contact` | 🔴 Must build before cutover |
-| **Resources hub** | `/resources` | 🔴 Must build before cutover |
-| **Privacy Policy** | `/privacy-policy` | 🔴 Must build before cutover |
-| How to Buy a Franchise | `/resources/how-to-buy-a-franchise` | 🔴 Must build (top backlink target) |
-| Why Franchises Fail | `/resources/why-franchises-fail` | 🔴 High-traffic post |
-| Franchise ROI | `/resources/franchise-roi` | 🔴 High-intent financial content |
+| Methodology | `/methodology` | ⚠️ Content P0 |
+| **About page** | `/about` | 🔴 Must build |
+| **Contact page** | `/contact` | 🔴 Must build |
+| **Resources hub** | `/resources` | 🔴 Must build |
+| **Privacy Policy** | `/privacy-policy` | 🔴 Must build |
+| How to Buy a Franchise | `/resources/how-to-buy-a-franchise` | 🔴 Top backlink target |
 
-### 9e. Locked URLs — Never Change After Launch
-
-Once the Next.js platform goes live, these slugs are **permanently locked**. Changing them requires adding a new redirect from the old path — there is no "renaming" a URL without consequences.
-
-- `/franchises/[brand-slug]` — all brand pages
-- `/franchises/industries/[category]` — all 12 industry hubs
-- `/franchises/locations/[state]` — all 20 state hubs
-- `/resources/[slug]` — all resource pages
+### 9e. Locked Routes — Never Rename Post-Launch
+- `/franchises/[brand-slug]`
+- `/franchises/industries/[category]`
+- `/franchises/locations/[state]`
+- `/resources/[slug]`
 - `/methodology`
 
-### 9f. Google Search Console Transition Protocol
-
-1. **Pre-migration:** Export GSC performance data (last 16 months) for all live URLs
-2. **Pre-migration:** Export Rank Math meta titles + descriptions from WordPress admin  
+### 9f. GSC Transition Protocol
+1. **Pre-migration:** Export GSC performance data (last 16 months)
+2. **Pre-migration:** Export Rank Math meta titles + descriptions from WordPress
 3. **Day 1 post-cutover:** Submit `/sitemap.xml` to GSC immediately
-4. **Day 1 post-cutover:** Run GSC Change of Address tool (if full domain transfer)
+4. **Day 1 post-cutover:** Run GSC Change of Address tool
 5. **Week 1:** Monitor GSC Coverage report daily — watch for 404 spikes
-6. **Month 1–3:** Crawl with Screaming Frog weekly; resolve any redirect chains > 2 hops
+6. **Month 1–3:** Screaming Frog crawl weekly; resolve redirect chains > 2 hops
 
 ### 9g. Metadata Preservation Rule
-
-When building the `/resources` pages that replace WordPress blog content:
-1. Match or improve the original `<title>` tag (never delete target keywords)
-2. Use the Rank Math meta description as the starting point
+When building `/resources` pages that replace WordPress content:
+1. Match or improve original `<title>` tag (never remove target keywords)
+2. Use Rank Math meta description as starting point
 3. Add `Article` JSON-LD structured data to every resource page
-4. Set `datePublished` to the original WP publish date, `dateModified` to rewrite date
-5. Keep all original keyword targets — add investor framing on top
+4. `datePublished` = original WordPress publish date; `dateModified` = rewrite date
+5. Keep all original keyword targets — add educational framing on top
 
+---
+
+## 10. Key Conventions (All Stages, All Sessions)
+
+- **No hardcoded copy** — all user-facing strings in `/lib/constants.ts`
+- **TypeScript strict** — no `any` types, no implicit returns
+- **Mobile-first** — 375px base, 768px and 1280px breakpoints
+- **No console errors** — zero errors in dev tools on any page before a stage is marked done
+- **Every API route catches errors** — no raw error messages exposed to client
+- **Rollback rule** — if a step breaks `npm run build`, stop. Do NOT commit broken state. Revert with `git checkout -- .` and log the blocker in PROGRESS.md.
+- **git commit discipline** — commit after every completed step within a stage. Message format: `stage-N: step M — description`
