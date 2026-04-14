@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 8 — Resources & Content |
-| **Stage status** | Stage 7 complete. Stage 8 is unblocked. RESEND_API_KEY required from Kelsey before end-to-end email test. |
-| **Last commit** | stage-7: complete — all 4 lead capture surfaces built, build 280/280, PROGRESS.md updated |
+| **Active stage** | Stage 9 — QA & SEO Audit |
+| **Stage status** | Stage 8 complete. /resources hub live, 5 foundation articles published, build 285/285. Stage 9 is unblocked. |
+| **Last commit** | stage-8: complete — resources hub and 5 foundation articles live, sitemap updated, build 285/285 |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -56,7 +56,7 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 8 | Resources & Content | `Not started` (blocked on Stage 5) | — |
+| 8 | Resources & Content | `Complete` | April 2026 |
 
 ### Launch
 
@@ -175,6 +175,12 @@ Track all environment variables as they are added.
 | April 2026 | Stage 7 | 7.4 | `stage-7: step 7.4 — brand introduction CTA complete (BrandIntroForm + api/brand-intro)` |
 | April 2026 | Stage 7 | 7.5 | `stage-7: step 7.5 — FDD request modal complete (FddRequestModal + api/fdd-request)` |
 | April 2026 | Stage 7 | Complete | `stage-7: complete — all 4 lead capture surfaces built, build 280/280, PROGRESS.md updated` |
+| April 2026 | Stage 8 | 8.1 | `stage-8: step 8.1 — /resources hub rebuilt with RESOURCES constants, all 5 articles live` |
+| April 2026 | Stage 8 | 8.2 | `stage-8: step 8.2 — article template built (app/resources/[slug]/page.tsx)` |
+| April 2026 | Stage 8 | 8.3 | `stage-8: step 8.3 — /resources/how-to-buy-a-franchise published (1,800w, 6-step guide, datePublished 2023-05-12)` |
+| April 2026 | Stage 8 | 8.4 | `stage-8: step 8.4 — /resources/reading-an-fdd published (FDD Items 5,6,7,19,20,21 coverage, red flags, datePublished 2023-08-03)` |
+| April 2026 | Stage 8 | 8.5 | `stage-8: step 8.5 — articles 3-5 published (franchise-roi, semi-absentee-franchises, why-franchises-fail)` |
+| April 2026 | Stage 8 | Complete | `stage-8: complete — resources hub and 5 foundation articles live, sitemap updated, build 285/285` |
 
 ---
 
