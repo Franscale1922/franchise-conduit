@@ -112,9 +112,9 @@ LAUNCH
 | # | Decision | Blocking | Status |
 |---|----------|----------|--------|
 | 1 | **Design palette direction: Option A (dark) / B (hybrid) / C (light)** | Stage 2 | ✅ Locked — Grounded Modern light mode |
-| 2 | Advisor email address for lead notifications | Stage 7 | ⚠️ Not provided |
-| 3 | CRM integration at launch? (HubSpot / Salesforce / email-only) | Stage 7 | ⚠️ Not confirmed |
-| 4 | DNS access for domain verification (Resend + Vercel) | Stage 7 | ⚠️ Not provided |
+| 2 | Advisor email address for lead notifications | Stage 7 | ✅ Resolved — `kelsey@waypointfranchise.com` |
+| 3 | CRM integration at launch? (HubSpot / Salesforce / email-only) | Stage 7 | ⚠️ Not confirmed — default to email-only at launch |
+| 4 | DNS access for domain verification (Resend + Vercel) | Stage 7 | ⚠️ Not available — Resend domain verification deferred. Use stubbed/unverified Resend sender for now; re-verify when DNS access is granted. |
 | 5 | Which 2–3 brands to build as gold standard pages (Stage 3) | Stage 3 | ✅ Updated — Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care (all have complete data synced from sheet) |
 
 ---
@@ -128,8 +128,8 @@ Track all environment variables as they are added.
 | `GOOGLE_SHEET_ID` | Stage 3 | `1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU` | Master FDD brand data spreadsheet |
 | `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` | Stage 3 | `credentials/fddapi-service-account.json` | Service account: `franchiseconduit@franchiseconduitfddapi.iam.gserviceaccount.com` |
 | `RESEND_API_KEY` | Stage 7 | — | From resend.com dashboard |
-| `EMAIL_FROM` | Stage 7 | — | e.g. noreply@franchiseconduit.com — domain must be verified in Resend |
-| `ADVISOR_EMAIL` | Stage 7 | — | Waypoint advisor notification inbox |
+| `EMAIL_FROM` | Stage 7 | `onboarding@resend.dev` (temporary) | franchiseconduit.com domain not yet verified — use Resend's shared sender until DNS access is available |
+| `ADVISOR_EMAIL` | Stage 7 | `kelsey@waypointfranchise.com` | Confirmed by Kelsey — April 2026 |
 
 ---
 
@@ -176,7 +176,8 @@ Track all environment variables as they are added.
 
 | Date | Issue | Status | Stage |
 |------|-------|--------|-------|
-| April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ⚠️ Open | Stage 7 |
+| April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ✅ Resolved — `kelsey@waypointfranchise.com` | Stage 7 |
+| April 2026 | **DNS access not available** — Cannot verify `franchiseconduit.com` in Resend. Stage 7 email delivery must use Resend's shared `onboarding@resend.dev` sender temporarily. Re-verify when Kelsey gains DNS access. Do not block Stage 7 build on this. | ⚠️ Monitor | Stage 7 / Stage 10 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
 | April 2026 | **Brand page prerender errors — RESOLVED** — `toLocaleString` on undefined `unit_count_total` fixed with optional chaining guards on brand `[slug]` page. Build is now 276/276 clean. | ✅ Resolved | Stage 6 |
 | April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |
