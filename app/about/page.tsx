@@ -1,209 +1,197 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ABOUT } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'About Franchise Conduit — Advisor-Backed Franchise Discovery for Serious Investors',
-  description: 'Franchise Conduit connects serious investors with the right franchise opportunity through independent data, transparent rankings, and advisor-reviewed introductions. Learn how we work.',
+  title: ABOUT.meta.title,
+  description: ABOUT.meta.description,
   openGraph: {
-    title: 'About Franchise Conduit',
-    description: 'Advisor-matched franchise discovery. Independent data. No pay-to-rank. No lead blast. Built for investors with capital to deploy.',
+    title: ABOUT.meta.title,
+    description: ABOUT.meta.description,
   },
 }
 
-const differentiators = [
-  {
-    icon: '◈',
-    label: 'Independent Rankings',
-    description: 'Our Navigator Score is calculated from verified franchisee satisfaction data, Item 19 disclosures, and unit economics — not advertising spend. A brand cannot buy a better ranking.'
-  },
-  {
-    icon: '◉',
-    label: 'Advisor-Routed Introductions',
-    description: 'Every introduction request is reviewed by a credentialed franchise advisor before the franchisor receives it. You are never blasted to 8 brands at once.'
-  },
-  {
-    icon: '◎',
-    label: 'Investment-Grade Data',
-    description: 'FDD summaries, AUV benchmarks, Item 19 status, and franchisee satisfaction scores are visible upfront — not gated behind a form submission.'
-  },
-  {
-    icon: '◐',
-    label: 'Investor-First Minimum',
-    description: 'The platform starts at $100K liquid floor and serves investors up to $2M+. We serve serious capital deployment — not impulse franchise shopping.'
-  },
-]
-
-const teamSignals = [
-  { stat: '10+', label: 'Years operating FranchiseConduit.com', sub: 'Domain authority earned the right way — through content and trust' },
-  { stat: '618', label: 'Referring domains', sub: 'Organically earned backlinks from franchise industry publishers' },
-  { stat: '1,800+', label: 'Franchise brands catalogued', sub: 'Covering every major category from home services to technology' },
-  { stat: '$100K+', label: 'Minimum investment floor', sub: 'We serve investors with real capital to deploy, not tire-kickers' },
-]
-
 export default function AboutPage() {
   return (
-    <div className="section">
+    <>
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
+      {/* H1 speaks to the candidate's candidate's question: "Who built this and why?" */}
+      <section style={{ position: 'relative', overflow: 'hidden', paddingTop: 'var(--space-20)', paddingBottom: 'var(--space-16)' }}>
+        <div className="hero-glow" />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '680px' }}>
+            <div style={{ marginBottom: 'var(--space-5)' }}>
+              <span className="badge badge-muted" style={{ letterSpacing: '0.06em', fontSize: '0.75rem' }}>
+                {ABOUT.hero.eyebrow}
+              </span>
+            </div>
+            <h1 className="text-display" style={{ marginBottom: 'var(--space-5)', fontSize: 'clamp(2rem, 4vw, 3rem)', lineHeight: 1.1 }}>
+              {ABOUT.hero.headline}
+            </h1>
+            <p style={{ fontSize: '1.125rem', color: 'var(--color-text-secondary)', lineHeight: '1.7', maxWidth: '580px' }}>
+              {ABOUT.hero.subhead}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <div className="container-md">
 
-        {/* Hero */}
-        <div style={{ maxWidth: '640px', marginBottom: 'var(--space-16)' }}>
-          <span className="badge badge-primary" style={{ marginBottom: 'var(--space-5)', display: 'inline-flex' }}>
-            About The Platform
-          </span>
-          <h1 className="text-headline" style={{ marginBottom: 'var(--space-5)' }}>
-            The franchise platform built for investors, not lead farms.
-          </h1>
-          <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', fontSize: '1.0625rem' }}>
-            Franchise Conduit has been connecting serious investors with franchise opportunities since 2014. 
-            The new platform raises that standard: independent rankings, transparent unit economics, 
-            and advisor-reviewed introductions — for capital between $100K and $2M+.
-          </p>
-        </div>
-
-        {/* Core Promise */}
-        <div className="insight-block" style={{ marginBottom: 'var(--space-16)' }}>
-          <div className="insight-label"><span>✦</span> Our Position</div>
-          <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-primary)', fontFamily: 'var(--font-serif)' }}>
-            &ldquo;Most franchise directories optimize for volume. We optimize for quality. 
-            The right franchise match for the right investor, made once — not blasted to 12 brands and forgotten.&rdquo;
-          </p>
-        </div>
-
-        {/* What Makes Us Different */}
+        {/* ── THE PROBLEM WE SOLVED ─────────────────────────────────────────── */}
+        {/* Honest narrative — Layer 1 — readable in < 15 seconds */}
         <section style={{ marginBottom: 'var(--space-16)' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-3)' }}>
-            How we work differently
+          <div className="insight-block" style={{ marginBottom: 'var(--space-10)' }}>
+            <div className="insight-label"><span>✦</span> Our Position</div>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--color-text-primary)', fontFamily: 'var(--font-serif)' }}>
+              &ldquo;Most franchise directories optimize for volume. We optimize for quality.
+              The right franchise match for the right buyer, made once — not blasted to 12 brands and forgotten.&rdquo;
+            </p>
+          </div>
+
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-5)' }}>
+            {ABOUT.problem.headline}
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-8)', lineHeight: '1.7' }}>
-            The franchise discovery market has a structural problem: platforms earn more when they generate more leads, 
-            not better leads. That incentive structure produces lead farms. We built Franchise Conduit to break that model.
-          </p>
-          <div className="grid-2" style={{ gap: 'var(--space-4)' }}>
-            {differentiators.map((item) => (
-              <div key={item.label} className="card" style={{ padding: 'var(--space-6)' }}>
-                <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'flex-start', marginBottom: 'var(--space-3)' }}>
-                  <span style={{ color: 'var(--color-primary-light)', fontSize: '1.25rem', lineHeight: 1 }}>{item.icon}</span>
-                  <span style={{ fontWeight: 600, color: 'var(--color-text-primary)', fontSize: '0.9375rem' }}>{item.label}</span>
+          {ABOUT.problem.body.map((para, i) => (
+            <p key={i} style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-4)', fontSize: '0.9375rem' }}>
+              {para}
+            </p>
+          ))}
+        </section>
+
+        {/* ── PLATFORM SIGNALS ─────────────────────────────────────────────── */}
+        <section style={{ marginBottom: 'var(--space-16)' }}>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-6)' }}>
+            Built on a decade of franchise expertise
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 'var(--space-4)' }}>
+            {ABOUT.signals.map(item => (
+              <div key={item.stat} className="surface-2" style={{ padding: 'var(--space-5)', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-2)', marginBottom: 'var(--space-1)' }}>
+                  <span style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--color-primary)', fontWeight: 400 }}>
+                    {item.stat}
+                  </span>
                 </div>
-                <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.7', fontSize: '0.9rem', paddingLeft: 'calc(1.25rem + var(--space-3))' }}>
-                  {item.description}
+                <div style={{ fontWeight: 600, color: 'var(--color-text-primary)', fontSize: '0.875rem', marginBottom: 'var(--space-1)' }}>
+                  {item.label}
+                </div>
+                <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+                  {item.sub}
                 </p>
               </div>
             ))}
           </div>
         </section>
 
-        {/* The FMS Connection */}
+        {/* ── WHO WE WORK WITH ─────────────────────────────────────────────── */}
+        {/* Explains the audience without gatekeeping — warm but specific */}
         <section style={{ marginBottom: 'var(--space-16)' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-6)' }}>
-            Built on a decade of franchise expertise
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-8)', alignItems: 'center' }}>
+          <div className="grid-2" style={{ gap: 'var(--space-10)', alignItems: 'center' }}>
             <div>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-4)' }}>
-                FranchiseConduit.com has operated in the franchise industry since 2014, 
-                building one of the most comprehensive franchise catalogs in North America 
-                and earning trust signals from 618+ referring domains — organically.
+              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-5)' }}>
+                {ABOUT.focus.headline}
+              </h2>
+              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-6)', fontSize: '0.9375rem' }}>
+                {ABOUT.focus.body}
               </p>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-4)' }}>
-                The new platform is built on that foundation, adding the institutional rigor 
-                that serious investors demand: verified unit economics, independent scoring, 
-                and an advisor model that protects buyers at every step of the process.
-              </p>
-              <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75' }}>
-                We are backed by FMS (Franchise Marketing Systems), a franchise development 
-                firm with direct relationships across hundreds of franchise brands — which 
-                gives our advisor team unfiltered access to franchisor data, 
-                franchisee networks, and FDD disclosures.
-              </p>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-              {teamSignals.map((item) => (
-                <div key={item.stat} className="surface-2" style={{ padding: 'var(--space-5)', borderRadius: 'var(--radius-md)' }}>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-3)', marginBottom: 'var(--space-1)' }}>
-                    <span style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', color: 'var(--color-primary-light)', fontWeight: 400 }}>
-                      {item.stat}
-                    </span>
-                    <span style={{ fontWeight: 600, color: 'var(--color-text-primary)', fontSize: '0.875rem' }}>
-                      {item.label}
-                    </span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                {ABOUT.focus.bullets.map(bullet => (
+                  <div key={bullet} style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--color-emerald)', flexShrink: 0, marginTop: '2px' }}>✓</span>
+                    <span style={{ color: 'var(--color-text-secondary)', fontSize: '0.9375rem' }}>{bullet}</span>
                   </div>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginLeft: 'calc(2rem + var(--space-3))' }}>
-                    {item.sub}
-                  </p>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* How we differ — comparison table */}
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
+                    {['', 'Lead Farms', 'Brokers', 'Franchise Conduit'].map((h, i) => (
+                      <th key={h} style={{
+                        textAlign: 'left',
+                        padding: 'var(--space-3) var(--space-3)',
+                        color: i === 3 ? 'var(--color-primary)' : 'var(--color-text-muted)',
+                        fontWeight: i === 3 ? 600 : 400,
+                        fontSize: '0.75rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['Audience', 'Anyone', 'Anyone who calls', '$100K+ investors'],
+                    ['Rankings', 'Paid placement', 'Broker preference', 'Data-only'],
+                    ['Data', 'Gated', 'In consultation', 'Visible upfront'],
+                    ['Introductions', 'Blast to 8+', 'Advisor decides', 'One at a time'],
+                  ].map(([dim, ...cols], i) => (
+                    <tr key={dim} style={{ borderBottom: '1px solid var(--color-border)', background: i % 2 === 0 ? 'transparent' : 'var(--color-surface)' }}>
+                      <td style={{ padding: 'var(--space-3)', color: 'var(--color-text-secondary)', fontWeight: 500 }}>{dim}</td>
+                      <td style={{ padding: 'var(--space-3)', color: 'var(--color-text-muted)' }}>{cols[0]}</td>
+                      <td style={{ padding: 'var(--space-3)', color: 'var(--color-text-muted)' }}>{cols[1]}</td>
+                      <td style={{ padding: 'var(--space-3)', color: 'var(--color-primary)', fontWeight: 500 }}>{cols[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
 
-        {/* Positioning vs. the market */}
+        {/* ── WHO WE ARE — Team ─────────────────────────────────────────────── */}
+        {/* Placeholder initials until Kelsey provides headshots */}
         <section style={{ marginBottom: 'var(--space-16)' }}>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-6)' }}>
-            The gap we fill
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.75rem', marginBottom: 'var(--space-4)' }}>
+            {ABOUT.team.headline}
           </h2>
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ borderBottom: '1px solid var(--color-border)' }}>
-                  <th style={{ textAlign: 'left', padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-muted)', fontWeight: 400, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Dimension
-                  </th>
-                  <th style={{ textAlign: 'left', padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-muted)', fontWeight: 400, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Lead Farms
-                  </th>
-                  <th style={{ textAlign: 'left', padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-muted)', fontWeight: 400, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Traditional Brokers
-                  </th>
-                  <th style={{ textAlign: 'left', padding: 'var(--space-3) var(--space-4)', color: 'var(--color-primary-light)', fontWeight: 600, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Franchise Conduit
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ['Audience', 'Anyone with a pulse', 'Anyone who calls', '$100K+ investors'],
-                  ['Discovery', 'Volume-based matching', 'Commission-motivated', 'Data-ranked, advisor-verified'],
-                  ['Data transparency', 'Gated behind email wall', 'Available in consultation', 'Visible upfront'],
-                  ['Rankings', 'Paid placement', 'Broker preference', 'Independent Navigator Score'],
-                  ['Introductions', 'Blast to 8+ brands', 'Advisor determines fit', 'Advisor-reviewed, one at a time'],
-                ].map(([dim, leadFarm, broker, us], i) => (
-                  <tr key={dim} style={{ borderBottom: '1px solid var(--color-border)', background: i % 2 === 0 ? 'transparent' : 'var(--color-surface)' }}>
-                    <td style={{ padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-secondary)', fontWeight: 500 }}>{dim}</td>
-                    <td style={{ padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-muted)' }}>{leadFarm}</td>
-                    <td style={{ padding: 'var(--space-3) var(--space-4)', color: 'var(--color-text-muted)' }}>{broker}</td>
-                    <td style={{ padding: 'var(--space-3) var(--space-4)', color: 'var(--color-primary-light)', fontWeight: 500 }}>{us}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', marginBottom: 'var(--space-8)', fontSize: '0.9375rem' }}>
+            {ABOUT.team.intro}
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-5)' }}>
+            {ABOUT.team.members.map(member => (
+              <div key={member.name} className="card" style={{ padding: 'var(--space-6)', display: 'flex', gap: 'var(--space-4)', maxWidth: '420px', flex: '1 1 320px' }}>
+                <div className="testimonial-avatar" style={{ width: '52px', height: '52px', fontSize: '1rem', flexShrink: 0 }}>
+                  {member.initials}
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, marginBottom: 'var(--space-1)' }}>{member.name}</div>
+                  <div style={{ fontSize: '0.8125rem', color: 'var(--color-text-muted)', marginBottom: 'var(--space-3)' }}>{member.role}</div>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>{member.bio}</p>
+                </div>
+              </div>
+            ))}
           </div>
+          <p style={{ marginTop: 'var(--space-6)', fontSize: '0.875rem', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+            {ABOUT.team.headshots}
+          </p>
         </section>
 
-        {/* CTA */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
+        {/* ── CTA ──────────────────────────────────────────────────────────── */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)', marginBottom: 'var(--space-16)' }}>
           <div className="card" style={{ padding: 'var(--space-8)', textAlign: 'center' }}>
             <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 'var(--space-3)' }}>Ready to start?</div>
             <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-5)', fontSize: '0.9rem', lineHeight: '1.7' }}>
-              Take the 5-minute investor quiz. We will match your capital, timeline, and model preferences to the right franchise categories.
+              Take the 4-minute quiz. We&apos;ll match your capital and goals to the right franchise categories.
             </p>
-            <Link href="/quiz" id="about-quiz-cta" className="btn btn-primary">
-              Take the Investor Quiz →
+            <Link href="/quiz" id="about-quiz-cta" className="btn btn-gold">
+              Take the Quiz →
             </Link>
           </div>
           <div className="card" style={{ padding: 'var(--space-8)', textAlign: 'center' }}>
             <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: 'var(--space-3)' }}>Speak with an advisor</div>
             <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-5)', fontSize: '0.9rem', lineHeight: '1.7' }}>
-              Talk directly with a credentialed franchise advisor. No sales pressure. 
-              An honest assessment of which categories fit your investment profile.
+              Talk directly with a credentialed franchise advisor. No sales pressure. An honest assessment of what fits your profile.
             </p>
-            <Link href="/contact" id="about-contact-cta" className="btn btn-outline">
-              Contact an Advisor →
+            <Link href={ABOUT.cta.href} id="about-contact-cta" className="btn btn-outline">
+              {ABOUT.cta.text}
             </Link>
           </div>
         </div>
 
       </div>
-    </div>
+    </>
   )
 }
