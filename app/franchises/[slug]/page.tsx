@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getFranchiseBySlug, franchises, formatCurrency } from '@/lib/data'
+import BrandLeadSidebar from './BrandLeadSidebar'
 
 interface Props {
   params: { slug: string }
@@ -390,79 +391,7 @@ export default function FranchiseDetailPage({ params }: Props) {
           {/* Sidebar — Lead Capture */}
           <aside style={{ position: 'sticky', top: '84px', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
 
-            {/* Territory CTA */}
-            <div className="form-card">
-              <div className="form-tier-badge form-tier-3">⭐ Request an Introduction</div>
-              <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', marginBottom: 'var(--space-3)', lineHeight: 1.3 }}>
-                Talk to the {f.brand_name} team, the right way.
-              </h2>
-              <p className="text-sm text-secondary" style={{ marginBottom: 'var(--space-6)' }}>
-                An advisor reviews your profile and makes the introduction.
-                Franchisors receive a pre-qualified contact, not a raw form blast.
-              </p>
-              <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-                <div className="grid-2" style={{ gap: 'var(--space-3)' }}>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="first-name">First name</label>
-                    <input id="first-name" type="text" className="form-input" placeholder="Jane" required />
-                  </div>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="last-name">Last name</label>
-                    <input id="last-name" type="text" className="form-input" placeholder="Smith" required />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="email">Email address</label>
-                  <input id="email" type="email" className="form-input" placeholder="jane@company.com" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="phone">Phone number</label>
-                  <input id="phone" type="tel" className="form-input" placeholder="+1 (555) 000-0000" required />
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="capital">Liquid capital available</label>
-                  <select id="capital" className="form-select" required>
-                    <option value="">Select range</option>
-                    <option value="100k-250k">$100K–$250K</option>
-                    <option value="250k-500k">$250K–$500K</option>
-                    <option value="500k-1m">$500K–$1M</option>
-                    <option value="1m-plus">$1M+</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="timeline">Your timeline</label>
-                  <select id="timeline" className="form-select" required>
-                    <option value="">Select timeline</option>
-                    <option value="1-3mo">Within 3 months</option>
-                    <option value="3-6mo">3–6 months</option>
-                    <option value="6-12mo">6–12 months</option>
-                    <option value="researching">Still researching</option>
-                  </select>
-                </div>
-                <div className="form-group">
-                  <label className="form-label" htmlFor="involvement">Owner involvement preference</label>
-                  <select id="involvement" className="form-select">
-                    <option value="">Select preference</option>
-                    <option value="semi-absentee">Semi-Absentee</option>
-                    <option value="owner-operator">Owner-Operator</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', padding: 'var(--space-3)', background: 'var(--color-surface-2)', borderRadius: 'var(--radius-md)', cursor: 'pointer' }}>
-                  <input type="checkbox" id="sms-opt" style={{ accentColor: 'var(--color-indigo)', width: 16, height: 16 }} />
-                  <label htmlFor="sms-opt" className="text-sm text-secondary" style={{ cursor: 'pointer' }}>
-                    Text me updates about this brand (no spam, unsubscribe anytime)
-                  </label>
-                </div>
-                <button type="submit" className="btn btn-primary" style={{ justifyContent: 'center', width: '100%', marginTop: 'var(--space-2)' }}>
-                  Request an Introduction →
-                </button>
-              </form>
-              <p className="form-disclaimer">
-                By submitting, you agree to be contacted by a Franchise Conduit advisor. Your information will be shared with {f.brand_name}&apos;s 
-                development team only after an advisor review. No obligation.
-              </p>
-            </div>
+            <BrandLeadSidebar brandName={f.brand_name} />
 
             {/* Territory Availability */}
             <div className="card" style={{ padding: 'var(--space-5)' }}>
