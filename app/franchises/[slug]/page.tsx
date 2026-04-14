@@ -95,7 +95,7 @@ export default function FranchiseDetailPage({ params }: Props) {
                   <span className={`badge ${f.business_model === 'semi-absentee' || f.business_model === 'manager-model' ? 'badge-emerald' : 'badge-indigo'}`}>
                     {modelLabel}
                   </span>
-                  {f.fbr_top_200 && <span className="badge badge-gold">FBR Top 200 — {f.fbr_top_200_year}</span>}
+                  {f.fbr_top_200 && <span className="badge badge-gold">FBR Top 200{f.fbr_top_200_year ? ` — ${f.fbr_top_200_year}` : ''}</span>}
                   {f.entrepreneur_rank && <span className="badge badge-muted">Entrepreneur #{f.entrepreneur_rank}</span>}
                   {f.recession_resistant && <span className="badge badge-muted">Recession Resistant</span>}
                   <span className="badge badge-muted">{f.industry_primary}</span>

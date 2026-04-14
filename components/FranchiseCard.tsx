@@ -24,8 +24,11 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
   }[f.business_model]
 
   // Surface the single most differentiating badge after the model badge
-  const secondaryBadge = f.fbr_top_200
-    ? { className: 'badge-gold', label: 'FBR Top 200' }
+  const fbrLabel = f.fbr_top_200
+    ? (f.fbr_top_200_year ? `FBR Top 200 — ${f.fbr_top_200_year}` : 'FBR Top 200')
+    : null
+  const secondaryBadge = fbrLabel
+    ? { className: 'badge-gold', label: fbrLabel }
     : f.item_19_available
     ? { className: 'badge-emerald', label: 'Item 19 Available' }
     : f.recession_resistant
@@ -104,13 +107,15 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
         {/* Footer — text link, no heavy button (AngelList/Morningstar card pattern) */}
         <div className="franchise-card-footer">
           <span className="franchise-card-link">View full profile →</span>
-          <a
-            href="/methodology"
+          <span
             className="navigator-methodology-link"
-            onClick={(e) => e.stopPropagation()}
+            role="link"
+            tabIndex={0}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.location.href = '/methodology'; }}
+            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); window.location.href = '/methodology'; } }}
           >
             Score methodology
-          </a>
+          </span>
         </div>
 
         {/* Hover-reveal market intelligence overlay */}

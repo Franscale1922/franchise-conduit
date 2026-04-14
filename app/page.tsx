@@ -51,7 +51,7 @@ export default function HomePage() {
             {/* Proof bar — 3 quantified signals (Claude/ChatGPT recommendation) */}
             <div style={{ display: 'flex', justifyContent: 'center', gap: 'var(--space-10)', flexWrap: 'wrap' }}>
               {[
-                { value: '8', label: 'Curated franchise brands' },
+                { value: franchises.length.toString(), label: 'Franchise brands catalogued' },
                 { value: '100%', label: 'Franchisee-data ranked' },
                 { value: '$100K+', label: 'Starting investment' },
               ].map(stat => (
