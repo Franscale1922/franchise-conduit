@@ -69,7 +69,7 @@ export default function StatePage({ params }: { params: { state: string } }) {
             </div>
 
             <h1 className="text-headline" style={{ marginBottom: 'var(--space-5)' }}>
-              {state.name} Franchise Opportunities — Curated for Serious Investors
+              {state.name} Franchise Opportunities: Curated for Serious Investors
             </h1>
 
             <p style={{
@@ -161,7 +161,7 @@ export default function StatePage({ params }: { params: { state: string } }) {
             <div>
               <div style={{ padding: 'var(--space-5)', background: 'var(--color-surface-2)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)' }}>
                 <div style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--color-gold)', marginBottom: 'var(--space-3)' }}>
-                  Advisor Note — {state.abbr}
+                  Advisor Note: {state.abbr}
                 </div>
                 <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.7', fontSize: '0.9375rem', margin: 0 }}>
                   {state.investorNote}
@@ -201,7 +201,7 @@ export default function StatePage({ params }: { params: { state: string } }) {
           {state.faq && state.faq.length > 0 && (
             <div style={{ marginBottom: 'var(--space-12)' }}>
               <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', marginBottom: 'var(--space-6)' }}>
-                Frequently asked questions — {state.name}
+                Frequently asked questions: {state.name}
               </h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
                 {state.faq.map((item, i) => (
@@ -255,7 +255,7 @@ export default function StatePage({ params }: { params: { state: string } }) {
               Find the right franchise investment in {state.name}.
             </h2>
             <p style={{ color: 'var(--color-text-secondary)', maxWidth: '480px', margin: '0 auto var(--space-7)', lineHeight: '1.7' }}>
-              Tell us your investment range, preferred model, and timeline. Our advisor team reviews every profile before making an introduction — no mass form submissions.
+              Tell us your investment range, preferred model, and timeline. Our advisor team reviews every profile before making an introduction. No mass form submissions.
             </p>
             <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/quiz" className="btn btn-gold">

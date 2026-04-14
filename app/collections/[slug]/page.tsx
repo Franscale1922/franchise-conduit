@@ -14,7 +14,7 @@ const COLLECTIONS: Record<string, {
   'semi-absentee': {
     title: 'Semi-Absentee Franchise Opportunities',
     headline: 'Own the business. Don\'t work in it.',
-    description: 'Semi-absentee and manager-model franchises are designed for executives who want to deploy capital into a proven system — with a GM or manager running daily operations. Typical owner time commitment: 10–25 hours/week.',
+    description: 'Semi-absentee and manager-model franchises are designed for executives who want to deploy capital into a proven system, with a GM or manager running daily operations. Typical owner time commitment: 10 to 25 hours per week.',
     icon: '🕐',
     seoDescription: 'Browse semi-absentee franchise opportunities for serious investors. Manager-model ownership, 10–20 hrs/week, recurring revenue. Opportunities from $100K.',
   },
@@ -28,21 +28,21 @@ const COLLECTIONS: Record<string, {
   'recession-resistant': {
     title: 'Recession-Resistant Franchise Opportunities',
     headline: 'Proven through downturns. Built for the long hold.',
-    description: 'These franchises demonstrated revenue stability or growth through the 2008 financial crisis and 2020 COVID shutdowns. They serve demand that is non-deferrable — senior care, pest control, property restoration, essential education.',
+    description: 'These franchises demonstrated revenue stability or growth through the 2008 financial crisis and 2020 COVID shutdowns. They serve demand that is non-deferrable: senior care, pest control, property restoration, essential education.',
     icon: '🛡️',
     seoDescription: 'Recession-resistant franchise opportunities with proven performance through economic downturns. Senior care, home services, and essential education franchises.',
   },
   'multi-unit': {
     title: 'Multi-Unit & Area Developer Franchises',
     headline: 'Built for owners who want to scale.',
-    description: 'These franchises support multi-unit development and area developer agreements — allowing investors to lock in territory for 2, 3, or 5+ locations from day one.',
+    description: 'These franchises support multi-unit development and area developer agreements, allowing investors to lock in territory for 2, 3, or 5 or more locations from day one.',
     icon: '🏗️',
     seoDescription: 'Multi-unit franchise opportunities for experienced investors and area developers. Scale from 2 to 10+ locations.',
   },
   'executive-transition': {
     title: 'Executive Transition Franchises',
     headline: 'Your next chapter doesn\'t require starting from scratch.',
-    description: 'These franchises have the highest concentration of ex-corporate executive owners. They leverage management skills, financial literacy, and team-building capability — skills executives have in abundance.',
+    description: 'These franchises have the highest concentration of ex-corporate executive owners. They leverage management skills, financial literacy, and team-building capability, the exact skills executives bring from prior careers.',
     icon: '💼',
     seoDescription: 'The best franchises for corporate executives transitioning to business ownership. Manager-model, semi-absentee, and B2B franchises built for executive buyers.',
   },

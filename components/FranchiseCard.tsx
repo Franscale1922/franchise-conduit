@@ -25,7 +25,7 @@ export function FranchiseCard({ franchise: f, compact }: FranchiseCardProps) {
 
   // Surface the single most differentiating badge after the model badge
   const fbrLabel = f.fbr_top_200
-    ? (f.fbr_top_200_year ? `FBR Top 200 — ${f.fbr_top_200_year}` : 'FBR Top 200')
+    ? (f.fbr_top_200_year ? `FBR Top 200 (${f.fbr_top_200_year})` : 'FBR Top 200')
     : null
   const secondaryBadge = fbrLabel
     ? { className: 'badge-gold', label: fbrLabel }
@@ -149,7 +149,7 @@ function NavigatorScore({ score }: { score: number }) {
     score >= 60 ? 'Solid' :
     score >= 45 ? 'Moderate' : 'Developing'
 
-  const tooltipText = `Navigator Rating: ${category} (${score}/100) — FBR rating, Item 19 transparency, AUV performance, franchisee satisfaction. Methodology: /methodology`
+  const tooltipText = `Navigator Rating: ${category} (${score}/100). FBR rating, Item 19 transparency, AUV performance, franchisee satisfaction. Methodology: /methodology`
 
   return (
     <div className="navigator-category" title={tooltipText}>

@@ -121,7 +121,7 @@ export default function HowItWorksPage() {
         <div className="container" style={{ textAlign: 'center', maxWidth: '560px', margin: '0 auto' }}>
           <p className="section-label">Ready when you are</p>
           <h2 className="text-headline" style={{ marginBottom: 'var(--space-4)' }}>
-            Start exploring — no pressure, no account needed
+            Start exploring. No pressure, no account needed.
           </h2>
           <p style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-8)', lineHeight: 1.7 }}>
             Browse the catalog at your own pace. Take the quiz when you feel ready. Connect with an advisor only when you want to.

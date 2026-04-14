@@ -95,7 +95,7 @@ export default function FranchiseDetailPage({ params }: Props) {
                   <span className={`badge ${f.business_model === 'semi-absentee' || f.business_model === 'manager-model' ? 'badge-emerald' : 'badge-indigo'}`}>
                     {modelLabel}
                   </span>
-                  {f.fbr_top_200 && <span className="badge badge-gold">FBR Top 200{f.fbr_top_200_year ? ` — ${f.fbr_top_200_year}` : ''}</span>}
+                  {f.fbr_top_200 && <span className="badge badge-gold">FBR Top 200{f.fbr_top_200_year ? ` (${f.fbr_top_200_year})` : ''}</span>}
                   {f.entrepreneur_rank && <span className="badge badge-muted">Entrepreneur #{f.entrepreneur_rank}</span>}
                   {f.recession_resistant && <span className="badge badge-muted">Recession Resistant</span>}
                   <span className="badge badge-muted">{f.industry_primary}</span>
@@ -271,8 +271,8 @@ export default function FranchiseDetailPage({ params }: Props) {
                       <span className="badge badge-muted">Item 19 Not Published</span>
                     </div>
                     <p className="text-sm text-secondary" style={{ marginBottom: 'var(--space-5)' }}>
-                      This brand has not published a financial performance representation in their FDD. 
-                      This is common among growing brands — ask for franchisee references (Item 20) 
+                      This brand has not published a financial performance representation in their FDD.
+                      This is common among growing brands. Ask for franchisee references (Item 20)
                       to gather informal revenue data directly from existing owners.
                     </p>
                     {f.avg_unit_volume && (
@@ -394,11 +394,11 @@ export default function FranchiseDetailPage({ params }: Props) {
             <div className="form-card">
               <div className="form-tier-badge form-tier-3">⭐ Request an Introduction</div>
               <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.375rem', marginBottom: 'var(--space-3)', lineHeight: 1.3 }}>
-                Talk to the {f.brand_name} team — the right way.
+                Talk to the {f.brand_name} team, the right way.
               </h2>
               <p className="text-sm text-secondary" style={{ marginBottom: 'var(--space-6)' }}>
-                An advisor reviews your profile and makes the introduction. 
-                Franchisors receive a pre-qualified contact — not a raw form blast.
+                An advisor reviews your profile and makes the introduction.
+                Franchisors receive a pre-qualified contact, not a raw form blast.
               </p>
               <form style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
                 <div className="grid-2" style={{ gap: 'var(--space-3)' }}>

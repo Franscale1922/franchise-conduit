@@ -129,7 +129,7 @@ export default function IndustryPage({ params }: { params: { category: string } 
             <div className="insight-block" style={{ marginBottom: 'var(--space-12)', maxWidth: '560px' }}>
               <div className="insight-label"><span>◎</span> Coming Soon</div>
               <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75' }}>
-                We are actively reviewing and vetting {industry.name.toLowerCase()} franchise brands for inclusion in our curated catalog. Our process requires verified FDD data and franchisee validation — we don&apos;t rush curation.
+                We are actively reviewing and vetting {industry.name.toLowerCase()} franchise brands for inclusion in our curated catalog. Our process requires verified FDD data and franchisee validation. We don&apos;t rush curation.
               </p>
               <Link href="/quiz" className="btn btn-outline" style={{ marginTop: 'var(--space-4)', display: 'inline-flex' }}>
                 Tell us what you&apos;re looking for →

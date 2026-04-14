@@ -18,7 +18,7 @@ const dmSerif = DM_Serif_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Franchise Conduit — Find the Right Franchise, With an Advisor by Your Side',
+    default: 'Franchise Conduit: Find the Right Franchise, With an Advisor by Your Side',
     template: '%s | Franchise Conduit'
   },
   description: 'Research and compare franchise opportunities with real FDD data. Advisor-matched, independent, and free for buyers. Start your search today.',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'Franchise Conduit',
-    title: 'Franchise Conduit — Franchise Research & Advisor Matching',
+    title: 'Franchise Conduit: Franchise Research and Advisor Matching',
     description: 'Research franchises with real FDD data. Independent rankings. Advisor-guided introductions. Free for buyers.',
   },
   robots: { index: true, follow: true }
@@ -122,7 +122,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p className="text-xs text-muted">© 2026 Franchise Conduit — Powered by Waypoint Franchise Advisors. No brand can pay to rank higher.</p>
+          <p className="text-xs text-muted">© 2026 Franchise Conduit. Powered by Waypoint Franchise Advisors. No brand can pay to rank higher.</p>
           <p className="text-xs text-muted">Franchise investments involve risk. Review all FDD disclosures before investing.</p>
         </div>
       </div>
