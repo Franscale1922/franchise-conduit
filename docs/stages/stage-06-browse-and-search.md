@@ -247,7 +247,14 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 6 of 10 — Franchise Browsing & Search
 
-FIRST: Read PROGRESS.md. Confirm Stage 3 and Stage 5 are Complete. If not — STOP.
+PRE-FLIGHT CHECKS (do all of these before writing a single line of code):
+1. Read PROGRESS.md in full — confirm Stage 3 is marked Complete. If not — STOP.
+   Stage 5 must also be Complete unless Kelsey has explicitly approved running Stage 6 in parallel.
+2. Read the KNOWN ISSUES section of PROGRESS.md — there may be Stage 6 specific notes.
+3. Run: git status — confirm working tree is clean before starting.
+4. Read app/franchises/page.tsx in full — the listing index may already exist from a prior stage.
+   Read app/franchises/industries/ and app/franchises/locations/ — check what templates already exist.
+   Do not rebuild what is already there. Audit first.
 
 READ: PLATFORM_BRIEF.md — Sections 1, 2, and 5 (content architecture)
 READ: docs/stages/stage-06-browse-and-search.md in full
@@ -257,7 +264,7 @@ Every industry and state hub must have unique content — no copy-pasting across
 All hub intro content must go into lib/constants.ts, not hardcoded in page files.
 
 Execute steps 6.1 through 6.7 in order.
-git commit after every step.
+git commit after every step with message format: "stage-6: step 6.X — description"
 
 Report completion against Section 7 (Definition of Done).
 When done: update PROGRESS.md → Stage 6 Complete.

@@ -242,18 +242,23 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 8 of 10 — Resources & Content Foundation
 
-FIRST: Read PROGRESS.md. Confirm Stage 5 is Complete. If not — STOP.
+PRE-FLIGHT CHECKS (do all of these before writing a single line of code):
+1. Read PROGRESS.md in full — confirm Stage 5 is marked Complete. If not — STOP.
+2. Read the KNOWN ISSUES section of PROGRESS.md — there may be Stage 8 specific notes.
+3. Run: git status — confirm working tree is clean before starting.
+4. Check if app/resources/ already exists and read any existing files before creating new ones.
+   Check lib/constants.ts — a RESOURCES namespace may already be partially defined.
 
 READ: PLATFORM_BRIEF.md — Sections 1, 2, 3 (archetype and voice)
 READ: docs/stages/stage-08-resources.md in full
 
 Content quality is the output of this stage, not just code.
-Apply the Intelligent Adult Test and Practical Value Test to every article before committing.
-Do not publish thin content or content that sounds like it was AI-generated from a template.
+Apply the Intelligent Adult Test AND the Practical Value Test to every article before committing.
+Do not publish thin content or content that sounds like a template.
 Add real insight, specific numbers (from the FDD pipeline research), and honest analysis.
 
 Execute steps 8.1 through 8.6 in order.
-git commit after every step.
+git commit after every step with message format: "stage-8: step 8.X — description"
 
 Report completion against Section 8 (Definition of Done).
 When done: update PROGRESS.md → Stage 8 Complete.

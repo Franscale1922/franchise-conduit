@@ -234,8 +234,14 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 4 of 10 — Homepage
 
-FIRST: Read PROGRESS.md.
-Confirm Stages 2 and 3 are marked Complete. If not — STOP.
+PRE-FLIGHT CHECKS (do all of these before writing a single line of code):
+1. Read PROGRESS.md in full — confirm Stages 2 and 3 are marked Complete. If not — STOP.
+2. Read the KNOWN ISSUES section of PROGRESS.md — there are Stage 4 specific notes. Read them.
+3. Run: git status — confirm working tree is clean before starting.
+4. Read app/page.tsx in full — the homepage scaffold already exists from Stage 2.
+   Do not rebuild what is already there. Audit first. The billboard test and copy audit are the
+   primary deliverables of this stage, not a rebuild from scratch.
+5. Check if lib/constants.ts exists. If not, create it. All homepage copy must live there.
 
 READ: PLATFORM_BRIEF.md — especially Sections 1, 2, 3, and 4
 READ: docs/stages/stage-04-homepage.md — the full section architecture and copy standards

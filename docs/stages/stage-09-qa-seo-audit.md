@@ -161,13 +161,18 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 9 of 10 — Pre-Launch QA & SEO Audit
 
-FIRST: Read PROGRESS.md. Confirm ALL stages 2–8 are marked Complete. If any are not — STOP.
+PRE-FLIGHT CHECKS (do all of these before starting audit work):
+1. Read PROGRESS.md in full — confirm ALL stages 2–8 are marked Complete. If any are not — STOP.
+2. Read the KNOWN ISSUES section of PROGRESS.md — document any open issues before starting.
+3. Run: git status — confirm working tree is clean before starting.
+4. Run: npm run build — if this fails, fix build errors before running any other audit.
+5. Run: npx tsc --noEmit — fix all type errors before proceeding.
 
 READ: PLATFORM_BRIEF.md — Section 9 (Migration Architecture) — read it entirely
 READ: docs/stages/stage-09-qa-seo-audit.md in full
 
-This stage produces NO new features. Fix only. Verify only.
-Every item in Section 5 (Definition of Done) must be checked before declaring Stage 9 complete.
+THIS STAGE PRODUCES NO NEW FEATURES. Fix only. Verify only.
+Every item in Section 5 (Definition of Done) must be explicitly checked and confirmed passing.
 
 Priority order:
 1. Redirect audit (most critical — a 404 on a backlinked URL destroys DA)
@@ -176,7 +181,7 @@ Priority order:
 4. Candidate experience
 5. Performance
 
-git commit after every step.
+git commit after every step with message format: "stage-9: step 9.X — description"
 Document any issues discovered in PROGRESS.md → KNOWN ISSUES before fixing them.
 
 When done: update PROGRESS.md → Stage 9 Complete.

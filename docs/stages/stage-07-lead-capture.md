@@ -230,21 +230,25 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 7 of 10 — Lead Capture & CRM Integration
 
-FIRST: Read PROGRESS.md. Confirm Stages 4 and 5 are Complete. If not — STOP.
-
-CHECK: PROGRESS.md → "Client Requirements" section.
-       Confirm ADVISOR_EMAIL is provided before building email routes.
-       If advisor email is not provided — build forms and UI but stub email delivery.
+PRE-FLIGHT CHECKS (do all of these before writing a single line of code):
+1. Read PROGRESS.md in full — confirm Stages 4 and 5 are marked Complete. If not — STOP.
+2. Read the KNOWN ISSUES section of PROGRESS.md — there may be Stage 7 specific notes.
+3. Read the OPEN DECISIONS section — confirm ADVISOR_EMAIL is provided.
+   If advisor email is not provided — build forms and UI but stub email delivery. Do not halt.
+4. Read the ENVIRONMENT VARIABLES LOG — confirm which env vars are already set.
+5. Run: git status — confirm working tree is clean before starting.
+6. Check if any routes already exist: app/quiz/, app/contact/, app/api/contact/, app/api/quiz/
+   Read any existing files fully before modifying or replacing them.
 
 READ: PLATFORM_BRIEF.md — Sections 1 and 3 (candidate voice guides form copy)
-READ: docs/stages/stage-07-lead-capture.md in full
+READ: docs/stages/stage-07-lead-capture.md in full — especially Section 10 (Client Requirements)
 
 The quiz is the primary lead capture surface — build it first.
 Candidate confirmation emails must feel personal and warm — not generic.
 
 Execute steps 7.1 through 7.6 in order.
+git commit after every step with message format: "stage-7: step 7.X — description"
 Do a real end-to-end test submission for each surface before marking done.
-git commit after every step.
 
 Log any new environment variables to PROGRESS.md before committing.
 When done: update PROGRESS.md → Stage 7 Complete.

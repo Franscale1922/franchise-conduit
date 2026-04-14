@@ -140,21 +140,24 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 10 of 10 — DNS Cutover & Migration
 
-FIRST: Read PROGRESS.md. Confirm Stage 9 is marked Complete AND Kelsey has approved.
-       If Stage 9 is not complete, or approval is not recorded — STOP.
+PRE-FLIGHT CHECKS (do ALL of these before touching DNS — no exceptions):
+1. Read PROGRESS.md in full — confirm Stage 9 is marked Complete AND Kelsey's approval is recorded.
+   If Stage 9 is not complete, or Kelsey's approval is not recorded — STOP. Do not proceed.
+2. Read the KNOWN ISSUES section of PROGRESS.md — resolve any open issues before cutover.
+3. Read the ENVIRONMENT VARIABLES LOG — confirm all Vercel production env vars are set.
+4. Run: git status — confirm working tree is clean with no uncommitted changes.
+5. Confirm Kelsey (or someone with DNS registrar access) is physically available during the cutover window.
+6. Confirm WordPress backup is complete and the WP server is still running and reachable.
+7. Verify every item in Section 2 (Pre-Cutover Requirements) is true before Step 10.1.
 
 READ: PLATFORM_BRIEF.md Section 9 — Migration Architecture (read entirely)
-READ: docs/stages/stage-10-dns-cutover.md — Section 2 (pre-cutover requirements) first
+READ: docs/stages/stage-10-dns-cutover.md — Section 2 (pre-cutover requirements) first, then full doc
 
-Before touching DNS:
-- Verify every item in Section 2 is true.
-- Confirm Kelsey (or someone with DNS access) is available during the cutover window.
-- Confirm WordPress backup is complete and the WP server is still running.
+Execute Section 3 (Cutover Day Sequence) — steps 10.1 through 10.8 — in strict order.
+Do not skip or reorder any step.
 
-Execute Section 3 (Cutover Day Sequence) — steps 10.1 through 10.8 — in order.
-Do not skip or reorder.
-
-After cutover, run the 30-day monitoring schedule and log weekly check-ins in PROGRESS.md.
+After cutover, run the 30-day monitoring schedule in Section 4.
+Log weekly check-ins in PROGRESS.md under KNOWN ISSUES.
 
 When done: update PROGRESS.md → Stage 10 Complete, cutover timestamp logged.
 ```

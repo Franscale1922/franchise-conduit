@@ -258,7 +258,12 @@ Project: FranchiseConduit.com rebuild (Next.js 14)
 Repo: /Users/kelseystuart/Projects/Franchise Conduit/site
 Stage: 5 of 10 — Core Education Pages
 
-FIRST: Read PROGRESS.md. Confirm Stage 4 is Complete. If not — STOP.
+PRE-FLIGHT CHECKS (do all of these before writing a single line of code):
+1. Read PROGRESS.md in full — confirm Stage 4 is marked Complete. If not — STOP.
+2. Read the KNOWN ISSUES section of PROGRESS.md — there may be Stage 5 specific notes.
+3. Run: git status — confirm working tree is clean before starting.
+4. Check if any of these routes already exist: app/how-it-works/, app/methodology/, app/about/
+   Read any existing files fully before modifying or replacing them.
 
 READ: PLATFORM_BRIEF.md — Sections 1, 2, 3 (candidate archetype, two-layer UX, voice)
 READ: docs/stages/stage-05-education-pages.md — full page architecture for all three pages
@@ -268,7 +273,7 @@ Apply the jargon threshold rule: Layer 1 must have zero franchise industry jargo
 Apply the warmth check: does this read like a trusted friend or a brochure?
 
 Execute steps 5.1 through 5.7 in order.
-git commit after every step.
+git commit after every step with message format: "stage-5: step 5.X — description"
 
 Report completion against Section 6 (Definition of Done).
 When done: update PROGRESS.md → Stage 5 Complete.
