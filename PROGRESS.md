@@ -14,8 +14,8 @@
 | Field | Value |
 |-------|-------|
 | **Active stage** | Stage 4 — Homepage |
-| **Stage status** | Ready to begin — Stage 3 complete, brand pages live |
-| **Last commit** | stage-3: complete — 224 brands synced, 3 gold standard pages QA'd, pipeline documented |
+| **Stage status** | In progress — homepage scaffold exists from Stage 2 (app/page.tsx). Stage 4 work is to audit, refine copy, verify billboard test, and confirm all links. |
+| **Last commit** | stage-3: complete — pipeline documented, 3 gold standard pages QA'd, PROGRESS.md updated |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -137,9 +137,17 @@ Track all environment variables as they are added.
 
 | Date | Stage | Step | Commit Message |
 |------|-------|------|----------------|
-| April 2026 | Stage 1 | Complete | `stage-1: complete — platform brief + stage docs written` |
 | April 2026 | Stage 0 | Complete | `stage-0: complete — palette locked (grounded modern, warm stone + deep teal)` |
+| April 2026 | Stage 1 | Complete | `stage-1: complete — platform brief + stage docs written` |
 | April 2026 | Stage 2 | Complete | `stage-2: complete — palette tokens, types, nav, fonts, brand JSONs updated, build passing (59/59)` |
+| April 2026 | Stage 3 | Kickoff | `stage-3: kickoff — PROGRESS.md updated, FDD inventory confirmed, gold standard brands selected` |
+| April 2026 | Stage 3 | step 1 | `stage-3: self-serve lead model locked — nav CTA updated, account gate philosophy recorded` |
+| April 2026 | Stage 3 | step 1 | `stage-3: FDD pipeline built — sync script, Claude skill, column schema, googleapis dep, npm scripts` |
+| April 2026 | Stage 3 | step 1 | `stage-3: Claude skill updated with controlled vocabularies — enum fields now have exact valid values` |
+| April 2026 | Stage 3 | step 1 | `stage-3: step 1 — brands sync from sheet (224 brands), build passing, identifier fix for numeric slugs` |
+| April 2026 | Stage 3 | step 1 | `stage-3: gold standard brands updated — Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care` |
+| April 2026 | Stage 3 | step 1 | `fix: dynamic brand count on homepage, guard FBR/Entrepreneur year badges, fix nested anchor hydration error` |
+| April 2026 | Stage 3 | Complete | `stage-3: complete — pipeline documented, 3 gold standard pages QA'd, PROGRESS.md updated` |
 
 ---
 
@@ -149,7 +157,8 @@ Track all environment variables as they are added.
 |------|-------|--------|-------|
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ⚠️ Open | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
-| April 2026 | **FDD source** — 2027 folder has ~65 current filings. 2026 folder has ~115 pre-renewal filings. Gold standard pages built from 2027 first. Scale to 2026 brands after. | ℹ️ Context | Stage 3 |
+| April 2026 | **Homepage scaffold already exists** — `app/page.tsx` has a full homepage built during Stage 2 scaffold. Stage 4 agent MUST audit what is already there before building anything new. Read `app/page.tsx` fully before making changes. The billboard test and copy audit are the primary Stage 4 deliverables, not a rebuild. | ⚠️ Important | Stage 4 |
+| April 2026 | **`lib/constants.ts` does not exist yet** — Stage 4 doc requires all homepage copy to be extracted to `lib/constants.ts`. This has not been done. The copy currently lives inline in `app/page.tsx`. | ℹ️ Stage 4 to-do | Stage 4 |
 
 ---
 
