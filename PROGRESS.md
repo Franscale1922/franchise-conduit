@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 6 — Browsing & Search |
-| **Stage status** | Stage 5 complete. Ready for Stage 6 (Browsing & Search) — already In Progress. |
-| **Last commit** | stage-5: complete — /how-it-works built, /methodology + /about updated, sitemap updated, all copy in constants |
+| **Active stage** | Stage 7 — Lead Capture & CRM |
+| **Stage status** | Stage 6 complete. Stage 7 is unblocked. |
+| **Last commit** | stage-6: fix useSearchParams Suspense boundary on /franchises — clean build 276/276 |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -44,13 +44,13 @@
 |-------|------|--------|-----------|
 | 4 | Homepage | `Complete` | April 2026 |
 | 5 | Education Pages | `Complete` | April 2026 |
-| 6 | Browsing & Search | `In progress` | — |
+| 6 | Browsing & Search | `Complete` | April 2026 |
 
 ### Conversion
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 7 | Lead Capture & CRM | `Not started` (blocked on Stages 4 + 5) | — |
+| 7 | Lead Capture & CRM | `Not started` | — |
 
 ### Content & SEO
 
@@ -164,6 +164,11 @@ Track all environment variables as they are added.
 | April 2026 | Stage 5 | 5.5 | `stage-5: step 5.5 — about copy committed to constants` |
 | April 2026 | Stage 5 | 5.6 | `stage-5: step 5.6 — /about page complete` |
 | April 2026 | Stage 5 | Complete | `stage-5: step 5.7 — sitemap updated, all pages linked from nav/footer` |
+| April 2026 | Stage 6 | 6.1 | `stage-6: step 6.1 — /franchises index refactored; FranchisesClient with URL-synced filters, mobile drawer, quiz CTA` |
+| April 2026 | Stage 6 | 6.4+6.6 | `stage-6: steps 6.4+6.6 — INDUSTRY_HUBS (12) + STATE_HUBS (20) written to lib/constants.ts` |
+| April 2026 | Stage 6 | 6.3+6.5 | `stage-6: steps 6.3-6.6 — INDUSTRY_HUBS + STATE_HUBS in constants.ts; hub pages import from constants, no hardcoded content` |
+| April 2026 | Stage 6 | bugfix | `stage-6: fix pre-existing toLocaleString crash on brands with undefined unit_count_total` |
+| April 2026 | Stage 6 | 6.7 | `stage-6: fix useSearchParams Suspense boundary on /franchises — clean build 276/276` |
 
 ---
 
@@ -173,7 +178,7 @@ Track all environment variables as they are added.
 |------|-------|--------|-------|
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ⚠️ Open | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
-| April 2026 | **Brand page prerender errors** — ~30 brands with partial data cause `Cannot read properties of undefined (reading 'toLocaleString')` during `npm run build`. These are pre-existing from incomplete data sync. Homepage and all complete brand pages build correctly. Resolve before Stage 9 QA. | ⚠️ Monitor | Stage 9 |
+| April 2026 | **Brand page prerender errors — RESOLVED** — `toLocaleString` on undefined `unit_count_total` fixed with optional chaining guards on brand `[slug]` page. Build is now 276/276 clean. | ✅ Resolved | Stage 6 |
 | April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |
 
 ---
