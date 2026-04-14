@@ -255,7 +255,7 @@ export default function FranchiseDetailPage({ params }: Props) {
                       </div>
                       <div>
                         <div className="stat-label">Total Units</div>
-                        <div className="stat-value">{f.unit_count_total.toLocaleString()}</div>
+                        <div className="stat-value">{f.unit_count_total?.toLocaleString() ?? '—'}</div>
                       </div>
                       {f.fbr_satisfaction_score && (
                         <div>
@@ -481,7 +481,7 @@ export default function FranchiseDetailPage({ params }: Props) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
                 <StatRow label="Founded" value={String(f.year_founded)} />
                 <StatRow label="Franchising Since" value={String(f.year_franchising_began)} />
-                <StatRow label="Total Units" value={f.unit_count_total.toLocaleString()} />
+                <StatRow label="Total Units" value={f.unit_count_total?.toLocaleString() ?? '—'} />
                 <StatRow label="Revenue Pattern" value={f.revenue_pattern.replace(/-/g, ' ')} />
                 <StatRow label="Royalty Rate" value={`${f.royalty_rate}%`} />
                 {f.unit_growth_rate_yoy && <StatRow label="Unit Growth (YoY)" value={`+${f.unit_growth_rate_yoy}%`} highlight />}
