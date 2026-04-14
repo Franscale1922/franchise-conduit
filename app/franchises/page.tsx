@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { franchises, getIndustries } from '@/lib/data'
 import { FranchisesClient } from '@/components/FranchisesClient'
 
@@ -19,12 +20,14 @@ export default function FranchisesPage() {
   const industries = getIndustries()
   const allStates = getAllStates(franchises)
 
-  // Pass the full catalog to the client component — filtering is instant/client-side
+  // Suspense required: FranchisesClient uses useSearchParams() for URL-synced filters
   return (
-    <FranchisesClient
-      franchises={franchises}
-      industries={industries}
-      allStates={allStates}
-    />
+    <Suspense fallback={null}>
+      <FranchisesClient
+        franchises={franchises}
+        industries={industries}
+        allStates={allStates}
+      />
+    </Suspense>
   )
 }
