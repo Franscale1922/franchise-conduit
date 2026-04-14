@@ -53,7 +53,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/methodology`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
+    // Resources hub + foundation articles
+    { url: `${baseUrl}/resources`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${baseUrl}/resources/fdd`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.8 },
+    { url: `${baseUrl}/resources/how-to-buy-a-franchise`, lastModified: '2026-04-12', changeFrequency: 'monthly' as const, priority: 0.9 },
+    { url: `${baseUrl}/resources/reading-an-fdd`, lastModified: '2026-04-12', changeFrequency: 'monthly' as const, priority: 0.85 },
+    { url: `${baseUrl}/resources/franchise-roi`, lastModified: '2026-04-12', changeFrequency: 'monthly' as const, priority: 0.85 },
+    { url: `${baseUrl}/resources/semi-absentee-franchises`, lastModified: '2026-04-12', changeFrequency: 'monthly' as const, priority: 0.85 },
+    { url: `${baseUrl}/resources/why-franchises-fail`, lastModified: '2026-04-12', changeFrequency: 'monthly' as const, priority: 0.85 },
+    // Collections
     { url: `${baseUrl}/collections/semi-absentee`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${baseUrl}/collections/most-profitable`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${baseUrl}/collections/recession-resistant`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },

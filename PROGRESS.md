@@ -127,7 +127,7 @@ Track all environment variables as they are added.
 |----------|---------------|-------|-------|
 | `GOOGLE_SHEET_ID` | Stage 3 | `1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU` | Master FDD brand data spreadsheet |
 | `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` | Stage 3 | `credentials/fddapi-service-account.json` | Service account: `franchiseconduit@franchiseconduitfddapi.iam.gserviceaccount.com` |
-| `RESEND_API_KEY` | Stage 7 | `re_placeholder_paste_your_key_here` | **ACTION REQUIRED:** Replace placeholder with real key from resend.com/api-keys before testing email delivery. Not required for build/deploy. |
+| `RESEND_API_KEY` | Stage 7 | Set in `.env.local` (gitignored) | ✅ Live key set April 2026. Email delivery active via `onboarding@resend.dev`. |
 | `EMAIL_FROM` | Stage 7 | `onboarding@resend.dev` (temporary) | franchiseconduit.com domain not yet verified — use Resend's shared sender until DNS access is available |
 | `ADVISOR_EMAIL` | Stage 7 | `kelsey@waypointfranchise.com` | Confirmed by Kelsey — April 2026 |
 
@@ -184,7 +184,7 @@ Track all environment variables as they are added.
 |------|-------|--------|-------|
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ✅ Resolved — `kelsey@waypointfranchise.com` | Stage 7 |
 | April 2026 | **DNS access not available** — Cannot verify `franchiseconduit.com` in Resend. Stage 7 email delivery must use Resend's shared `onboarding@resend.dev` sender temporarily. Re-verify when Kelsey gains DNS access. Do not block Stage 7 build on this. | ⚠️ Monitor | Stage 7 / Stage 10 |
-| April 2026 | **RESEND_API_KEY required for live email** — `.env.local` created with placeholder. Kelsey must paste real key from resend.com/api-keys before testing email delivery. All 4 API routes are built and build passes — this is the only remaining item before end-to-end test. | ⚠️ Action required | Stage 7 |
+| April 2026 | **RESEND_API_KEY required for live email** — `.env.local` created with placeholder. Kelsey must paste real key from resend.com/api-keys before testing email delivery. All 4 API routes are built and build passes — this is the only remaining item before end-to-end test. | ✅ Resolved — key set April 2026 | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
 | April 2026 | **Brand page prerender errors — RESOLVED** — `toLocaleString` on undefined `unit_count_total` fixed with optional chaining guards on brand `[slug]` page. Build is now 276/276 clean. | ✅ Resolved | Stage 6 |
 | April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |

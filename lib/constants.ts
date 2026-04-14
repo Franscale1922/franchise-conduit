@@ -1209,3 +1209,438 @@ export const STATE_HUBS: StateHub[] = [
     ],
   },
 ]
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RESOURCES — /resources hub + /resources/[slug] articles
+// ─────────────────────────────────────────────────────────────────────────────
+// All resource article content lives here. Page files import from this module.
+// No hardcoded copy in TSX files.
+//
+// Voice reminder: Warm, Clear, Credible, Respectful.
+// Audience: 40-60 professional. Has already decided to explore. Treat as an MBA.
+// No em dashes anywhere. No thin content. Specific numbers where available.
+
+export interface ResourceArticle {
+  slug: string
+  title: string
+  category: string
+  categorySlug: string
+  description: string
+  readTime: string
+  datePublished: string
+  dateModified: string
+  metaTitle: string
+  metaDescription: string
+  targetKeyword: string
+}
+
+export const RESOURCES = {
+
+  // ── Hub page meta ──────────────────────────────────────────────────────────
+  meta: {
+    title: 'Franchise Resources: Guides for Serious Buyers | Franchise Conduit',
+    description:
+      'Practical franchise guides for professionals making the move to business ownership. How to buy a franchise, reading an FDD, franchise ROI, semi-absentee models, and why franchises fail.',
+  },
+
+  hub: {
+    eyebrow: 'Resource Center',
+    headline: 'Everything you need to make a great decision.',
+    subhead: 'No fluff. No rah-rah. Just what smart buyers actually need to know.',
+  },
+
+  categories: [
+    'The Buying Process',
+    'Financial Essentials',
+    'FDD Explained',
+    'Industries and Markets',
+    'Risk and Due Diligence',
+  ],
+
+  // ── Article index ──────────────────────────────────────────────────────────
+  articles: [
+    {
+      slug: 'how-to-buy-a-franchise',
+      title: 'How to Buy a Franchise: A Step-by-Step Guide',
+      category: 'The Buying Process',
+      categorySlug: 'the-buying-process',
+      description: 'The actual process, from understanding your FDD to signing and funding. No inspirational fluff.',
+      readTime: '10 min',
+      datePublished: '2023-05-12',
+      dateModified: '2026-04-12',
+      metaTitle: 'How to Buy a Franchise: A Step-by-Step Guide | Franchise Conduit',
+      metaDescription: 'The actual steps to buying a franchise: FDD basics, defining your criteria, franchisee validation, legal review, and signing. A practical guide for serious buyers.',
+      targetKeyword: 'how to buy a franchise',
+    },
+    {
+      slug: 'reading-an-fdd',
+      title: 'Reading a Franchise Disclosure Document: A Plain-English Guide',
+      category: 'FDD Explained',
+      categorySlug: 'fdd-explained',
+      description: 'What an FDD is, which of the 23 Items actually matter, what red flags look like, and what our research team looks for.',
+      readTime: '12 min',
+      datePublished: '2023-08-03',
+      dateModified: '2026-04-12',
+      metaTitle: 'Reading a Franchise Disclosure Document: Plain-English Guide | Franchise Conduit',
+      metaDescription: 'A practical guide to the FDD: what it is, which of the 23 Items matter most (Items 5, 6, 7, 19, 20, 21), red flags to watch for, and what a clean FDD looks like.',
+      targetKeyword: 'franchise disclosure document explained',
+    },
+    {
+      slug: 'franchise-roi',
+      title: 'Franchise ROI: How to Calculate What a Franchise Actually Returns',
+      category: 'Financial Essentials',
+      categorySlug: 'financial-essentials',
+      description: 'AUV, owner benefit, cash-on-cash return, and how to use Item 19 when one exists. The financial framework serious buyers actually use.',
+      readTime: '9 min',
+      datePublished: '2023-10-17',
+      dateModified: '2026-04-12',
+      metaTitle: 'Franchise ROI: How to Calculate What a Franchise Actually Returns | Franchise Conduit',
+      metaDescription: 'How to model franchise ROI using AUV, owner benefit, and cash-on-cash return. How to use Item 19, and what counts as a good return in this asset class.',
+      targetKeyword: 'franchise ROI',
+    },
+    {
+      slug: 'semi-absentee-franchises',
+      title: 'Semi-Absentee Franchises: What the Model Actually Means',
+      category: 'The Buying Process',
+      categorySlug: 'the-buying-process',
+      description: 'What semi-absentee ownership actually means, who it works for, which industries support it, and the questions to ask before you commit.',
+      readTime: '8 min',
+      datePublished: '2023-12-05',
+      dateModified: '2026-04-12',
+      metaTitle: 'Semi-Absentee Franchises: What the Model Actually Means | Franchise Conduit',
+      metaDescription: 'Semi-absentee franchise ownership explained: the manager model, who it works for (and who it does not), industries where it is viable, and what to ask before you sign.',
+      targetKeyword: 'semi-absentee franchise',
+    },
+    {
+      slug: 'why-franchises-fail',
+      title: 'Why Franchises Fail: The Real Reasons, and What to Screen For',
+      category: 'Risk and Due Diligence',
+      categorySlug: 'risk-and-due-diligence',
+      description: 'Undercapitalization, fit mismatch, territory problems. The real causes of franchise failure and the FDD signals that surface them before you sign.',
+      readTime: '9 min',
+      datePublished: '2024-02-14',
+      dateModified: '2026-04-12',
+      metaTitle: 'Why Franchises Fail: The Real Reasons and What to Screen For | Franchise Conduit',
+      metaDescription: 'The real reasons franchise investments underperform: undercapitalization, fit mismatch, territory problems. What the FDD tells you about failure risk before you sign.',
+      targetKeyword: 'why franchises fail',
+    },
+  ] as ResourceArticle[],
+
+  // ── Article 1: how-to-buy-a-franchise ─────────────────────────────────────
+  howToBuyAFranchise: {
+    intro: {
+      headline: 'How to Buy a Franchise: A Step-by-Step Guide',
+      lede: `If you are reading this, you have probably already made the internal decision to explore franchise ownership. What you need now is not motivation. You need a clear map of the process.`,
+      p1: `Buying a franchise is not complicated, but it is specific. There is a defined sequence: research, disclosure, validation, legal review, sign, fund. Miss a step or do them out of order and you end up either closing too fast on the wrong brand, or stalling indefinitely because you never knew what "ready" looked like.`,
+      p2: `This guide covers the process as it actually works for serious buyers, not the idealized version franchise salespeople prefer to show you. Six steps, in order. No shortcuts.`,
+    },
+    step1: {
+      number: '01',
+      title: 'Understand FDD basics before you talk to a franchisor',
+      body: [
+        `Every U.S. franchise offering is governed by a Franchise Disclosure Document, or FDD. Federal law (the FTC Franchise Rule) requires franchisors to give you this document at least 14 business days before you sign anything or pay any money. That 14-day window is not a bureaucratic formality. It is your primary research period.`,
+        `The FDD has 23 standardized sections called "Items." Not all of them matter equally. The ones most buyers spend the most time on: Item 5 (initial fees), Item 6 (ongoing royalties and fees), Item 7 (total estimated investment range), Item 19 (financial performance representations), Item 20 (unit count history, including closures), and Item 21 (audited financial statements of the franchisor).`,
+        `Before you are deep into any brand evaluation, you should understand what these Items tell you and what they do not. Item 19, for example, is voluntary, not mandatory. Franchisors who do not publish one are not hiding anything illegal, but the absence of Item 19 data does limit your ability to model returns. We cover FDD reading in detail separately.`,
+      ],
+    },
+    step2: {
+      number: '02',
+      title: 'Define your investment criteria before you fall in love with a brand',
+      body: [
+        `The most expensive mistake in franchise buying is evaluating brands before you have defined your own parameters. Buyers who skip this step end up anchored to the first brand that feels exciting, and they spend months rationalizing an investment that does not actually fit their capital, lifestyle, or operational reality.`,
+        `Define these four things before you look at your first brand:`,
+        `Investment range: What is your liquid capital available to invest? Total investment in a franchise includes the franchise fee (typically $35K to $75K for most mid-market brands), real estate (if applicable), equipment, working capital, and the FDD-stated grand opening marketing fund. The working capital buffer matters most, because most franchises take 12 to 18 months to reach full revenue. Under-fund the launch and the whole model fails regardless of brand quality.`,
+        `Operator role: Do you want to be owner-operator (working in the business daily) or owner-manager (hiring a GM and overseeing from above)? This is not a desire question, it is a skills and lifestyle question. Some brands require the former; some work only in the latter model. Know which before you start looking.`,
+        `Industry preference: Has anything in your background given you credibility or genuine interest in a particular category? Senior care, home services, B2B services, fitness, food? Your background is not a requirement, but it is a signal worth listening to.`,
+        `Geography and territory: Where will you operate? Some categories are territory-dependent in ways that matter to the investment case. A senior care franchise in a county with below-average over-65 population growth is a structurally weaker investment than the same brand in a high-growth retirement corridor, regardless of brand quality.`,
+      ],
+    },
+    step3: {
+      number: '03',
+      title: 'Research brands that actually fit your criteria',
+      body: [
+        `With your parameters defined, you can evaluate brands that fit rather than brands that sound good. The research phase has a structure: start with the macro (industry position, growth trajectory, Item 19 AUV data if available), move to the micro (specific territory performance, franchisee satisfaction data from Franchise Business Review, unit count trends from Item 20).`,
+        `The Franchise Business Review publishes franchisee satisfaction surveys covering roughly 1,200 brands annually. High satisfaction scores are a meaningful signal. They do not guarantee your experience, but they are a data point that broad brand recognition or slick marketing materials cannot replicate.`,
+        `When comparing brands, resist the impulse to compare total investment ranges directly. A $250K investment in a brand with a disclosed $900K AUV looks different than a $250K investment in a brand with no Item 19 and no idea what franchisees actually make. Normalize to return on investment, not cost.`,
+      ],
+    },
+    step4: {
+      number: '04',
+      title: 'Make validation calls, and make them count',
+      body: [
+        `Item 20 of the FDD contains a list of current franchisees with their contact information. You have the legal right to contact every one of them. Most franchisors will also give you a guided list of franchisees who are willing to speak with candidates.`,
+        `That guided list is useful, but it is the franchisees who are not on the guided list who will tell you the most. Call five to ten franchisees from the full Item 20 list, not just the ones the franchisor suggested. Specifically, seek out franchisees who are in markets similar to yours (comparable metro size, demographics, and territory type) and those who have been in the system for three to five years, past the honeymoon phase.`,
+        `Questions worth asking: What does your weekly time commitment actually look like? How responsive is the corporate support team when something goes wrong? If you knew then what you know now, would you choose this brand? What is the biggest gap between what you were promised and what happened?`,
+        `This is where an experienced advisor earns their value. A good advisor has often already spoken to franchisees in the system, knows which markets are performing versus struggling, and can frame your validation conversations around the specific concerns relevant to your situation.`,
+      ],
+    },
+    step5: {
+      number: '05',
+      title: 'Retain a franchise attorney for legal review',
+      body: [
+        `The franchise agreement is a binding legal contract, typically 10 to 20 years in duration. It governs every aspect of your relationship with the franchisor: territory rights, renewal terms, transfer rights if you decide to sell, default conditions, dispute resolution, and what happens if the franchisor is acquired. This is not a document to read yourself and decide is "pretty standard."`,
+        `Retain a franchise attorney, not a general business attorney. Franchise law is specific. A general attorney reviewing a franchise agreement is analogous to a general practitioner performing orthopedic surgery. The skill sets are adjacent but not interchangeable. The American Association of Franchisees and Dealers maintains a referral list of attorneys who specialize in franchising.`,
+        `A competent franchise attorney will not negotiate every clause (most franchise systems have relatively limited negotiation room), but they will identify the clauses that are meaningful for your specific deal, explain what you are agreeing to on renewal and transfer, and flag any unusual provisions that deviate from industry norms.`,
+        `Budget $2,500 to $5,000 for legal review. This is not a cost to minimize.`,
+      ],
+    },
+    step6: {
+      number: '06',
+      title: 'Sign and fund, in that order',
+      body: [
+        `Discovery Day is a formal event, usually held at the franchisor's headquarters, where serious candidates spend a day with the corporate team. It is partly informational, partly selection, and partly mutual in nature. Franchisors are evaluating you as much as you are evaluating them. Most franchisors require a signed franchise agreement within a defined window following Discovery Day.`,
+        `Funding typically follows the signed agreement. Common funding mechanisms for franchise buyers: SBA 7(a) loans (the most common path for $150K to $750K total investments, requiring approximately 20% down), ROBS (Rollovers as Business Startups, which allow 401k funds to be used penalty-free as franchise equity), home equity lines, and self-funding. Most buyers use a combination.`,
+        `Working capital is the item most first-time buyers underfund. The FDD Item 7 investment table includes a working capital estimate, but that estimate reflects the franchisor's 50th-percentile experience. Your actual ramp time depends on your territory, your prior management experience, and the support quality of your local market's field consultant. Budget the high end of the Item 7 working capital range, not the low end.`,
+      ],
+    },
+    conclusion: {
+      headline: 'The honest summary',
+      body: [
+        `The process from serious inquiry to signed franchise agreement runs three to six months for most buyers who are moving with intent. Buyers who stretch to nine to twelve months are usually stuck in validation, legal review, or funding, not because the process is hard, but because they did not have a map.`,
+        `You have one now. The most important variable that determines outcome is not the brand you choose. It is whether the brand actually fits your capital, your market, your operational style, and your realistic time commitment. Getting that fit right is the decision.`,
+      ],
+      cta: `This is exactly where an experienced advisor saves you six months of wrong turns. A good advisor has already screened hundreds of brands, knows which ones are producing strong results in markets like yours, and can match you to a shortlist in days rather than months. When you are ready to move from research to shortlist, we can help.`,
+    },
+  },
+
+  // ── Article 2: reading-an-fdd ──────────────────────────────────────────────
+  readingAnFdd: {
+    intro: {
+      headline: 'Reading a Franchise Disclosure Document: A Plain-English Guide',
+      lede: `The Franchise Disclosure Document is the single most important piece of paper in any franchise transaction. It is also the most misunderstood.`,
+      p1: `Most franchise candidates either skip it entirely (relying on the franchisor's summary), or they read it cover to cover and get lost in 200 pages of legal boilerplate that obscures the 20 pages that actually matter.`,
+      p2: `This guide tells you which Items to spend your time on, what the important numbers mean, what red flags look like, and what we look for in our own research process when we evaluate a brand.`,
+    },
+    whatIsIt: {
+      headline: 'What an FDD is, and why it exists',
+      body: [
+        `The Federal Trade Commission's Franchise Rule requires any franchisor selling franchises in the United States to provide prospective buyers with an FDD at least 14 calendar days before they sign any document or pay any money. This mandatory disclosure period exists because franchising, historically, was plagued with information asymmetry, meaning franchisors knew far more about the performance of their systems than buyers did.`,
+        `The FDD is a standardized document with 23 required sections (Items). Every FDD, from a small regional brand to McDonald's, follows the same structure. That standardization is useful, because once you know the structure, you can navigate any FDD quickly. The document is self-reported by the franchisor and filed with state regulators in the 14 franchise registration states. Item 23 contains an acknowledgment receipt, which you sign to confirm you received the document within the required window.`,
+        `What the FDD is not: independently audited performance data in most cases. The financial statements in Item 21 are audited by a CPA, but the financial performance representations in Item 19 are self-reported by the franchisor. This matters for how you interpret what you read.`,
+      ],
+    },
+    the23Items: {
+      headline: 'The 23 Items: which ones actually matter',
+      body: [
+        `All 23 Items are required, but not all are equally informative for investment analysis. Here is how to allocate your attention:`,
+      ],
+      criticalItems: [
+        {
+          item: 'Item 5: Fees',
+          detail: `Lists all initial fees: franchise fee, training fee, grand opening fee, and any other initial payments. The franchise fee for most mid-market brands runs $35K to $75K. Item 5 also discloses whether any fees are refundable, and under what conditions. A non-refundable franchise fee is nearly universal, but a non-refundable training fee before territory approval is a flag worth questioning.`,
+        },
+        {
+          item: 'Item 6: Ongoing Fees',
+          detail: `Royalties, marketing fund contributions, technology fees, and any other recurring obligations. Royalties typically run 4% to 8% of gross revenue. Marketing fund contributions add another 1% to 3%. Understand the aggregate royalty burden from day one, not just the headline royalty rate. A 6% royalty plus 3% marketing plus 1.5% technology fee equals 10.5% of gross revenue off the top, which has a significant effect on owner benefit.`,
+        },
+        {
+          item: 'Item 7: Estimated Initial Investment',
+          detail: `The total investment range, broken into categories: franchise fee, real estate, leasehold improvements, equipment, inventory, training-related travel, working capital, and additional funds. Item 7 is a range, not a guarantee. The low end tends to reflect optimal conditions (favorable lease terms, no buildout surprises). Budget toward the high end. The working capital line is particularly important: most franchisors' working capital estimates assume a 3-month ramp. Most businesses take longer.`,
+        },
+        {
+          item: 'Item 19: Financial Performance Representations',
+          detail: `This is voluntary. Franchisors are not required to publish Item 19 data, and roughly 40% of FDDs do not contain one. When Item 19 exists, it may show Average Unit Volume (AUV), median gross sales, or a range of sales figures by quartile. The most useful Item 19s break performance down by market type, unit age, and owner type (owner-operator versus absentee). When Item 19 is absent or thin, you are operating with materially less information, and franchisee validation calls become proportionally more important.`,
+        },
+        {
+          item: 'Item 20: Outlets and Franchisee Information',
+          detail: `The operational history of the system: how many units have opened, closed, been transferred, or been terminated in each of the last three years. Item 20 also includes a list of current franchisees with contact information. The closure rate and the transfer rate (franchisees selling) are the most important signals. A brand with a 15% annual closure rate is telling you something real, regardless of how well the Discovery Day went.`,
+        },
+        {
+          item: 'Item 21: Financial Statements',
+          detail: `Audited financial statements for the franchisor entity, covering the last three fiscal years. You are looking for franchisor stability: is the business growing? Is it profitable? Is there debt that could affect the system's ability to support franchisees? A franchisor that is poorly capitalized or losing money on its own operations is a material risk to the entire system.`,
+        },
+      ],
+      lessImportantItems: `Items 1 through 4 cover the franchisor's background, business history, recent litigation, and any prior bankruptcy filings. Read them, because undisclosed litigation or bankruptcy in Item 3 or 4 is a red flag. Items 8 through 18 cover operational provisions: approved suppliers, restrictions, franchisee obligations, franchisor obligations, training programs, territory rights, and transfer conditions. These matter for your day-to-day experience but are not the primary financial analysis tools that Items 5, 6, 7, 19, 20, and 21 provide.`,
+    },
+    redFlags: {
+      headline: 'What red flags look like in an FDD',
+      items: [
+        `Item 20 shows unit closures or non-renewals significantly above the category average. Home services franchises with closure rates above 10% annually warrant explanation. Above 15% is serious.`,
+        `Item 3 shows active litigation involving franchisees suing the franchisor, particularly class-action or coordinated suits. Some litigation is normal; franchisee-plaintiff patterns are not.`,
+        `Item 5 or 6 contains fees that are unusually broad or vague in their triggers. "Such other fees as determined by franchisor from time to time" without caps or conditions is a negotiating flag.`,
+        `Item 7 investment ranges are unusually wide (for example, $120K to $800K), which usually signals either poor data collection by the franchisor or meaningful variance in buildout requirements that will affect your actual investment significantly.`,
+        `Item 19 is absent entirely, and validation calls with franchisees produce inconsistent revenue reports. The combination of no public data and inconsistent private data means you are genuinely buying blind.`,
+        `Item 21 shows the franchisor is not profitable or is relying on franchise fee income (new unit sales) to cover operations. A franchisor whose survival depends on selling new franchises has misaligned incentives.`,
+      ],
+    },
+    cleanFdd: {
+      headline: 'What a clean FDD looks like',
+      body: [
+        `A well-run, transparent franchise system produces an FDD with: a detailed Item 19 that shows performance by quartile, unit age, and geography; an Item 20 with closure rates below the category benchmark; audited financial statements showing the franchisor is profitable and growing; and a litigation section that is either blank or contains only isolated, resolved disputes.`,
+        `It also produces franchisees who speak openly and positively during validation calls, not defensively or off-script. That qualitative signal matters as much as what you read in the document.`,
+      ],
+    },
+    whatWeLookFor: {
+      headline: 'What our research team looks for',
+      body: [
+        `When we evaluate a brand for the Franchise Conduit catalog, the FDD is our primary data source. Our Navigator Score's Financial Transparency component (25% of the total score) pulls directly from Item 19 availability and specificity. We check Item 20 closure rates against category benchmarks from our proprietary database. We review Item 21 for franchisor financial stability.`,
+        `Brands without an Item 19 are not automatically excluded, but their Navigator Score reflects the data limitation, and we flag it explicitly on the brand page. We believe candidates deserve to know what they know and what they do not, before they get on a call with a franchisor who has every incentive to fill that uncertainty with optimism.`,
+      ],
+      cta: `If you are at the stage of reviewing actual FDDs, having an advisor in your corner can change the quality of your analysis significantly. An experienced advisor has reviewed hundreds of FDDs across dozens of systems and can tell you in 15 minutes what the important provisions mean for your specific deal. That is not something you learn from reading articles, including this one.`,
+    },
+  },
+
+  // ── Article 3: franchise-roi ───────────────────────────────────────────────
+  franchiseRoi: {
+    intro: {
+      headline: 'Franchise ROI: How to Calculate What a Franchise Actually Returns',
+      lede: `The most common question serious franchise buyers ask is: how much money does a franchise make? It is a reasonable question, but it is the wrong first question.`,
+      p1: `The right question is: what does this franchise return on the capital and time I invest in it? Those are different calculations, and conflating them produces bad investment decisions.`,
+      p2: `This guide covers the financial metrics that matter, how to build the analysis using available data, and how to think about franchise investing as an asset class.`,
+    },
+    wrongQuestion: {
+      headline: 'Why "how much does a franchise make" is the wrong starting point',
+      body: [
+        `Gross revenue, or Average Unit Volume (AUV), is widely cited because it is the most commonly disclosed metric in franchise systems. But revenue is a vanity number for an investor. A franchise generating $1.2M in AUV with 8% royalties, 3% marketing fund, 35% cost of goods, 30% labor, and 12% rent is generating roughly $144K in operating income before debt service and the owner's salary, if they are working in the business. That is a very different investment outcome than the $1.2M headline implies.`,
+        `The investors who get hurt in franchising are almost always buyers who anchored on AUV and applied optimistic margins without running the unit economics. The investors who do well are almost always those who modeled owner benefit and compared it to the total capital deployed.`,
+      ],
+    },
+    metrics: {
+      headline: 'The metrics that actually matter',
+      items: [
+        {
+          name: 'Average Unit Volume (AUV)',
+          detail: `AUV is gross revenue per unit, typically expressed as an annual figure. It is the starting point for financial modeling, not the ending point. When comparing brands, AUV only makes sense in the context of the cost structure. A $500K AUV business with 60% gross margin may outperform a $900K AUV food business with 30% gross margin after royalties, rent, and labor.`,
+        },
+        {
+          name: 'Owner Benefit',
+          detail: `Owner benefit is the actual cash drawn from the business by the owner, including salary if the owner is working in it, plus net profit after all expenses. For executive-model (semi-absentee) investors, owner benefit is the net profit after the general manager's salary, all royalties and fees, rent, labor, and operating costs. This number, not AUV, is what you are actually buying. Most franchisors will not volunteer this number. You derive it from Item 19 data (if available) and franchisee validation conversations.`,
+        },
+        {
+          name: 'Cash-on-Cash Return',
+          detail: `Cash-on-cash return is owner benefit divided by total capital invested. A franchise requiring $400K total investment that generates $80K in owner benefit in year two produces a 20% cash-on-cash return. As a reference benchmark: institutional real estate investors target 8% to 12% cash-on-cash. Private equity targets 20% to 30%+ on leveraged deals. The right benchmark for franchise investing depends on your liquidity needs, risk tolerance, and time horizon. Most serious franchise investors target 15% to 25% cash-on-cash at maturity (typically year two or three), with the understanding that year one is typically breakeven or loss.`,
+        },
+        {
+          name: 'Payback Period',
+          detail: `Payback period is how many years of owner benefit are required to recover your initial total investment. A $400K investment producing $100K annually in owner benefit has a 4-year payback. The franchise industry median payback period across all categories runs 4 to 6 years. Brands with strong Item 19 performance in the top quartile can produce payback periods of 3 years or less, which is excellent for a private business investment at this capital level.`,
+        },
+      ],
+    },
+    item19: {
+      headline: 'How to use Item 19, and what to do when there is not one',
+      body: [
+        `Item 19 is the franchisor's voluntary disclosure of financial performance data. When it exists and is detailed, it gives you the starting point for owner benefit modeling. The best Item 19s include: average gross revenue by unit age, median gross revenue (not just the average, which can be inflated by top performers), operating cost breakdowns or margins, and performance broken out by geography or market type.`,
+        `When Item 19 is absent, or thin, your primary data source shifts to franchisee validation calls. Ask franchisees directly: what is your gross revenue for the past 12 months? What are your royalty payments monthly? What does your operating cost structure look like? Most franchisees who are doing well will answer these questions honestly, particularly if you approach with genuine curiosity rather than pressure.`,
+        `Do not accept a franchisor's verbal earnings claims that are not backed by Item 19 disclosure. Verbal representations about earnings during the sales process that are not part of the FDD are both a red flag for compliance and not binding on the franchisor. If they cannot put it in writing in Item 19, you cannot rely on it.`,
+      ],
+    },
+    investmentEfficiency: {
+      headline: 'Investment efficiency: what a good return looks like in this asset class',
+      body: [
+        `Franchising occupies an interesting position in the spectrum of private business investments. Unlike starting a business from scratch, you are buying a proven system with documented performance, brand recognition, training, and operational support. Unlike passive investments, you are typically deploying capital into an actively managed business with an owner-operator or manager-model structure.`,
+        `The risk-adjusted return expectation should reflect that positioning. A franchise investment with total capital of $300K, producing $75K in annual owner benefit by year two, generates a 25% cash-on-cash return. That is competitive with most private equity outcomes at this capital level, without the leverage or the 7-year lockup. The tradeoff is active involvement and the operational reality of running a business.`,
+        `The clearest pattern in franchise investment outcomes: buyers who did thorough due diligence (FDD analysis, franchisee validation, realistic financial modeling, and attorney review) before signing consistently outperform buyers who moved fast. The franchise industry's failure rate is real, but it clusters in the population of buyers who were undercapitalized, chose the wrong brand for their profile, or skipped due diligence steps.`,
+      ],
+      cta: `Our team builds the financial analysis section on every brand page from FDD Item 19 data, franchisee validation, and our own market research. When you are modeling a specific brand in a specific market, our advisors can help you build the unit economics from the actual data, not from the franchisor's sales deck.`,
+    },
+  },
+
+  // ── Article 4: semi-absentee-franchises ───────────────────────────────────
+  semiAbsentee: {
+    intro: {
+      headline: 'Semi-Absentee Franchises: What the Model Actually Means',
+      lede: `"Semi-absentee" is one of the most misused terms in franchising. Franchise sales teams use it as shorthand for passive income. That is not what it means.`,
+      p1: `Understanding what the model actually requires, who it works well for, and where the risks are, is the difference between a sound investment and a painful lesson in what "owner" actually means in practice.`,
+    },
+    actualMeaning: {
+      headline: 'What semi-absentee actually means',
+      body: [
+        `In franchise terminology, semi-absentee does not mean passive. It means the owner is not the primary operator. The most accurate description: you hire a general manager or director of operations who runs the day-to-day business while you oversee from a business management role.`,
+        `In practice, semi-absentee owners typically spend 10 to 20 hours per week on business oversight, with a heavier time commitment of 40 to 60 hours per week in the first 6 to 12 months of launch while the GM is being trained and systems are being established. The model then transitions to a lighter ongoing management structure, which may look like: weekly P&L review, regular one-on-one with the GM, key hiring decisions, and handling escalated customer or operations issues.`,
+        `Owner-operator franchises, by contrast, require the owner to perform or directly supervise the core service delivery function daily. Some brands explicitly require the franchisee to hold a particular license (certain home health or staffing brands). Others simply perform better when the owner is onsite. These are not semi-absentee opportunities regardless of how they are marketed.`,
+      ],
+    },
+    managerModel: {
+      headline: 'The manager model explained: your hire, not your shift',
+      body: [
+        `The central structural element of semi-absentee ownership is the general manager. This person is your most important hire. They run operations, manage staff, handle customer relationships, and maintain quality standards. Your role is hiring well, training thoroughly, providing clear performance expectations, and creating accountability structures.`,
+        `The manager model only works when: the GM role is well-compensated (typically $45K to $70K for most service franchises, plus bonuses tied to performance), the franchisor's support system is strong enough that the GM is never flying blind operationally, and the owner is genuinely accessible for decisions that require ownership authority (lease decisions, capital expenditures, hiring above a certain level, and so on).`,
+        `Where the model breaks down: owners who hire GMs then fully disengage. In a franchise system, semi-absentee ownership is leadership from a distance, not ownership on autopilot. A GM who cannot reach you for decisions that require your authority will find other ways to make decisions, or they will leave.`,
+      ],
+    },
+    whoItWorksFor: {
+      headline: 'Who it works for, and who it does not',
+      body: [
+        `Semi-absentee ownership works well for candidates who: have strong management and leadership instincts (can hire, develop, and hold people accountable), have sufficient liquidity to weather a longer ramp period (the breakeven timeline is typically 6 to 18 months longer in semi-absentee models than in owner-operator ones, because a GM is drawing a salary from the beginning), and have a current primary income source they are preserving while building the franchise business.`,
+        `It is typically not the right model for first-time business owners without any management experience. Managing managers is a specific skill. If you have never hired, trained, and held a team accountable, learning that while simultaneously learning franchise operations and building a new business is a significant risk to take on at once.`,
+        `It also does not work for buyers who are undercapitalized. The additional fixed cost of a qualified GM is real, and brands where the GM is the business (certain senior care or B2B services models) require a strong GM from day one, not a gradual transition.`,
+      ],
+    },
+    industries: {
+      headline: 'Industries where semi-absentee is genuinely viable',
+      body: [
+        `Not all franchise categories support semi-absentee models equally. The strongest categories for executive-model ownership are those where: (1) the business can hire non-licensed staff to deliver the core service, (2) the systemized training and franchisor support infrastructure is robust enough to support a GM who is learning the system without the owner being there daily, and (3) the revenue model produces cash flow early enough to sustain GM compensation before the business is fully ramped.`,
+        `Categories with strong semi-absentee track records: senior care (non-medical home care), commercial cleaning (B2B contract cleaning), property restoration, B2B staffing, and many home services concepts. These categories share common traits: recurring revenue or contract-based income, manager-model operational structures built into the franchise system, and franchise support teams with structured onboarding programs.`,
+        `Categories that are harder to run semi-absentee: food and beverage concepts requiring active quality control, fitness concepts where the owner's presence and community involvement drives member retention, and specialty retail where the owner's expertise is part of the service product.`,
+      ],
+    },
+    checklist: {
+      headline: 'What to ask the franchisor before you commit',
+      questions: [
+        `What percentage of your current franchisees are operating in a semi-absentee model? (The answer should be specific and verifiable through Item 20 validation calls, not a vague "many of our franchisees" response.)`,
+        `What is the average time to hire a qualified GM in my target market, and what does the franchisor's hiring support look like during that process?`,
+        `What is the typical owner time commitment in months 1 through 6, and what does it transition to at month 18?`,
+        `What is the typical GM compensation in my target market, and is GM compensation included in the Item 7 working capital estimate?`,
+        `Can you provide the contact information for three to five franchisees who are currently operating semi-absentee, so I can speak with them directly? (If they cannot provide this, that is a data point.)`,
+      ],
+      cta: `The semi-absentee question is one of the most important fit questions in franchise evaluation, and it is also one of the areas where the gap between what is marketed and what is real is widest. An experienced advisor can tell you which brands in your investment range actually produce consistent semi-absentee outcomes, not just which ones claim to.`,
+    },
+  },
+
+  // ── Article 5: why-franchises-fail ────────────────────────────────────────
+  whyFranchisesFail: {
+    intro: {
+      headline: 'Why Franchises Fail: The Real Reasons, and What to Screen For',
+      lede: `Franchising has a reputation for safety that is partially deserved and frequently overstated. The truth is more useful: franchises do fail, and they fail for specific, identifiable reasons that are largely screenable before you sign.`,
+      p1: `Understanding those reasons, and knowing how to look for them in the data available before you commit, is the most valuable risk management work you can do as a franchise buyer.`,
+    },
+    context: {
+      headline: 'What the data actually says about franchise failure',
+      body: [
+        `The commonly cited "franchises have a 90% success rate" figure is not from any peer-reviewed study and should be treated skeptically. The FTC and academic researchers have consistently found that franchise failure rates are difficult to measure because the definition of "failure" is contested (closed units include voluntary exits, transfers, and non-renewals, not just closures due to financial failure) and franchisor disclosure requirements do not require disclosure of why units close.`,
+        `What we can measure: Item 20 of every FDD discloses unit count changes over the prior three years, including terminations, non-renewals, reacquisitions by the franchisor, and total closures. A brand with 150 units that closed or terminated 30 over three years has a 20% three-year attrition rate. That is a real number.`,
+        `The more honest and useful framing for buyers: franchise investing has a well-documented set of failure modes. Each of them is either screenable before you sign or manageable with the right preparation. The buyers who fail are disproportionately those who either did not screen for these risks or knew about them and minimized them.`,
+      ],
+    },
+    reasons: {
+      headline: 'The real reasons franchises fail',
+      items: [
+        {
+          title: 'Undercapitalization',
+          detail: `This is the most common cause of franchise failure, and it is almost entirely preventable. Undercapitalization means entering the business without enough liquidity to survive the ramp period before the business is generating sufficient cash flow. Most franchise businesses take 12 to 18 months to reach full revenue capacity. The owner who launches with exactly enough capital to cover the Item 7 investment table (using the low-end estimates) is one bad month away from a cash crisis in month 10.`,
+          whatToCheck: `Check the Item 7 working capital estimate and treat it as a minimum floor, not a guide. Budget 20% to 30% above the stated working capital. Ask franchisees in validation calls how long their personal cash reserve lasted before the business was self-sustaining. Any franchisee who says they were tight on cash in months 12 to 18 is giving you real data.`,
+        },
+        {
+          title: 'Fit mismatch: buying the wrong brand for the wrong person',
+          detail: `The second-most common cause is a fundamental mismatch between the buyer's skills, lifestyle, and capital, and the operational requirements of the franchise they chose. This happens when buyers fall in love with a brand (or an industry, or a lifestyle vision) before doing the structural fit analysis. A C-suite executive who is a strong relationship builder buying a brand that requires 50-hour operational weeks as an owner-operator is a fit mismatch. So is an executive with no B2B sales experience buying a commercial cleaning franchise where the first 18 months require intensive cold outreach to win contracts.`,
+          whatToCheck: `Before you evaluate any brand, write down your honest answers to: What hours will you actually work? What management and operational functions are you genuinely good at? What does your specific market need in terms of local knowledge and relationships? Then check brands against your answers, not against what sounds appealing.`,
+        },
+        {
+          title: 'Site selection and territory problems',
+          detail: `For location-dependent franchises (food, fitness, retail, and many services), site selection is one of the highest-leverage decisions in the entire process, and it is one that buyers often under-resource. A franchise location in a trade area with insufficient demographics, strong competing alternatives, or poor visibility and access can be a well-run business that never reaches system-average AUV. For territory-based service franchises, an undersized or demographically mismatched territory is a structural ceiling on revenue.`,
+          whatToCheck: `Ask the franchisor for the territory definition and the demographic parameters they use to size territories. Ask who is responsible for site selection support and what that process looks like in detail. For location-based concepts, compare AUV data for the territory type you are considering (suburban, urban, rural) against the system average. Significant below-average performance in comparable markets is a signal.`,
+        },
+        {
+          title: 'Franchisor system deterioration',
+          detail: `A franchise is only as strong as the system supporting it. Franchisors who are poorly capitalized, losing franchisees faster than they are adding them, or who have materially reduced their support infrastructure are actively degrading the value of every franchisee's investment in the system. Item 21's audited financial statements and Item 20's unit count history are the primary screens for this risk.`,
+          whatToCheck: `Review Item 21 for three consecutive years. Is the franchisor profitable? Is revenue growing from franchise operations (royalties) or from new unit sales (franchise fees)? A franchisor whose primary revenue source is selling new franchises, rather than collecting royalties from a growing system, has misaligned incentives. Also look at net unit count: a system that is shrinking is telling you something that no Discovery Day presentation will address.`,
+        },
+        {
+          title: 'Too slow to hire or too quick to disengage',
+          detail: `For executive-model (semi-absentee) buyers, one of the most consistent patterns in failed investments is the owner who either delays hiring a qualified GM (to save salary costs during the ramp) or who hires a GM and fully disengages before the business is stable enough to operate without ownership engagement. The manager model is not a passive income structure. It requires active leadership at a distance.`,
+          whatToCheck: `Ask semi-absentee franchisees in validation calls: when did you hire your GM, what were the first 90 days like, and what does your current weekly engagement with the business look like? The answers will tell you both the real time commitment and whether the franchisor's "semi-absentee" marketing reflects actual franchisee experience.`,
+        },
+      ],
+    },
+    whatWeCheck: {
+      headline: 'What we check before listing a brand',
+      body: [
+        `When we evaluate a franchise for the Franchise Conduit catalog, we run a version of this analysis as part of the brand review. Our Navigator Score's Brand Stability component (20% of the total score) is built from Item 20 data: unit count trajectory, closure rate versus category benchmark, and net growth over three years.`,
+        `We do not list brands with closure rates that are materially above category benchmarks without explicitly flagging the data. We do not suppress negative information to make our catalog look cleaner. If a brand has a high closure rate and a declining unit count, that appears on the brand page, and it is discussed in the financial section.`,
+        `This is a place where the information asymmetry in franchising can either hurt you or help you. Buyers who know what to look for and where to find it can screen out the highest-risk opportunities before they get emotionally invested. Buyers who do not know what to look for are relying on the franchisor's sales team to tell them what is in their own disclosure document.`,
+      ],
+      cta: `If you are evaluating a specific brand and want a second read on its Item 20 closure data, Item 19 performance, or franchisor financial stability, our advisors do this analysis regularly. It is one of the clearest ways an experienced advisor earns their value in the research phase.`,
+    },
+  },
+
+} as const
