@@ -14,8 +14,8 @@
 | Field | Value |
 |-------|-------|
 | **Active stage** | Stage 7 — Lead Capture & CRM |
-| **Stage status** | Stage 6 complete. Stage 7 is unblocked. |
-| **Last commit** | stage-6: fix useSearchParams Suspense boundary on /franchises — clean build 276/276 |
+| **Stage status** | Stage 7 in progress — all 4 surfaces built, build passing 280/280. Awaiting RESEND_API_KEY from Kelsey for live email test. |
+| **Last commit** | stage-7: step 7.1 — Resend installed, env vars logged, .env.local created |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -50,7 +50,7 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 7 | Lead Capture & CRM | `Not started` | — |
+| 7 | Lead Capture & CRM | `In progress` | — |
 
 ### Content & SEO
 
@@ -127,7 +127,7 @@ Track all environment variables as they are added.
 |----------|---------------|-------|-------|
 | `GOOGLE_SHEET_ID` | Stage 3 | `1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU` | Master FDD brand data spreadsheet |
 | `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` | Stage 3 | `credentials/fddapi-service-account.json` | Service account: `franchiseconduit@franchiseconduitfddapi.iam.gserviceaccount.com` |
-| `RESEND_API_KEY` | Stage 7 | — | From resend.com dashboard |
+| `RESEND_API_KEY` | Stage 7 | `re_placeholder_paste_your_key_here` | **ACTION REQUIRED:** Replace placeholder with real key from resend.com/api-keys before testing email delivery. Not required for build/deploy. |
 | `EMAIL_FROM` | Stage 7 | `onboarding@resend.dev` (temporary) | franchiseconduit.com domain not yet verified — use Resend's shared sender until DNS access is available |
 | `ADVISOR_EMAIL` | Stage 7 | `kelsey@waypointfranchise.com` | Confirmed by Kelsey — April 2026 |
 
@@ -169,6 +169,11 @@ Track all environment variables as they are added.
 | April 2026 | Stage 6 | 6.3+6.5 | `stage-6: steps 6.3-6.6 — INDUSTRY_HUBS + STATE_HUBS in constants.ts; hub pages import from constants, no hardcoded content` |
 | April 2026 | Stage 6 | bugfix | `stage-6: fix pre-existing toLocaleString crash on brands with undefined unit_count_total` |
 | April 2026 | Stage 6 | 6.7 | `stage-6: fix useSearchParams Suspense boundary on /franchises — clean build 276/276` |
+| April 2026 | Stage 7 | 7.1 | `stage-7: step 7.1 — Resend installed, env vars logged, .env.local created` |
+| April 2026 | Stage 7 | 7.2 | `stage-7: step 7.2 — /contact page and API route complete` |
+| April 2026 | Stage 7 | 7.3 | `stage-7: step 7.3 — /quiz flow complete (7 questions, matching results, advisor + candidate email)` |
+| April 2026 | Stage 7 | 7.4 | `stage-7: step 7.4 — brand introduction CTA complete (BrandIntroForm + api/brand-intro)` |
+| April 2026 | Stage 7 | 7.5 | `stage-7: step 7.5 — FDD request modal complete (FddRequestModal + api/fdd-request)` |
 
 ---
 
@@ -178,6 +183,7 @@ Track all environment variables as they are added.
 |------|-------|--------|-------|
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ✅ Resolved — `kelsey@waypointfranchise.com` | Stage 7 |
 | April 2026 | **DNS access not available** — Cannot verify `franchiseconduit.com` in Resend. Stage 7 email delivery must use Resend's shared `onboarding@resend.dev` sender temporarily. Re-verify when Kelsey gains DNS access. Do not block Stage 7 build on this. | ⚠️ Monitor | Stage 7 / Stage 10 |
+| April 2026 | **RESEND_API_KEY required for live email** — `.env.local` created with placeholder. Kelsey must paste real key from resend.com/api-keys before testing email delivery. All 4 API routes are built and build passes — this is the only remaining item before end-to-end test. | ⚠️ Action required | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
 | April 2026 | **Brand page prerender errors — RESOLVED** — `toLocaleString` on undefined `unit_count_total` fixed with optional chaining guards on brand `[slug]` page. Build is now 276/276 clean. | ✅ Resolved | Stage 6 |
 | April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |
@@ -194,7 +200,7 @@ Track all environment variables as they are added.
 | FDD catalog | ✅ Confirmed | 2027 folder (~65 brands, current filings) + 2026 folder (~115 brands, pre-renewal). Path: /Users/kelseystuart/Projects/Franchise\ Conduit/FDDs/ |
 | Gold standard brand selection | ✅ Updated | Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care — all have complete data from sheet sync |
 | FDD renewal protocol | ✅ Understood | 2026 FDDs valid, will be replaced manually by Kelsey when 2027 versions appear |
-| Advisor email for lead routing | ❌ Pending | Blocking Stage 7 |
+| Advisor email for lead routing | ✅ Confirmed | `kelsey@waypointfranchise.com` |
 | Waypoint team headshots | ❌ Pending | Needed for /about — initials used as placeholder |
 | CRM integration decision | ❌ Pending | Stage 7 email-only vs. CRM |
 | DNS access (registrar + Vercel domain setup) | ❌ Pending | Stage 10 |
