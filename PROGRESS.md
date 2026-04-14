@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 7 — Lead Capture & CRM |
-| **Stage status** | Stage 7 in progress — all 4 surfaces built, build passing 280/280. Awaiting RESEND_API_KEY from Kelsey for live email test. |
-| **Last commit** | stage-7: step 7.1 — Resend installed, env vars logged, .env.local created |
+| **Active stage** | Stage 8 — Resources & Content |
+| **Stage status** | Stage 7 complete. Stage 8 is unblocked. RESEND_API_KEY required from Kelsey before end-to-end email test. |
+| **Last commit** | stage-7: complete — all 4 lead capture surfaces built, build 280/280, PROGRESS.md updated |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -50,7 +50,7 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 7 | Lead Capture & CRM | `In progress` | — |
+| 7 | Lead Capture & CRM | `Complete` | April 2026 |
 
 ### Content & SEO
 
@@ -174,6 +174,7 @@ Track all environment variables as they are added.
 | April 2026 | Stage 7 | 7.3 | `stage-7: step 7.3 — /quiz flow complete (7 questions, matching results, advisor + candidate email)` |
 | April 2026 | Stage 7 | 7.4 | `stage-7: step 7.4 — brand introduction CTA complete (BrandIntroForm + api/brand-intro)` |
 | April 2026 | Stage 7 | 7.5 | `stage-7: step 7.5 — FDD request modal complete (FddRequestModal + api/fdd-request)` |
+| April 2026 | Stage 7 | Complete | `stage-7: complete — all 4 lead capture surfaces built, build 280/280, PROGRESS.md updated` |
 
 ---
 
