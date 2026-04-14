@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 4 — Homepage |
-| **Stage status** | In progress — homepage scaffold exists from Stage 2 (app/page.tsx). Stage 4 work is to audit, refine copy, verify billboard test, and confirm all links. |
-| **Last commit** | stage-3: complete — pipeline documented, 3 gold standard pages QA'd, PROGRESS.md updated |
+| **Active stage** | Stage 5 — Education Pages |
+| **Stage status** | Stage 4 complete. Ready for Stage 5 (Education Pages). |
+| **Last commit** | stage-4: complete — homepage passes billboard test, all copy in constants.ts, mobile scroll fixed |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -42,8 +42,8 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 4 | Homepage | `In progress` | — |
-| 5 | Education Pages | `Not started` (blocked on Stage 4) | — |
+| 4 | Homepage | `Complete` | April 2026 |
+| 5 | Education Pages | `Not started` | — |
 | 6 | Browsing & Search | `In progress` | — |
 
 ### Conversion
@@ -148,6 +148,15 @@ Track all environment variables as they are added.
 | April 2026 | Stage 3 | step 1 | `stage-3: gold standard brands updated — Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care` |
 | April 2026 | Stage 3 | step 1 | `fix: dynamic brand count on homepage, guard FBR/Entrepreneur year badges, fix nested anchor hydration error` |
 | April 2026 | Stage 3 | Complete | `stage-3: complete — pipeline documented, 3 gold standard pages QA'd, PROGRESS.md updated` |
+| April 2026 | Stage 4 | 4.1 | `stage-4: step 4.1 — homepage copy written to constants.ts` |
+| April 2026 | Stage 4 | 4.2 | `stage-4: step 4.2 — nav aligned` |
+| April 2026 | Stage 4 | 4.3 | `stage-4: step 4.3 — hero section complete (H1 speaks to The Quietly Decided)` |
+| April 2026 | Stage 4 | 4.4 | `stage-4: step 4.4 — trust bar complete (locked copy from PLATFORM_BRIEF §4e)` |
+| April 2026 | Stage 4 | 4.5 | `stage-4: step 4.5 — how it works section complete (3 steps: Explore/Research/Connect)` |
+| April 2026 | Stage 4 | 4.6 | `stage-4: step 4.6 — featured brands section complete (3 gold standard cards)` |
+| April 2026 | Stage 4 | 4.7 | `stage-4: step 4.7 — semi-absentee spotlight, why FC, bottom CTA complete` |
+| April 2026 | Stage 4 | 4.8 | `stage-4: step 4.8 — SEO link grid + footer verified` |
+| April 2026 | Stage 4 | Complete | `stage-4: step 4.9 — full billboard test complete, mobile horizontal scroll fixed` |
 
 ---
 
@@ -157,8 +166,8 @@ Track all environment variables as they are added.
 |------|-------|--------|-------|
 | April 2026 | Advisor email not provided — Stage 7 email routes cannot be finalized | ⚠️ Open | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
-| April 2026 | **Homepage scaffold already exists** — `app/page.tsx` has a full homepage built during Stage 2 scaffold. Stage 4 agent MUST audit what is already there before building anything new. Read `app/page.tsx` fully before making changes. The billboard test and copy audit are the primary Stage 4 deliverables, not a rebuild. | ⚠️ Important | Stage 4 |
-| April 2026 | **`lib/constants.ts` does not exist yet** — Stage 4 doc requires all homepage copy to be extracted to `lib/constants.ts`. This has not been done. The copy currently lives inline in `app/page.tsx`. | ℹ️ Stage 4 to-do | Stage 4 |
+| April 2026 | **Brand page prerender errors** — ~30 brands with partial data cause `Cannot read properties of undefined (reading 'toLocaleString')` during `npm run build`. These are pre-existing from incomplete data sync. Homepage and all complete brand pages build correctly. Resolve before Stage 9 QA. | ⚠️ Monitor | Stage 9 |
+| April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |
 
 ---
 
