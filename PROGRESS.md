@@ -115,7 +115,7 @@ LAUNCH
 | 2 | Advisor email address for lead notifications | Stage 7 | ⚠️ Not provided |
 | 3 | CRM integration at launch? (HubSpot / Salesforce / email-only) | Stage 7 | ⚠️ Not confirmed |
 | 4 | DNS access for domain verification (Resend + Vercel) | Stage 7 | ⚠️ Not provided |
-| 5 | Which 2–3 brands to build as gold standard pages (Stage 3) | Stage 3 | ✅ Confirmed — CertaPro Painters, Molly Maid, Right at Home (all from 2027 folder) |
+| 5 | Which 2–3 brands to build as gold standard pages (Stage 3) | Stage 3 | ✅ Updated — Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care (all have complete data synced from sheet) |
 
 ---
 
@@ -161,7 +161,7 @@ Track all environment variables as they are added.
 | GitHub repo access (token provided) | ✅ Active | `Franscale1922/franchise-conduit` |
 | Palette direction | ✅ Locked | Grounded Modern light mode |
 | FDD catalog | ✅ Confirmed | 2027 folder (~65 brands, current filings) + 2026 folder (~115 brands, pre-renewal). Path: /Users/kelseystuart/Projects/Franchise\ Conduit/FDDs/ |
-| Gold standard brand selection | ✅ Confirmed | CertaPro Painters, Molly Maid, Right at Home — all from 2027 folder |
+| Gold standard brand selection | ✅ Updated | Fish Window Cleaning, Express Employment Professionals, FirstLight Home Care — all have complete data from sheet sync |
 | FDD renewal protocol | ✅ Understood | 2026 FDDs valid, will be replaced manually by Kelsey when 2027 versions appear |
 | Advisor email for lead routing | ❌ Pending | Blocking Stage 7 |
 | Waypoint team headshots | ❌ Pending | Needed for /about — initials used as placeholder |
