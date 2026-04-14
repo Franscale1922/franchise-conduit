@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 5 — Education Pages |
-| **Stage status** | Stage 4 complete. Ready for Stage 5 (Education Pages). |
-| **Last commit** | stage-4: complete — homepage passes billboard test, all copy in constants.ts, mobile scroll fixed |
+| **Active stage** | Stage 6 — Browsing & Search |
+| **Stage status** | Stage 5 complete. Ready for Stage 6 (Browsing & Search) — already In Progress. |
+| **Last commit** | stage-5: complete — /how-it-works built, /methodology + /about updated, sitemap updated, all copy in constants |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -43,7 +43,7 @@
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
 | 4 | Homepage | `Complete` | April 2026 |
-| 5 | Education Pages | `Not started` | — |
+| 5 | Education Pages | `Complete` | April 2026 |
 | 6 | Browsing & Search | `In progress` | — |
 
 ### Conversion
@@ -157,6 +157,13 @@ Track all environment variables as they are added.
 | April 2026 | Stage 4 | 4.7 | `stage-4: step 4.7 — semi-absentee spotlight, why FC, bottom CTA complete` |
 | April 2026 | Stage 4 | 4.8 | `stage-4: step 4.8 — SEO link grid + footer verified` |
 | April 2026 | Stage 4 | Complete | `stage-4: step 4.9 — full billboard test complete, mobile horizontal scroll fixed` |
+| April 2026 | Stage 5 | 5.1 | `stage-5: step 5.1 — all education page copy drafted to constants.ts (HOW_IT_WORKS, METHODOLOGY, ABOUT namespaces)` |
+| April 2026 | Stage 5 | 5.2 | `stage-5: step 5.2 — /how-it-works page complete` |
+| April 2026 | Stage 5 | 5.3 | `stage-5: step 5.3 — methodology copy committed to constants` |
+| April 2026 | Stage 5 | 5.4 | `stage-5: step 5.4 — /methodology page complete` |
+| April 2026 | Stage 5 | 5.5 | `stage-5: step 5.5 — about copy committed to constants` |
+| April 2026 | Stage 5 | 5.6 | `stage-5: step 5.6 — /about page complete` |
+| April 2026 | Stage 5 | Complete | `stage-5: step 5.7 — sitemap updated, all pages linked from nav/footer` |
 
 ---
 
