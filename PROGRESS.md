@@ -13,9 +13,9 @@
 
 | Field | Value |
 |-------|-------|
-| **Active stage** | Stage 3 — FDD Pipeline & Brand Pages |
-| **Stage status** | Ready to begin — FDD inventory confirmed |
-| **Last commit** | stage-2: complete — palette, types, nav, fonts, brand JSONs updated |
+| **Active stage** | Stage 4 — Homepage |
+| **Stage status** | Ready to begin — Stage 3 complete, brand pages live |
+| **Last commit** | stage-3: complete — 224 brands synced, 3 gold standard pages QA'd, pipeline documented |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -36,15 +36,15 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 3 | FDD Pipeline & Brand Pages | `In progress` | — |
+| 3 | FDD Pipeline & Brand Pages | `Complete` | April 2026 |
 
 ### Candidate Experience
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 4 | Homepage | `Not started` (blocked on Stage 3) | — |
+| 4 | Homepage | `In progress` | — |
 | 5 | Education Pages | `Not started` (blocked on Stage 4) | — |
-| 6 | Browsing & Search | `Not started` (blocked on Stage 3) | — |
+| 6 | Browsing & Search | `In progress` | — |
 
 ### Conversion
 

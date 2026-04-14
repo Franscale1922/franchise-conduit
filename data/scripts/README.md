@@ -91,3 +91,90 @@ Franchise Library repo:
 | FBR Score (O) | [FranchiseBusinessReview.com](https://franchisebusinessreview.com) |
 | Entrepreneur Rank (P) | [Entrepreneur Franchise 500](https://www.entrepreneur.com/franchise/franchise-500) |
 | Available States (N) | FDD Item 20 state-by-state table |
+
+---
+
+## Sync Workflow — Sheet → Site
+
+The primary production workflow syncs the Google Sheet master database into the Next.js site.
+
+### Step 1 — Update the Sheet
+Add or edit brand data in the [Google Sheet](https://docs.google.com/spreadsheets/d/1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU/edit).
+
+### Step 2 — Run the Sync
+```bash
+cd site
+node data/scripts/sync_from_sheet.js
+```
+
+Requires `site/.env.local` with:
+```
+GOOGLE_SHEET_ID=1QvpbbUZ55d6YfFNxdQkMuL0p_TrxT1XFCT8tGc6wasU
+GOOGLE_SERVICE_ACCOUNT_KEY_PATH=site/credentials/fddapi-service-account.json
+```
+
+### Step 3 — Build Check
+```bash
+npm run build
+```
+
+### Step 4 — Commit & Push
+```bash
+git add data/brands/
+git commit -m "brands: sync from sheet — [date]"
+git push origin main
+```
+
+---
+
+## Brand QA Checklist
+
+Run before setting `completeness_state: 'complete'` in the sheet:
+
+```
+□ brand_slug is lowercase hyphenated, matches /franchises/[slug] route
+□ investment_min / investment_max match FDD Item 7
+□ franchise_fee matches FDD Item 5
+□ royalty_rate matches FDD Item 6
+□ unit_count_total matches FDD Item 20
+□ available_states populated (or 'all' noted)
+□ item_19_available is accurate (true only if FDD Item 19 is populated)
+□ navigator_score assigned per scoring rubric below
+□ completeness_state set: 'complete' | 'partial' | 'stub'
+□ testimonials: at least 1 real franchisee quote (or empty array — no fabricated quotes)
+□ market_intelligence_insight is 2–4 sentences, accurate, not generic
+□ brand_logo_emoji is a reasonable placeholder if no logo asset yet
+```
+
+---
+
+## Navigator Score Rubric
+
+The Navigator Score (0–100) is a composite credibility signal:
+
+| Dimension | Weight | What It Measures |
+|-----------|--------|-----------------|
+| Franchisee Satisfaction | 30% | FBR score, testimonial sentiment, validation call availability |
+| Financial Transparency | 25% | Item 19 availability, AUV disclosed, investment range specificity |
+| Brand Stability | 20% | Years franchising, unit count YoY growth, low failure rate |
+| Support System | 15% | Training days, field support, marketing support, tech platform |
+| Market Position | 10% | Industry CAGR, competitive moat, recession resistance |
+
+Score categories: `Exceptional` (85+) · `Strong` (70–84) · `Solid` (55–69) · `Moderate` (40–54) · `Developing` (<40)
+
+---
+
+## Gold Standard Brand Pages (Stage 3 Baseline)
+
+| Brand | Navigator Score | Model | URL |
+|-------|----------------|-------|-----|
+| Fish Window Cleaning | 85 | Semi-Absentee | `/franchises/fish-window-cleaning` |
+| Express Employment Professionals | 82 | Owner-Operator | `/franchises/express-employment-professionals` |
+| FirstLight Home Care | 77 | Owner-Operator | `/franchises/firstlight-home-care` |
+
+These pages define the target output for all brands in the catalog.
+
+---
+
+*Last updated: April 2026 — Stage 3 complete, 224 brands synced from Google Sheet.*
+
