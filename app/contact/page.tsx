@@ -1,19 +1,13 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Contact an Advisor — Franchise Conduit',
-  description: 'Connect with a Franchise Conduit advisor. We review every inquiry before making a brand introduction. Serious investors only — your inquiry is not shared without your approval.',
-  openGraph: {
-    title: 'Contact a Franchise Conduit Advisor',
-    description: 'Advisor-reviewed franchise matching. Your inquiry is never blasted to multiple brands. We review it first.',
-  },
-}
+import { useState } from 'react'
+import type { Metadata } from 'next'
 
 const processSteps = [
   {
     number: '01',
     title: 'Submit your profile',
-    description: 'Tell us your investment range, timeline, location preferences, and what type of ownership model you want. Takes about 4 minutes.',
+    description: 'Tell us your investment range, timeline, and what kind of ownership model fits your life. Takes about 4 minutes.',
   },
   {
     number: '02',
@@ -22,17 +16,82 @@ const processSteps = [
   },
   {
     number: '03',
-    title: 'Curated match list',
-    description: 'You receive a short list of 2–4 brand recommendations with advisor notes explaining the fit rationale for each.',
+    title: 'A curated shortlist',
+    description: 'You receive 2 to 4 brand recommendations with advisor notes explaining the rationale for each match.',
   },
   {
     number: '04',
-    title: 'Advisor-reviewed introduction',
-    description: "You choose which brand to explore. We make a single, advisor-prepared introduction — not a blast to everyone on the list.",
+    title: 'One introduction at a time',
+    description: 'You choose which brand to explore. We make a single, advisor-prepared introduction, not a blast to everyone on the list.',
   },
 ]
 
+type FormState = 'idle' | 'loading' | 'success' | 'error'
+
 export default function ContactPage() {
+  const [state, setState] = useState<FormState>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setState('loading')
+    setErrorMsg('')
+
+    const form = e.currentTarget
+    const data = {
+      firstName: (form.elements.namedItem('firstName') as HTMLInputElement).value,
+      lastName: (form.elements.namedItem('lastName') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      investmentRange: (form.elements.namedItem('investmentRange') as HTMLSelectElement).value,
+      ownershipModel: (form.elements.namedItem('ownershipModel') as HTMLSelectElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      howHeard: (form.elements.namedItem('howHeard') as HTMLInputElement).value,
+      website: (form.elements.namedItem('website') as HTMLInputElement).value, // honeypot
+    }
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const json = await res.json()
+      if (!res.ok) {
+        setErrorMsg(json.error || 'Something went wrong. Please try again.')
+        setState('error')
+      } else {
+        setState('success')
+      }
+    } catch {
+      setErrorMsg('Unable to submit. Please try again or email us directly.')
+      setState('error')
+    }
+  }
+
+  if (state === 'success') {
+    return (
+      <div className="section">
+        <div className="container-md">
+          <div style={{ maxWidth: '560px', margin: '0 auto', textAlign: 'center', padding: 'var(--space-16) 0' }}>
+            <div style={{ fontSize: '3rem', marginBottom: 'var(--space-6)' }}>✓</div>
+            <h1 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', marginBottom: 'var(--space-4)' }}>
+              You&apos;ll hear from me soon.
+            </h1>
+            <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', fontSize: '1.0625rem', marginBottom: 'var(--space-8)' }}>
+              I&apos;ve got your note and will be in touch within one business day.
+              Check your inbox for a confirmation. If you want to add anything before we talk,
+              just reply to that email.
+            </p>
+            <p style={{ fontSize: '0.9375rem', color: 'var(--color-text-muted)' }}>
+              Kelsey, Waypoint Franchise Advisors
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="section">
       <div className="container-md">
@@ -43,12 +102,11 @@ export default function ContactPage() {
             Advisor Access
           </span>
           <h1 className="text-headline" style={{ marginBottom: 'var(--space-4)' }}>
-            Your inquiry is reviewed before any brand sees it.
+            Let&apos;s talk about what&apos;s next.
           </h1>
           <p style={{ color: 'var(--color-text-secondary)', lineHeight: '1.75', fontSize: '1.0625rem' }}>
-            We do not blast your contact information to franchisors. Every inquiry is reviewed by 
-            a credentialed advisor, matched to appropriate brands, and introduced one at a time — 
-            only after you approve the match.
+            No pitch. No pressure. Just a real conversation with someone who knows this path
+            and can help you see it clearly.
           </p>
         </div>
 
@@ -62,10 +120,18 @@ export default function ContactPage() {
               </h2>
               <form
                 id="contact-advisor-form"
-                action="mailto:advisors@franchiseconduit.com"
-                method="POST"
+                onSubmit={handleSubmit}
                 style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}
               >
+                {/* Honeypot — hidden from humans, bots fill it */}
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0 }}
+                />
+
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-4)' }}>
                   <div>
                     <label htmlFor="contact-first-name" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)' }}>
@@ -77,17 +143,8 @@ export default function ContactPage() {
                       type="text"
                       required
                       placeholder="Alex"
-                      style={{
-                        width: '100%',
-                        padding: 'var(--space-3) var(--space-4)',
-                        background: 'var(--color-surface-2)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--radius-md)',
-                        color: 'var(--color-text-primary)',
-                        fontSize: '0.9375rem',
-                        outline: 'none',
-                        boxSizing: 'border-box',
-                      }}
+                      className="form-input"
+                      style={{ width: '100%', boxSizing: 'border-box' }}
                     />
                   </div>
                   <div>
@@ -98,19 +155,9 @@ export default function ContactPage() {
                       id="contact-last-name"
                       name="lastName"
                       type="text"
-                      required
                       placeholder="Morgan"
-                      style={{
-                        width: '100%',
-                        padding: 'var(--space-3) var(--space-4)',
-                        background: 'var(--color-surface-2)',
-                        border: '1px solid var(--color-border)',
-                        borderRadius: 'var(--radius-md)',
-                        color: 'var(--color-text-primary)',
-                        fontSize: '0.9375rem',
-                        outline: 'none',
-                        boxSizing: 'border-box',
-                      }}
+                      className="form-input"
+                      style={{ width: '100%', boxSizing: 'border-box' }}
                     />
                   </div>
                 </div>
@@ -125,17 +172,22 @@ export default function ContactPage() {
                     type="email"
                     required
                     placeholder="alex@company.com"
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--color-surface-2)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      color: 'var(--color-text-primary)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                      boxSizing: 'border-box',
-                    }}
+                    className="form-input"
+                    style={{ width: '100%', boxSizing: 'border-box' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="contact-phone" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)' }}>
+                    Phone <span style={{ color: 'var(--color-text-muted)', fontWeight: 400 }}>(optional)</span>
+                  </label>
+                  <input
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+1 (555) 000-0000"
+                    className="form-input"
+                    style={{ width: '100%', boxSizing: 'border-box' }}
                   />
                 </div>
 
@@ -147,50 +199,30 @@ export default function ContactPage() {
                     id="contact-investment"
                     name="investmentRange"
                     required
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--color-surface-2)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      color: 'var(--color-text-primary)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                      boxSizing: 'border-box',
-                      appearance: 'none',
-                    }}
+                    className="form-select"
+                    style={{ width: '100%', boxSizing: 'border-box' }}
                   >
                     <option value="">Select your liquid capital...</option>
-                    <option value="100k-250k">$100K – $250K</option>
-                    <option value="250k-500k">$250K – $500K</option>
-                    <option value="500k-1m">$500K – $1M</option>
-                    <option value="1m-2m">$1M – $2M</option>
-                    <option value="2m+">$2M+</option>
+                    <option value="100k-250k">$100K to $250K</option>
+                    <option value="250k-500k">$250K to $500K</option>
+                    <option value="500k-1m">$500K to $1M</option>
+                    <option value="1m-2m">$1M to $2M</option>
+                    <option value="2m-plus">$2M+</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="contact-model" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)' }}>
-                    Ownership Model
+                    Ownership Model <span style={{ color: 'var(--color-text-muted)', fontWeight: 400 }}>(optional)</span>
                   </label>
                   <select
                     id="contact-model"
                     name="ownershipModel"
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--color-surface-2)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      color: 'var(--color-text-primary)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                      boxSizing: 'border-box',
-                      appearance: 'none',
-                    }}
+                    className="form-select"
+                    style={{ width: '100%', boxSizing: 'border-box' }}
                   >
                     <option value="">Select preferred model...</option>
-                    <option value="semi-absentee">Semi-Absentee (10–15 hrs/week)</option>
+                    <option value="semi-absentee">Semi-Absentee (10 to 15 hrs/week)</option>
                     <option value="manager-model">Manager-Model (hired GM runs it)</option>
                     <option value="owner-operator">Owner-Operator (full involvement)</option>
                     <option value="multi-unit">Multi-Unit / Portfolio Strategy</option>
@@ -200,41 +232,50 @@ export default function ContactPage() {
 
                 <div>
                   <label htmlFor="contact-message" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)' }}>
-                    What are you looking for? <span style={{ color: 'var(--color-text-muted)', fontWeight: 400 }}>(optional)</span>
+                    What would you like to talk about? <span style={{ color: 'var(--color-text-muted)', fontWeight: 400 }}>(optional)</span>
                   </label>
                   <textarea
                     id="contact-message"
                     name="message"
                     rows={3}
-                    placeholder="E.g. I'm a corporate executive transitioning out of a VP role. Looking for semi-absentee, prefer B2B services, open to multi-unit."
-                    style={{
-                      width: '100%',
-                      padding: 'var(--space-3) var(--space-4)',
-                      background: 'var(--color-surface-2)',
-                      border: '1px solid var(--color-border)',
-                      borderRadius: 'var(--radius-md)',
-                      color: 'var(--color-text-primary)',
-                      fontSize: '0.9375rem',
-                      outline: 'none',
-                      boxSizing: 'border-box',
-                      resize: 'vertical',
-                      fontFamily: 'inherit',
-                      lineHeight: '1.6',
-                    }}
+                    placeholder="E.g. I'm transitioning out of a VP role and want to understand what my capital can realistically buy."
+                    className="form-input"
+                    style={{ width: '100%', boxSizing: 'border-box', resize: 'vertical', fontFamily: 'inherit', lineHeight: '1.6' }}
                   />
                 </div>
+
+                <div>
+                  <label htmlFor="contact-how-heard" style={{ display: 'block', fontSize: '0.8125rem', fontWeight: 500, color: 'var(--color-text-secondary)', marginBottom: 'var(--space-2)' }}>
+                    How did you hear about us? <span style={{ color: 'var(--color-text-muted)', fontWeight: 400 }}>(optional)</span>
+                  </label>
+                  <input
+                    id="contact-how-heard"
+                    name="howHeard"
+                    type="text"
+                    placeholder="Google, referral, podcast..."
+                    className="form-input"
+                    style={{ width: '100%', boxSizing: 'border-box' }}
+                  />
+                </div>
+
+                {state === 'error' && (
+                  <div style={{ padding: 'var(--space-3) var(--space-4)', background: 'rgba(220, 38, 38, 0.08)', border: '1px solid rgba(220, 38, 38, 0.2)', borderRadius: 'var(--radius-md)', fontSize: '0.875rem', color: '#dc2626' }}>
+                    {errorMsg}
+                  </div>
+                )}
 
                 <button
                   id="contact-submit-btn"
                   type="submit"
                   className="btn btn-primary"
+                  disabled={state === 'loading'}
                   style={{ width: '100%', justifyContent: 'center', padding: 'var(--space-4)' }}
                 >
-                  Submit for Advisor Review →
+                  {state === 'loading' ? 'Sending...' : 'Submit for Advisor Review'}
                 </button>
 
                 <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', textAlign: 'center', lineHeight: '1.5' }}>
-                  Your information is reviewed by an advisor within 1 business day. 
+                  Your information is reviewed by an advisor within 1 business day.
                   It is never shared with franchisors without your explicit approval.
                 </p>
               </form>
@@ -282,8 +323,8 @@ export default function ContactPage() {
               </div>
               {[
                 '◈ Your name is never shared without your approval',
-                '◉ One introduction at a time — never blasted',
-                '◎ Advisor on every inquiry — no automated matching',
+                '◉ One introduction at a time, never blasted',
+                '◎ Advisor on every inquiry, no automated matching',
                 '◐ No obligation to pursue any recommendation',
                 '✦ No advisor commission conflicts on platform rankings',
               ].map((item) => (
@@ -298,17 +339,11 @@ export default function ContactPage() {
               <div style={{ fontSize: '0.8125rem', fontWeight: 600, marginBottom: 'var(--space-2)' }}>Prefer email?</div>
               <p style={{ fontSize: '0.8rem', color: 'var(--color-text-secondary)', marginBottom: 'var(--space-3)', lineHeight: '1.6' }}>
                 Reach us directly at{' '}
-                <a href="mailto:advisors@franchiseconduit.com" style={{ color: 'var(--color-primary-light)' }}>
+                <a href="mailto:advisors@franchiseconduit.com" style={{ color: 'var(--color-primary)' }}>
                   advisors@franchiseconduit.com
                 </a>
                 . We respond within 1 business day.
               </p>
-              <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)' }}>
-                Methodology questions:{' '}
-                <a href="mailto:methodology@franchiseconduit.com" style={{ color: 'var(--color-primary-light)' }}>
-                  methodology@franchiseconduit.com
-                </a>
-              </div>
             </div>
 
           </div>
