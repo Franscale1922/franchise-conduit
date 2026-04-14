@@ -1313,6 +1313,7 @@ ul, ol {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .tier-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
+  .nav-cta { display: none; } /* prevent horizontal scroll at 375px */
   .trust-bar-inner { gap: var(--space-6); }
   .footer-grid { grid-template-columns: 1fr; }
   .investment-bar { grid-template-columns: 1fr 1fr; }
