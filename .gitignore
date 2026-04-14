@@ -38,4 +38,5 @@ Thumbs.db
 data/fdds/
 data/scripts/google_credentials.json
 data/scripts/.venv/
+credentials/
 

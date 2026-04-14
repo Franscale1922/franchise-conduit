@@ -457,8 +457,9 @@ function updateBrandIndex(slugs) {
     return data.completeness_state !== 'stub'
   })
 
-  const imports = publicSlugs.map(s => `import ${s.replace(/-/g, '_')} from './${s}.json'`).join('\n')
-  const exports = `\nexport const brands = [\n  ${publicSlugs.map(s => s.replace(/-/g, '_')).join(',\n  ')}\n]\n`
+  const toIdent = s => /^\d/.test(s) ? `brand_${s.replace(/-/g, '_')}` : s.replace(/-/g, '_')
+  const imports = publicSlugs.map(s => `import ${toIdent(s)} from './${s}.json'`).join('\n')
+  const exports = `\nexport const brands = [\n  ${publicSlugs.map(s => toIdent(s)).join(',\n  ')}\n]\n`
 
   fs.writeFileSync(indexPath, `${imports}\n${exports}`)
   console.log(`  ✓ index.ts updated with ${publicSlugs.length} public brands`)

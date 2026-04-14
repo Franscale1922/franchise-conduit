@@ -20,10 +20,10 @@ export type {
 } from './types'
 
 import type { Franchise } from './types'
-import allBrands from '@/data/brands'
+import { brands as allBrands } from '@/data/brands'
 
 // The full catalog — sorted by Navigator Score descending by default
-export const franchises: Franchise[] = [...allBrands].sort(
+export const franchises: Franchise[] = (allBrands as unknown as Franchise[]).sort(
   (a, b) => b.navigator_score - a.navigator_score
 )
 
