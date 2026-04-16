@@ -4,7 +4,7 @@ import { franchises, getIndustries } from '@/lib/data'
 import { FranchisesClient } from '@/components/FranchisesClient'
 
 export const metadata: Metadata = {
-  title: 'Browse Franchise Opportunities: Curated for Serious Investors | Franchise Conduit',
+  title: 'Browse Franchise Opportunities: Curated for Serious Investors',
   description:
     'Filter franchise opportunities by investment range, owner involvement, industry, and state. Independent Navigator Score rankings. No pay-to-rank. Built for experienced buyers deploying $100K+.',
 }

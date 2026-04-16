@@ -527,6 +527,103 @@ ul, ol {
   margin-left: var(--space-4);
 }
 
+/* ── Hamburger button (mobile only) ───────────────────────────────────── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  flex-shrink: 0;
+}
+.nav-hamburger:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.nav-hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-nav-text);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  transform-origin: center;
+}
+
+/* Animate to X when open */
+.nav-hamburger-line:nth-child(1).open { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger-line:nth-child(2).open { opacity: 0; transform: scaleX(0); }
+.nav-hamburger-line:nth-child(3).open { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile drawer ─────────────────────────────────────────────────────── */
+.nav-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  top: 68px; /* nav height */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: fadeIn var(--transition-fast) ease;
+}
+
+.nav-mobile-drawer {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-nav-bg);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: var(--space-4) var(--space-6) var(--space-8);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.nav-mobile-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-mobile-links {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: var(--space-4);
+}
+
+.nav-mobile-link {
+  padding: var(--space-4) var(--space-2);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-nav-text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color var(--transition-fast);
+}
+.nav-mobile-link:last-child { border-bottom: none; }
+.nav-mobile-link:hover { color: var(--color-nav-text); }
+
+.nav-mobile-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
 /* ============================================================
    HERO COMPONENTS
    ============================================================ */
@@ -1313,7 +1410,8 @@ ul, ol {
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .tier-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
-  .nav-cta { display: none; } /* prevent horizontal scroll at 375px */
+  .nav-cta { display: none; }
+  .nav-hamburger { display: flex; } /* show hamburger on mobile */
   .trust-bar-inner { gap: var(--space-6); }
   .footer-grid { grid-template-columns: 1fr; }
   .investment-bar { grid-template-columns: 1fr 1fr; }

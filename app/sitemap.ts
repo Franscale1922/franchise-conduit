@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/methodology`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${baseUrl}/privacy-policy`, lastModified: now, changeFrequency: 'yearly' as const, priority: 0.3 },
     // Resources hub + foundation articles
     { url: `${baseUrl}/resources`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.85 },
     { url: `${baseUrl}/resources/fdd`, lastModified: now, changeFrequency: 'weekly' as const, priority: 0.8 },

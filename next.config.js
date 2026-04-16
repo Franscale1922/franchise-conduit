@@ -163,14 +163,15 @@ const nextConfig = {
         destination: '/resources/why-franchises-fail',
         permanent: true,
       },
+      // '/what-is-franchising' → no dedicated article yet; route to hub (best available match)
       {
         source: '/what-is-franchising',
-        destination: '/resources/what-is-franchising',
+        destination: '/resources',
         permanent: true,
       },
       {
         source: '/what-is-franchising/',
-        destination: '/resources/what-is-franchising',
+        destination: '/resources',
         permanent: true,
       },
       {
@@ -183,14 +184,15 @@ const nextConfig = {
         destination: '/resources/franchise-roi',
         permanent: true,
       },
+      // '/choosing-the-right-franchise-...' → due diligence topic → reading-an-fdd is the closest match
       {
         source: '/choosing-the-right-franchise-15-key-questions-to-ask',
-        destination: '/resources/choosing-the-right-franchise',
+        destination: '/resources/reading-an-fdd',
         permanent: true,
       },
       {
         source: '/choosing-the-right-franchise-15-key-questions-to-ask/',
-        destination: '/resources/choosing-the-right-franchise',
+        destination: '/resources/reading-an-fdd',
         permanent: true,
       },
       {
@@ -203,24 +205,26 @@ const nextConfig = {
         destination: '/resources/fdd',
         permanent: true,
       },
+      // '/how-to-compare-franchise-models-...' → franchise-roi covers financial comparison
       {
         source: '/how-to-compare-franchise-models-and-choose-the-best-investment',
-        destination: '/resources/compare-franchise-models',
+        destination: '/resources/franchise-roi',
         permanent: true,
       },
       {
         source: '/how-to-compare-franchise-models-and-choose-the-best-investment/',
-        destination: '/resources/compare-franchise-models',
+        destination: '/resources/franchise-roi',
         permanent: true,
       },
+      // '/informed-investment-key-questions-...' → validation/due diligence content → reading-an-fdd
       {
         source: '/informed-investment-key-questions-to-ask-franchisees-when-considering-a-franchise-system',
-        destination: '/resources/due-diligence-questions',
+        destination: '/resources/reading-an-fdd',
         permanent: true,
       },
       {
         source: '/informed-investment-key-questions-to-ask-franchisees-when-considering-a-franchise-system/',
-        destination: '/resources/due-diligence-questions',
+        destination: '/resources/reading-an-fdd',
         permanent: true,
       },
       {
@@ -283,14 +287,15 @@ const nextConfig = {
         destination: '/resources/fdd',
         permanent: true,
       },
+      // '/the-basic-costs-of-setting-up-your-franchise' → franchise-roi covers startup cost analysis
       {
         source: '/the-basic-costs-of-setting-up-your-franchise',
-        destination: '/resources/franchise-startup-costs',
+        destination: '/resources/franchise-roi',
         permanent: true,
       },
       {
         source: '/the-basic-costs-of-setting-up-your-franchise/',
-        destination: '/resources/franchise-startup-costs',
+        destination: '/resources/franchise-roi',
         permanent: true,
       },
       {

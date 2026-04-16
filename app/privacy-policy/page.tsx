@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Franchise Conduit',
+  title: 'Privacy Policy',
   description: 'How Franchise Conduit collects, uses, and protects your personal information. We never sell your data or share it with franchisors without your explicit approval.',
   robots: { index: true, follow: true },
 }

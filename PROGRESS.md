@@ -14,8 +14,8 @@
 | Field | Value |
 |-------|-------|
 | **Active stage** | Stage 9 — QA & SEO Audit |
-| **Stage status** | Stage 8 complete. /resources hub live, 5 foundation articles published, build 285/285. Stage 9 is unblocked. |
-| **Last commit** | stage-8: complete — resources hub and 5 foundation articles live, sitemap updated, build 285/285 |
+| **Stage status** | Stage 9 **Complete**. All QA issues resolved: 5 redirect 404s fixed, mobile nav hamburger built, contact/quiz metadata added, canonical tags added sitewide, title template deduplication fixed (38 occurrences across constants.ts + page files), /privacy-policy added to sitemap. Build 285/285 clean, TSC 0 errors. Stage 10 unblocked. |
+| **Last commit** | stage-9: complete — QA audit: 5 redirect 404s fixed, mobile nav hamburger, contact/quiz metadata, canonical tags sitewide, title dedup (38 occurrences), privacy-policy to sitemap. Build 285/285. |
 | **Last updated** | April 2026 |
 | **Deployed to** | Not yet deployed to Vercel |
 | **Live domain** | franchiseconduit.com (currently WordPress — do not cut over until Stage 10) |
@@ -62,7 +62,7 @@
 
 | Stage | Name | Status | Completed |
 |-------|------|--------|-----------|
-| 9 | QA & SEO Audit | `Not started` (blocked on Stages 2–8) | — |
+| 9 | QA & SEO Audit | `Complete` | April 2026 |
 | 10 | DNS Cutover | `Not started` (blocked on Stage 9 + Kelsey approval) | — |
 
 > **Status values:** `Not started` · `In progress` · `Complete` · `Blocked — [reason]`
@@ -193,7 +193,13 @@ Track all environment variables as they are added.
 | April 2026 | **RESEND_API_KEY required for live email** — `.env.local` created with placeholder. Kelsey must paste real key from resend.com/api-keys before testing email delivery. All 4 API routes are built and build passes — this is the only remaining item before end-to-end test. | ✅ Resolved — key set April 2026 | Stage 7 |
 | April 2026 | **FDD renewal cycle** — 2026 FDDs valid now but will be superseded in ~30 days as brands refile. Use 2026 data to build now. Kelsey will manually trigger brand page rebuilds when 2027 versions of these brands appear. Do not auto-replace 2026 with 2027 without Kelsey's instruction. | ⚠️ Monitor | Stage 3 ongoing |
 | April 2026 | **Brand page prerender errors — RESOLVED** — `toLocaleString` on undefined `unit_count_total` fixed with optional chaining guards on brand `[slug]` page. Build is now 276/276 clean. | ✅ Resolved | Stage 6 |
-| April 2026 | **Mobile nav: no hamburger menu** — nav links and CTA buttons are hidden at ≤768px (prevents horizontal scroll). No mobile hamburger menu exists yet. Candidates on mobile see logo only. Build mobile nav before Stage 9. | ℹ️ Stage 5/9 to-do | Stage 9 |
+| April 2026 | **STAGE 9 QA — 5 redirect destinations return 404** — next.config.js has 5 blog post redirects pointing to `/resources/[slug]` routes that do not exist as articles in `RESOURCES.articles`: `what-is-franchising`, `choosing-the-right-franchise`, `compare-franchise-models`, `due-diligence-questions`, `franchise-startup-costs`. These are DA-destroying 404s on backlinked URLs. FIX: add stub articles for each OR reroute redirects to existing content. | ✅ Resolved — redirects rerouted to nearest valid existing articles | Stage 9 |
+| April 2026 | **STAGE 9 QA — /contact and /quiz are client components with no SEO metadata** — Both pages use `'use client'` which prevents `export const metadata`. Neither page has a title tag or meta description. Fix: wrap content in a server component that exports metadata and renders the client form. | ✅ Resolved — server wrapper page.tsx created, client logic in ContactClient.tsx / QuizClient.tsx | Stage 9 |
+| April 2026 | **STAGE 9 QA — /contact page has two H1 tags** — The contact page renders two `<h1>` elements. Google only honours the first. Fix: demote the second to an `<h2>`. | ✅ Resolved — success state heading demoted to h2 in ContactClient.tsx | Stage 9 |
+| April 2026 | **STAGE 9 QA — Canonical tags missing sitewide** — No page exports `alternates.canonical` in its metadata. Next.js does not auto-inject canonical tags. This risks duplicate-content penalties if URL is ever accessed via www or http variants. Fix: add canonical to root layout metadata and per-page where needed. | ✅ Resolved — metadataBase + canonical added to root layout; per-page canonical on /contact and /quiz | Stage 9 |
+| April 2026 | **STAGE 9 QA — /privacy-policy missing from sitemap.ts** — The route exists and is linked from the footer, but is not included in the sitemap. Fix: add to staticPages array. | ✅ Resolved — added to sitemap.ts | Stage 9 |
+| April 2026 | **STAGE 9 QA — Mobile nav hamburger missing** — No hamburger menu existed at ≤768px; logo only. | ✅ Resolved — NavClient.tsx built with animated hamburger, slide-down drawer, overlay, and CTA buttons. CSS added to globals.css. | Stage 9 |
+| April 2026 | **STAGE 9 QA — Title template duplication (38 occurrences)** — All metaTitle fields in constants.ts and 4 hardcoded page titles included `| Franchise Conduit` causing double-suffix via root layout template `'%s | Franchise Conduit'`. | ✅ Resolved — stripped from all 38 constants.ts fields + contact, quiz, franchises, privacy-policy page files. | Stage 9 |
 
 ---
 

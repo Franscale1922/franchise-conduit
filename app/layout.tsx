@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
+import NavClient from '../components/NavClient'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -17,6 +18,7 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://franchiseconduit.com'),
   title: {
     default: 'Franchise Conduit: Find the Right Franchise, With an Advisor by Your Side',
     template: '%s | Franchise Conduit'
@@ -29,7 +31,10 @@ export const metadata: Metadata = {
     title: 'Franchise Conduit: Franchise Research and Advisor Matching',
     description: 'Research franchises with real FDD data. Independent rankings. Advisor-guided introductions. Free for buyers.',
   },
-  robots: { index: true, follow: true }
+  robots: { index: true, follow: true },
+  alternates: {
+    canonical: 'https://franchiseconduit.com',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -52,33 +57,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <Nav />
+        <NavClient />
         <main>{children}</main>
         <Footer />
       </body>
     </html>
-  )
-}
-
-function Nav() {
-  return (
-    <nav className="nav">
-      <div className="nav-inner">
-        <a href="/" className="nav-logo">
-          Franchise<span>Conduit</span>
-        </a>
-        <div className="nav-links">
-          <a href="/franchises" className="nav-link">Browse Franchises</a>
-          <a href="/how-it-works" className="nav-link">How It Works</a>
-          <a href="/resources" className="nav-link">Resources</a>
-          <a href="/contact" className="nav-link">Talk to an Advisor</a>
-        </div>
-        <div className="flex gap-3 nav-cta">
-          <a href="/quiz" className="btn btn-outline btn-sm">Take the Quiz</a>
-          <a href="/franchises" className="btn btn-primary btn-sm">Start Exploring</a>
-        </div>
-      </div>
-    </nav>
   )
 }
 
